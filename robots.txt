@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /yonetim
+Disallow: /sql/
+Disallow: /config.js
+
+# Yapay zekâ tarayıcıları — blog içeriğinin okunmasına izin veriliyor
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://konutpanel.com/sitemap.xml

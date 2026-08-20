@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apartman Yönetim Programı | Tek Bloklu Binalar İçin — Konut Panel</title>
+<meta name="description" content="Apartman yönetim programı: aidat takibi, gelir-gider kaydı, duyuru ve arıza yönetimi. Tek bloklu binalar için sade, indirme gerektirmeyen Türkçe uygulama.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0A0C11">
+<link rel="canonical" href="https://konutpanel.com/apartman-yonetim-programi">
+<link rel="alternate" hreflang="tr" href="https://konutpanel.com/apartman-yonetim-programi">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Konut Panel">
+<meta property="og:title" content="Apartman Yönetim Programı | Tek Bloklu Binalar İçin — Konut Panel">
+<meta property="og:description" content="Apartman yönetim programı: aidat takibi, gelir-gider kaydı, duyuru ve arıza yönetimi. Tek bloklu binalar için sade, indirme gerektirmeyen Türkçe uygulama.">
+<meta property="og:url" content="https://konutpanel.com/apartman-yonetim-programi">
+<meta property="og:image" content="https://konutpanel.com/icons/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Apartman Yönetim Programı | Tek Bloklu Binalar İçin — Konut Panel","description":"Apartman yönetim programı: aidat takibi, gelir-gider kaydı, duyuru ve arıza yönetimi. Tek bloklu binalar için sade, indirme gerektirmeyen Türkçe uygulama.","url":"https://konutpanel.com/apartman-yonetim-programi","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"Konut Panel","url":"https://konutpanel.com/"},"about":{"@type":"SoftwareApplication","name":"Konut Panel","applicationCategory":"BusinessApplication"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana sayfa","item":"https://konutpanel.com/"},{"@type":"ListItem","position":2,"name":"Apartman yönetim programı","item":"https://konutpanel.com/apartman-yonetim-programi"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Küçük bir apartman için program şart mı?","acceptedAnswer":{"@type":"Answer","text":"Şart değil ama 12 daireden sonra elle takip yorucu hale gelir. Asıl fark, defterin kaybolmamasında ve yönetici değişiminde ortaya çıkar. Yeni yönetici geldiğinde geçmiş kayıtlar yerinde durur."}},{"@type":"Question","name":"Apartman yönetim programı ücretsiz mi?","acceptedAnswer":{"@type":"Answer","text":"Konut Panel ücretsiz değildir; aylık ödemede daire başına 100 TL, yıllık ödemede 60 TL'dir (KDV hariç). 12 daireli bir apartman için yıllık ödemede aylık maliyeti 720 TL olur — bu, bir dairenin tek aylık aidatının genelde altındadır."}},{"@type":"Question","name":"Yaşlı sakinler kullanabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Uygulama mağazadan indirilmek zorunda değildir. Sakin, yöneticinin gönderdiği linke tıklar, telefon sorar, onaylar ve simge ana ekrana eklenir. Girişte yalnızca 6 haneli davet kodu istenir; şifre oluşturmaya gerek yoktur."}},{"@type":"Question","name":"Kapıcı ya da görevli de kullanabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Görevli rolü ayrı tanımlanır. Görevli kendisine atanan arıza taleplerini görür, demirbaş bakımı işler ve ziyaretçi kaydı girer; aidat ve kasa bilgilerine erişemez."}},{"@type":"Question","name":"Aidatı elden topluyoruz, yine işe yarar mı?","acceptedAnswer":{"@type":"Answer","text":"Evet. Ödeme yöntemi ne olursa olsun kayıt tutulması gerekir. Yönetici elden aldığı ödemeyi işler, sistem makbuz numarası üretir ve sakinin ekranına düşer. Elden tahsilatta makbuz karmaşasının önüne geçen şey budur."}}]}</script>
+<style>
+:root{--gece:#0A0C11;--gece-2:#12151C;--gece-3:#1B212C;--cizgi:#232A36;
+--ink:#E9ECF2;--ink2:#A4ACBA;--mut:#727C8C;--marka-a:#8E93FF;--acc:#6366F1;--mor:#8B37E8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--gece);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.025em;margin:0}
+a{color:var(--marka-a)}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid var(--marka-a);outline-offset:3px;border-radius:8px}
+.sinir{max-width:820px;margin:0 auto;padding:0 22px}
+.genis{max-width:1060px}
+.ust{border-bottom:1px solid var(--cizgi);background:rgba(10,12,17,.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}
+.ust-ic{display:flex;align-items:center;gap:16px;height:64px;max-width:1060px;margin:0 auto;padding:0 22px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:9px}
+.ust nav{margin-left:auto;display:flex;gap:20px;font-size:14.5px}
+.ust nav a{color:var(--ink2);text-decoration:none}
+.ust nav a:hover{color:#fff}
+@media(max-width:700px){.ust nav a.gizle{display:none}}
+@media(max-width:420px){.ust nav{gap:13px;font-size:13.5px}.logo{font-size:15px}}
+.kirinti{font-size:13px;color:var(--mut);padding:24px 0 0}
+.kirinti a{color:var(--mut);text-decoration:none}
+.kirinti a:hover{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--marka-a);display:block;margin:20px 0 14px}
+h1{font-size:clamp(30px,4.8vw,46px);font-weight:800;margin-bottom:18px}
+.ozet{color:var(--ink2);font-size:19.5px;margin:0 0 26px}
+article h2{font-size:27px;margin:46px 0 14px}
+article h3{font-size:20px;margin:32px 0 10px}
+article p{margin:0 0 20px;color:#D5DAE3}
+article ul,article ol{margin:0 0 22px;padding-left:24px;color:#D5DAE3}
+article li{margin-bottom:9px}
+article strong{color:#fff}
+blockquote{margin:28px 0;padding:16px 22px;border-left:3px solid var(--acc);background:var(--gece-2);border-radius:0 12px 12px 0;color:var(--ink2)}
+blockquote p{margin:0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 24px}
+th,td{border:1px solid var(--cizgi);padding:11px 14px;text-align:left}
+th{background:var(--gece-2);font-weight:600;color:#fff}
+.tablo-kap{overflow-x:auto}
+.kutu{background:var(--gece-2);border:1px solid var(--cizgi);border-radius:16px;padding:22px 24px;margin:28px 0}
+.kutu h3{margin-top:0;font-size:18px}
+.kutu p:last-child{margin-bottom:0}
+.sss details{border-bottom:1px solid var(--cizgi)}
+.sss summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"+";font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--marka-a);transition:transform .2s}
+.sss details[open] summary::after{transform:rotate(45deg)}
+.sss details p{padding:0 0 18px;color:var(--ink2);font-size:15.5px}
+.cta{background:linear-gradient(150deg,var(--gece-2),var(--gece-3));border:1px solid var(--cizgi);border-radius:18px;padding:34px;margin:48px 0 0;text-align:center}
+.cta h2{font-size:25px;margin:0 0 10px}
+.cta p{color:var(--ink2);margin:0 auto 22px;max-width:460px;font-size:15.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:12px;font-weight:600;font-size:15px;background:linear-gradient(120deg,#8E93FF,#6366F1 50%,#8B37E8);color:#fff;text-decoration:none}
+.btn.ikinci{background:transparent;border:1px solid var(--cizgi);color:var(--ink);margin-left:8px}
+.ilgili{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:34px 0 0}
+.ilgili a{display:block;background:var(--gece-2);border:1px solid var(--cizgi);border-radius:14px;padding:16px 18px;text-decoration:none;transition:border-color .2s,transform .2s}
+.ilgili a:hover{border-color:rgba(142,147,255,.5);transform:translateY(-2px)}
+.ilgili b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.ilgili span{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--cizgi);padding:28px 0;font-size:13px;color:var(--mut);margin-top:60px}
+footer .ic{display:flex;gap:10px 22px;flex-wrap:wrap;justify-content:space-between;max-width:1060px;margin:0 auto;padding:0 22px}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+<header class="ust"><div class="ust-ic">
+  <a href="/" class="logo">
+    <svg width="30" height="30" viewBox="0 0 48 48" fill="none" style="border-radius:8px;flex-shrink:0">
+      <defs>
+        <linearGradient id="aptLG" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4F46E5"/><stop offset="50%" stop-color="#4338CA"/><stop offset="100%" stop-color="#1E1B4B"/></linearGradient>
+        <linearGradient id="aptTL" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#C7D2FE"/></linearGradient>
+        <linearGradient id="aptTR" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E0E7FF"/><stop offset="100%" stop-color="#A5B4FC"/></linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#aptLG)"/>
+      <rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
+      <path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#aptTL)"/>
+      <path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
+      <rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#aptTR)"/>
+      <path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
+      <rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
+      <rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
+      <circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
+      <path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
+    </svg>
+    <span>Konut Panel</span>
+  </a>
+  <nav>
+    <a href="/site-yonetim-programi" class="gizle">Site yönetimi</a>
+    <a href="/aidat-takip-programi" class="gizle">Aidat takibi</a>
+    <a href="/blog">Blog</a>
+    <a href="/#fiyat">Fiyat</a>
+    <a href="/uygulama">Giriş / Kaydol</a>
+  </nav>
+</div></header>
+
+<div class="sinir">
+  <nav class="kirinti"><a href="/">Ana sayfa</a> › Apartman yönetim programı</nav>
+  <span class="eyebrow">Apartman yönetimi</span>
+  <h1>Apartman Yönetim Programı</h1>
+  <p class="ozet">Tek bloklu apartmanlar için aidat, kasa, duyuru ve arıza takibi. Yönetici değişse bile kayıtlar yerinde kalır.</p>
+  <article>
+    <p>Apartman yönetimi, site yönetiminden daha basit görünür ama aynı sorunları taşır. On iki daireli bir binada bile aidat defteri kaybolur, kimin ne kadar borcu olduğu tartışılır ve yönetici değiştiğinde geçmiş bilgi sıfırlanır.</p>
+    <p>Konut Panel tek blokluk apartmanlarda da çalışır. Kurulumda blok sayısına <strong>1</strong> yazmanız yeterlidir; site için var olan bütün özellikler aynı şekilde açılır.</p>
+
+    <h2>Apartmanda en çok neye ihtiyaç var</h2>
+    <p>Küçük yapılarda ihtiyaç listesi kısalır. Gözlemlediğimiz sıralama şu:</p>
+    <ol>
+      <li><strong>Aidat ve borç takibi.</strong> Kim ödedi, kim ödemedi, geçen aydan ne devretti.</li>
+      <li><strong>Gelir-gider kaydı.</strong> Elektrik, temizlik, asansör bakımı. Yıl sonunda hesap sorulduğunda gösterilecek tablo.</li>
+      <li><strong>Duyuru.</strong> Su kesintisi ya da toplantı çağrısının herkese ulaşması.</li>
+      <li><strong>Arıza bildirimi.</strong> Merdiven lambası, kapı otomatiği, çatı akıntısı.</li>
+      <li><strong>Belge arşivi.</strong> Yönetim planı, sigorta poliçesi, asansör raporu.</li>
+    </ol>
+    <p>Ziyaretçi defteri, rezervasyon ve personel takibi apartmanlarda genelde kullanılmaz; ama isterseniz açıktır.</p>
+
+    <h2>Yönetici değişimi — apartmanın en pahalı kaybı</h2>
+    <p>Apartmanlarda yöneticilik çoğu zaman gönüllü ve dönüşümlüdür. Her devirde aynı şey yaşanır: eski yönetici bir klasör ve bir defter teslim eder, bazı kayıtlar eksiktir, bazıları hiç yoktur.</p>
+    <p>Konut Panel'de hesap apartmana aittir, kişiye değil. Yönetici değiştiğinde yetkiler devredilir; aidat geçmişi, kasa hareketleri ve belgeler yerinde kalır. Devir teslim bir klasör taşımaktan ibaret olmaktan çıkar.</p>
+
+    <h2>Kat Mülkiyeti Kanunu ve kayıt tutma</h2>
+    <p>634 sayılı Kat Mülkiyeti Kanunu, yöneticinin gelir ve giderleri düzenli olarak kaydetmesini ve kat maliklerine hesap vermesini öngörür. Uygulamada bu, işletme defteri ve karar defteriyle yapılır.</p>
+    <p>Konut Panel bu defterlerin yerine geçmez; ancak kayıtları düzenli tutarak defterlerin doldurulmasını ve yıl sonu hesabının hazırlanmasını kolaylaştırır. Denetim kurulu üyesi de kendi hesabıyla giriş yapıp kayıtları inceleyebilir.</p>
+
+    <div class="kutu">
+      <h3>12 daireli bir apartmanda maliyet</h3>
+      <p>Yıllık ödemede daire başına aylık 60 TL üzerinden hesaplandığında aylık toplam <strong>720 TL</strong> eder (KDV hariç). Aidatın 1.500 TL olduğu bir apartmanda bu, tek bir dairenin aylık aidatının yarısıdır. Tahsil edilemeyen tek bir aylık aidat, programın birkaç aylık bedelini karşılar.</p>
+    </div>
+
+    <h2>Telefondan anlamayan sakinler için</h2>
+    <p>Bu, apartmanlarda en sık duyduğumuz endişe. Çözüm iki katmanlı:</p>
+    <ul>
+      <li><strong>İndirme yok.</strong> Sakin linke tıklar, telefonu "ana ekrana eklensin mi" diye sorar, evet der. Uygulama simgesi ana ekrana gelir ve indirilmiş gibi çalışır.</li>
+      <li><strong>Şifre yok.</strong> Girişte yalnızca yöneticinin verdiği 6 haneli davet kodu istenir. E-posta doğrulama, şifre kuralı, kod bekleme yoktur.</li>
+    </ul>
+    <p>App Store ve Google Play uygulamaları da yolda; isteyen mağazadan indirir.</p>
+
+    <h2>Sık sorulan sorular</h2>
+    <div class="sss">
+      <details><summary>Küçük bir apartman için program şart mı?</summary><p>Şart değil ama 12 daireden sonra elle takip yorucu hale gelir. Asıl fark, defterin kaybolmamasında ve yönetici değişiminde ortaya çıkar. Yeni yönetici geldiğinde geçmiş kayıtlar yerinde durur.</p></details>
+      <details><summary>Apartman yönetim programı ücretsiz mi?</summary><p>Konut Panel ücretsiz değildir; aylık ödemede daire başına 100 TL, yıllık ödemede 60 TL'dir (KDV hariç). 12 daireli bir apartman için yıllık ödemede aylık maliyeti 720 TL olur — bu, bir dairenin tek aylık aidatının genelde altındadır.</p></details>
+      <details><summary>Yaşlı sakinler kullanabilir mi?</summary><p>Uygulama mağazadan indirilmek zorunda değildir. Sakin, yöneticinin gönderdiği linke tıklar, telefon sorar, onaylar ve simge ana ekrana eklenir. Girişte yalnızca 6 haneli davet kodu istenir; şifre oluşturmaya gerek yoktur.</p></details>
+      <details><summary>Kapıcı ya da görevli de kullanabilir mi?</summary><p>Evet. Görevli rolü ayrı tanımlanır. Görevli kendisine atanan arıza taleplerini görür, demirbaş bakımı işler ve ziyaretçi kaydı girer; aidat ve kasa bilgilerine erişemez.</p></details>
+      <details><summary>Aidatı elden topluyoruz, yine işe yarar mı?</summary><p>Evet. Ödeme yöntemi ne olursa olsun kayıt tutulması gerekir. Yönetici elden aldığı ödemeyi işler, sistem makbuz numarası üretir ve sakinin ekranına düşer. Elden tahsilatta makbuz karmaşasının önüne geçen şey budur.</p></details>
+    </div>
+
+    <section class="cta">
+      <h2>Apartmanınızı bugün kuralım</h2>
+      <p>Daire listenizi girmemiz 10 dakika sürüyor. Elinizde Excel varsa toplu aktarıyoruz.</p>
+      <a href="/#iletisim" class="btn">Ücretsiz demo isteyin</a>
+      <a href="/#fiyat" class="btn ikinci">Fiyatları görün</a>
+    </section>
+    <div class="ilgili"><a href="/site-yonetim-programi"><b>Site Yönetim Programı</b><span>Çok bloklu siteler için aidat, kasa, rezervasyon ve güvenlik</span></a>
+<a href="/aidat-takip-programi"><b>Aidat Takip Programı</b><span>Borç takibi, makbuz, gecikme ve tahsilat oranı</span></a><a href="/blog"><b>Blog</b><span>Yöneticiler için rehberler</span></a></div>
+  </article>
+</div>
+
+<footer><div class="ic">
+  <span>© <span id="yil">2026</span> Konut Panel. Tüm hakları saklıdır.</span>
+  <span><a href="/kullanim-kosullari.html">Kullanım koşulları</a> · <a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/veri-isleyen-sozlesmesi.html">Veri işleyen sözleşmesi</a></span>
+</div></footer>
+<script src="/i18n.js"></script>
+<script>document.getElementById("yil").textContent=new Date().getFullYear();</script>
+</body>
+</html>

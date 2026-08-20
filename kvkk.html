@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KVKK Aydınlatma Metni — Konut Panel</title>
+<meta name="description" content="Konut Panel kişisel verilerin işlenmesine ilişkin KVKK aydınlatma metni.">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--gece:#0A0C11;--kagit:#F5F7FB;--beyaz:#fff;--metin:#0F1B27;--metin-2:#5B6D80;--cizgi:#E4E9F1;--marka-a:#8E93FF;--marka-b:#2C7BE5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--kagit);color:var(--metin);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.7}
+a{color:var(--marka-b)}
+.sinir{max-width:780px;margin:0 auto;padding:0 22px}
+.ust{background:var(--gece);color:#fff;padding:0}
+.ust-ic{display:flex;align-items:center;height:66px;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.02em}
+.logo svg{width:28px;height:28px;border-radius:8px}
+.geri{margin-left:auto;color:rgba(255,255,255,.72);text-decoration:none;font-size:14.5px}
+.geri:hover{color:#fff}
+.bas{background:var(--gece);color:#fff;padding:46px 0 56px}
+.bas h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,4.6vw,44px);letter-spacing:-.02em;line-height:1.1;margin:0}
+.etiket{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--marka-a);display:block;margin-bottom:14px}
+.bas p{margin:16px 0 0;color:rgba(255,255,255,.66);font-size:15px}
+main{background:var(--beyaz);padding:54px 0 72px;border-bottom:1px solid var(--cizgi)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;margin:42px 0 12px}
+h2:first-child{margin-top:0}
+p,li{color:var(--metin-2)}
+main p{margin:0 0 14px}
+ul{padding-left:20px;margin:0 0 14px}
+li{margin-bottom:8px}
+.uyari{background:#FFF8E8;border:1px solid #F3DFAE;border-radius:12px;padding:16px 18px;font-size:14px;color:#6B5518;margin-bottom:34px}
+.kutu{background:var(--kagit);border:1px solid var(--cizgi);border-radius:14px;padding:20px 22px;margin:8px 0 14px;font-size:15px}
+.kutu b{color:var(--metin)}
+.alt{background:var(--gece);color:rgba(255,255,255,.45);padding:26px 0;font-size:13px}
+.alt-ic{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+.alt a{color:rgba(255,255,255,.6);text-decoration:none;margin-right:18px}
+.alt a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="ust">
+  <div class="sinir ust-ic">
+    <a href="anasayfa.html" class="logo">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="kvLG" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#4F46E5"/>
+          <stop offset="50%" stop-color="#4338CA"/>
+          <stop offset="100%" stop-color="#1E1B4B"/>
+        </linearGradient>
+        <linearGradient id="kvTLeft" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#C7D2FE"/>
+        </linearGradient>
+        <linearGradient id="kvTRight" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E0E7FF"/>
+          <stop offset="100%" stop-color="#A5B4FC"/>
+        </linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#kvLG)"/>
+      <rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
+      <path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#kvTLeft)"/>
+      <path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
+      <rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#kvTRight)"/>
+      <path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
+      <rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="27.2" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
+      <rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
+      <circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
+      <path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
+    </svg>
+      Konut Panel
+    </a>
+    <a href="anasayfa.html" class="geri">&larr; Ana sayfaya dön</a>
+  </div>
+</header>
+
+<div class="bas">
+  <div class="sinir">
+    <span class="etiket">Aydınlatma metni</span>
+    <h1>KVKK Aydınlatma Metni</h1>
+    <p>Son güncelleme: Ağustos 2026</p>
+  </div>
+</div>
+
+<main>
+  <div class="sinir">
+    <div class="uyari"><b>Bilgilendirme:</b> Bu metin, Konut Panel yazılımını kullanan kişilere yöneliktir. Şirket kuruluşu tamamlandığında ticaret unvanı ve vergi bilgileri bu bölüme eklenecektir. Metni yayına almadan önce bir hukukçuya kontrol ettirmeniz önerilir.</div>
+
+    <h2>1. Veri sorumlusu</h2>
+    <div class="kutu">
+      <b>Veri sorumlusu:</b> Haydar Kenan Kılıç<br>
+      <b>Hizmet:</b> Konut Panel — site ve apartman yönetim yazılımı<br>
+      <b>E-posta:</b> <a href="mailto:info@konutpanel.com">info@konutpanel.com</a><br>
+      <b>Telefon:</b> 0539 606 8442<br>
+      <b>İnternet adresi:</b> konutpanel.com<br>
+      <b>Ticaret unvanı / vergi bilgileri:</b> [şirket kuruluşu tamamlandığında eklenecektir]
+    </div>
+
+    <h2>2. İki ayrı rol: veri sorumlusu ve veri işleyen</h2>
+    <p>Bu ayrım önemlidir, çünkü sizinle ilgili verinin kime ait olduğunu belirler.</p>
+    <ul>
+      <li><b>Site yönetimi veri sorumlusudur.</b> Aidat kayıtları, daire ve sakin bilgileri, arıza talepleri, ziyaretçi kayıtları ve benzeri veriler üzerinde karar veren, bunları neden ve ne kadar süre tuttuğunu belirleyen taraf sitenizin yönetimidir.</li>
+      <li><b>Konut Panel veri işleyendir.</b> Bu verileri yalnızca site yönetiminin talimatıyla, yazılımın çalışması için barındırır ve işler. Kendi amaçları için kullanmaz, üçüncü kişilere satmaz, pazarlama amacıyla kullanmaz.</li>
+      <li><b>Hesabınızla ilgili veriler</b> (kayıt bilgileriniz, oturum kayıtları, destek yazışmaları) bakımından ise Konut Panel veri sorumlusudur.</li>
+    </ul>
+    <p>Sitenizdeki verilerin silinmesini istiyorsanız önce site yönetiminize başvurmanız gerekir.</p>
+
+    <h2>3. İşlenen kişisel veriler</h2>
+    <ul>
+      <li><b>Kimlik ve iletişim:</b> ad soyad, telefon, e-posta adresi</li>
+      <li><b>Konut bilgisi:</b> site veya apartman adı, blok ve daire numarası, malik ya da kiracı sıfatı</li>
+      <li><b>Finansal:</b> aidat borç ve ödeme kayıtları, makbuz numaraları, gider kalemleri</li>
+      <li><b>İşlem güvenliği:</b> giriş kayıtları, IP adresi, cihaz ve tarayıcı bilgisi</li>
+      <li><b>Ziyaretçi kaydı:</b> site yönetiminin girdiği ziyaretçi adı, plaka, giriş ve çıkış saati</li>
+      <li><b>Talep içeriği:</b> arıza bildirimleri ve eklenen görseller</li>
+      <li><b>Belge ve kayıtlar:</b> yönetim planı, sigorta poliçesi gibi yüklenen dosyalar</li>
+      <li><b>Rıza kayıtları:</b> hangi metni ne zaman onayladığınız</li>
+      <li><b>Acil durum bilgisi:</b> sakinin kendi girdiği acil durumda aranacak kişi bilgisi</li>
+    </ul>
+    <p><b>Özel nitelikli kişisel veri işlenmez.</b> Sağlık, din, siyasi görüş, biyometrik veri gibi bilgiler ne istenir ne saklanır. Sisteme kamera görüntüsü yüklenmez ve canlı yayın yapılmaz.</p>
+
+    <h2>4. İşleme amaçları</h2>
+    <ul>
+      <li>Hizmetin sunulması, hesabın oluşturulması ve yönetilmesi</li>
+      <li>Aidat tahakkuku, borç takibi, makbuz üretimi ve raporlama</li>
+      <li>Duyuru, bildirim, anket ve talep süreçlerinin yürütülmesi</li>
+      <li>Ortak alan rezervasyonlarının düzenlenmesi</li>
+      <li>Ortak alan güvenliğinin sağlanması (ziyaretçi kaydı)</li>
+      <li>Destek taleplerinin karşılanması</li>
+      <li>Abonelik ve faturalandırma işlemleri</li>
+      <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+      <li>Açık rıza vermeniz hâlinde ticari elektronik ileti gönderilmesi</li>
+    </ul>
+
+    <h2>5. Hukuki sebepler</h2>
+    <p>Veriler, 6698 sayılı Kanun'un 5. maddesi kapsamında şu sebeplere dayanılarak işlenir:</p>
+    <ul>
+      <li><b>Sözleşmenin kurulması ve ifası</b> (m.5/2-c) — hesap açma, aidat takibi, hizmetin sunulması</li>
+      <li><b>Hukuki yükümlülük</b> (m.5/2-ç) — Kat Mülkiyeti Kanunu ve vergi mevzuatı kaynaklı kayıt tutma</li>
+      <li><b>Meşru menfaat</b> (m.5/2-f) — sistem güvenliği, kötüye kullanımın önlenmesi, ortak alan güvenliği</li>
+      <li><b>Açık rıza</b> (m.5/1) — yalnızca ticari elektronik ileti gönderimi için. Bu rıza istediğiniz an geri alınabilir; hizmetin kullanımını etkilemez.</li>
+    </ul>
+
+    <h2>6. Saklama süresi</h2>
+    <ul>
+      <li><b>Aidat, ödeme ve makbuz kayıtları:</b> ilgili mevzuattaki zamanaşımı süreleri boyunca</li>
+      <li><b>Hesap ve profil bilgileri:</b> hesap aktif olduğu sürece ve kapanışından sonra 1 yıl</li>
+      <li><b>Ziyaretçi kayıtları:</b> site yönetiminin belirlediği süre; amaçla sınırlı olmalıdır</li>
+      <li><b>Arıza talepleri ve görseller:</b> talebin kapanmasından sonra 2 yıl</li>
+      <li><b>Giriş ve işlem kayıtları:</b> 2 yıl</li>
+      <li><b>Rıza kayıtları:</b> rızanın geçerli olduğu süre ve sonrasında zamanaşımı süresince</li>
+    </ul>
+    <p>Sürenin dolmasıyla veriler silinir, yok edilir ya da anonim hâle getirilir.</p>
+
+    <h2>7. Aktarım</h2>
+    <p>Veriler, hizmetin sunulabilmesi için gerekli olduğu ölçüde şu taraflara aktarılabilir:</p>
+    <ul>
+      <li><b>Bulut altyapı sağlayıcıları</b> — veritabanı ve dosya barındırma (Supabase), site yayını (Netlify)</li>
+      <li><b>E-posta ve mesajlaşma sağlayıcıları</b> — bildirim ve destek iletişimi</li>
+      <li><b>Yetkili kamu kurum ve kuruluşları</b> — yalnızca hukuki bir talep hâlinde</li>
+    </ul>
+    <p>Sunucular yurt dışında bulunabilir; bu durumda aktarım, Kanun'un 9. maddesindeki şartlara uygun olarak yapılır. Veriler pazarlama amacıyla üçüncü kişilere satılmaz veya kiralanmaz.</p>
+
+    <h2>8. Otomatik karar ve profilleme</h2>
+    <p>Kişisel verileriniz üzerinde, aleyhinize sonuç doğuran otomatik karar verme ya da profilleme yapılmaz.</p>
+
+    <h2>9. Veri güvenliği</h2>
+    <ul>
+      <li>Bütün iletişim şifreli bağlantı (HTTPS) üzerinden yapılır</li>
+      <li>Veritabanında satır düzeyi güvenlik uygulanır; her sakin yalnızca kendi dairesinin verisini görür</li>
+      <li>Farklı sitelerin verileri birbirinden yalıtılmıştır</li>
+      <li>Belgeler özel bir depolama alanında tutulur, yalnızca geçici imzalı bağlantıyla indirilir</li>
+      <li>Veriler düzenli olarak yedeklenir</li>
+    </ul>
+
+    <h2>10. Haklarınız</h2>
+    <p>6698 sayılı Kanun'un 11. maddesi uyarınca şu haklara sahipsiniz:</p>
+    <ul>
+      <li>Kişisel verinizin işlenip işlenmediğini öğrenme</li>
+      <li>İşlenmişse buna ilişkin bilgi talep etme</li>
+      <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+      <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+      <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
+      <li>Kanundaki şartlar çerçevesinde silinmesini veya yok edilmesini isteme</li>
+      <li>Düzeltme, silme ve yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
+      <li>Münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhinize bir sonuç doğmasına itiraz etme</li>
+      <li>Kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+    </ul>
+    <p>Başvurularınızı <a href="mailto:info@konutpanel.com">info@konutpanel.com</a> adresine iletebilirsiniz. Talepler en geç <b>30 gün</b> içinde sonuçlandırılır. Uygulama içinden de <b>Menü → Gizlilik ve izinlerim</b> bölümünden onaylarınızı görüntüleyebilir ve ticari ileti iznini geri alabilirsiniz.</p>
+    <p>Sitenize ait aidat, daire ve sakin verilerinin silinmesi taleplerinde önce site yönetiminize başvurmanız gerekir; bu verilerin sorumlusu site yönetimidir.</p>
+
+    <h2>11. Ticari elektronik ileti</h2>
+    <p>Ürün duyuruları ve kampanya bildirimleri yalnızca <b>açık rızanızla</b> gönderilir. Bu rıza hizmetin kullanımı için zorunlu değildir. Dilediğiniz zaman uygulama içindeki <b>Gizlilik ve izinlerim</b> bölümünden ya da gönderilen iletideki bağlantıdan iznizi geri alabilirsiniz. İzin geri alındığında ileti gönderimi derhal durdurulur.</p>
+
+    <h2>12. Çerezler</h2>
+    <p>Sitede oturumun sürdürülmesi ve tercihlerin hatırlanması için zorunlu çerezler kullanılır. Ayrıntılar için <a href="gizlilik.html">gizlilik politikamıza</a> bakabilirsiniz.</p>
+
+    <h2>13. Değişiklikler</h2>
+    <p>Bu metin güncellenebilir. Önemli değişikliklerde kullanıcılar uygulama içinden bilgilendirilir ve gerekiyorsa yeniden onay istenir. Metin sürümü: <b>2026-08</b></p>
+  </div>
+</main>
+
+<footer class="alt">
+  <div class="sinir alt-ic">
+    <span>&copy; <span id="yil">2026</span> Konut Panel. Tüm hakları saklıdır.</span>
+    <nav>
+      <a href="kullanim-kosullari.html">Kullanım koşulları</a>
+      <a href="gizlilik.html">Gizlilik</a>
+      <a href="kvkk.html">KVKK</a>
+      <a href="veri-isleyen-sozlesmesi.html">Veri işleyen sözleşmesi</a>
+      <a href="anasayfa.html#iletisim">İletişim</a>
+    </nav>
+  </div>
+</footer>
+<script src="/i18n.js"></script>
+<script>document.getElementById('yil').textContent=new Date().getFullYear();</script>
+</body>
+</html>

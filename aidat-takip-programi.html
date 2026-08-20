@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aidat Takip Programı | Borç, Makbuz ve Tahsilat — Konut Panel</title>
+<meta name="description" content="Aidat takip programı: otomatik aylık tahakkuk, daire bazlı borç ekranı, makbuz üretimi, kasaya otomatik yansıma ve tahsilat oranı grafiği.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0A0C11">
+<link rel="canonical" href="https://konutpanel.com/aidat-takip-programi">
+<link rel="alternate" hreflang="tr" href="https://konutpanel.com/aidat-takip-programi">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Konut Panel">
+<meta property="og:title" content="Aidat Takip Programı | Borç, Makbuz ve Tahsilat — Konut Panel">
+<meta property="og:description" content="Aidat takip programı: otomatik aylık tahakkuk, daire bazlı borç ekranı, makbuz üretimi, kasaya otomatik yansıma ve tahsilat oranı grafiği.">
+<meta property="og:url" content="https://konutpanel.com/aidat-takip-programi">
+<meta property="og:image" content="https://konutpanel.com/icons/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Aidat Takip Programı | Borç, Makbuz ve Tahsilat — Konut Panel","description":"Aidat takip programı: otomatik aylık tahakkuk, daire bazlı borç ekranı, makbuz üretimi, kasaya otomatik yansıma ve tahsilat oranı grafiği.","url":"https://konutpanel.com/aidat-takip-programi","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"Konut Panel","url":"https://konutpanel.com/"},"about":{"@type":"SoftwareApplication","name":"Konut Panel","applicationCategory":"BusinessApplication"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana sayfa","item":"https://konutpanel.com/"},{"@type":"ListItem","position":2,"name":"Aidat takip programı","item":"https://konutpanel.com/aidat-takip-programi"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Aidat takip programı nasıl çalışır?","acceptedAnswer":{"@type":"Answer","text":"Daire listesi ve aylık aidat tutarı tanımlandıktan sonra program her ay otomatik tahakkuk oluşturur. Ödeme işlendiğinde makbuz numarası üretilir, sakinin ekranına düşer ve kasaya gelir olarak yazılır. Ödenmeyen daireler ayrı listede toplanır."}},{"@type":"Question","name":"Aidat borcu olan daireyi nasıl takip ederim?","acceptedAnswer":{"@type":"Answer","text":"Borçlu daireler ayrı bir ekranda, borç tutarı ve kaç aydır ödenmediği ile birlikte listelenir. Tahsilat oranı yüzde olarak panelde görünür ve son altı ayın grafiği çıkarılır. Böylece hangi ayda tahsilatın düştüğü fark edilir."}},{"@type":"Question","name":"Kiracı mı malik mi ödeyecek?","acceptedAnswer":{"@type":"Answer","text":"İkisi de tanımlanabilir. Kat Mülkiyeti Kanunu'na göre ortak gider ve avans payından kural olarak kat maliki sorumludur; ancak kiracı da bağımsız bölümü kullanıyorsa müştereken sorumludur. Programda her daire için aidatı kimin ödeyeceği ayrı işaretlenir ve iki taraf da yalnızca kendi borcunu görür."}},{"@type":"Question","name":"Makbuz kesmek zorunda mıyım?","acceptedAnswer":{"@type":"Answer","text":"Site yönetimleri tahsil ettikleri aidat için makbuz düzenler. Program her onaylanan ödemede sıralı makbuz numarası üretir ve kaydı tutar; bu, elden tahsilatta yaşanan numara karmaşasını ortadan kaldırır."}},{"@type":"Question","name":"Banka entegrasyonu var mı?","acceptedAnswer":{"@type":"Answer","text":"Şu an otomatik banka entegrasyonu bulunmuyor; ödemeler yönetici tarafından işlenir. Banka ekstresi yükleyip açıklamadan daire eşleştiren yarı otomatik mutabakat geliştirme listemizde."}}]}</script>
+<style>
+:root{--gece:#0A0C11;--gece-2:#12151C;--gece-3:#1B212C;--cizgi:#232A36;
+--ink:#E9ECF2;--ink2:#A4ACBA;--mut:#727C8C;--marka-a:#8E93FF;--acc:#6366F1;--mor:#8B37E8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--gece);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.025em;margin:0}
+a{color:var(--marka-a)}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid var(--marka-a);outline-offset:3px;border-radius:8px}
+.sinir{max-width:820px;margin:0 auto;padding:0 22px}
+.genis{max-width:1060px}
+.ust{border-bottom:1px solid var(--cizgi);background:rgba(10,12,17,.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}
+.ust-ic{display:flex;align-items:center;gap:16px;height:64px;max-width:1060px;margin:0 auto;padding:0 22px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.logo img{width:30px;height:30px;border-radius:9px}
+.ust nav{margin-left:auto;display:flex;gap:20px;font-size:14.5px}
+.ust nav a{color:var(--ink2);text-decoration:none}
+.ust nav a:hover{color:#fff}
+@media(max-width:700px){.ust nav a.gizle{display:none}}
+@media(max-width:420px){.ust nav{gap:13px;font-size:13.5px}.logo{font-size:15px}}
+.kirinti{font-size:13px;color:var(--mut);padding:24px 0 0}
+.kirinti a{color:var(--mut);text-decoration:none}
+.kirinti a:hover{color:var(--ink)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--marka-a);display:block;margin:20px 0 14px}
+h1{font-size:clamp(30px,4.8vw,46px);font-weight:800;margin-bottom:18px}
+.ozet{color:var(--ink2);font-size:19.5px;margin:0 0 26px}
+article h2{font-size:27px;margin:46px 0 14px}
+article h3{font-size:20px;margin:32px 0 10px}
+article p{margin:0 0 20px;color:#D5DAE3}
+article ul,article ol{margin:0 0 22px;padding-left:24px;color:#D5DAE3}
+article li{margin-bottom:9px}
+article strong{color:#fff}
+blockquote{margin:28px 0;padding:16px 22px;border-left:3px solid var(--acc);background:var(--gece-2);border-radius:0 12px 12px 0;color:var(--ink2)}
+blockquote p{margin:0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 24px}
+th,td{border:1px solid var(--cizgi);padding:11px 14px;text-align:left}
+th{background:var(--gece-2);font-weight:600;color:#fff}
+.tablo-kap{overflow-x:auto}
+.kutu{background:var(--gece-2);border:1px solid var(--cizgi);border-radius:16px;padding:22px 24px;margin:28px 0}
+.kutu h3{margin-top:0;font-size:18px}
+.kutu p:last-child{margin-bottom:0}
+.sss details{border-bottom:1px solid var(--cizgi)}
+.sss summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"+";font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--marka-a);transition:transform .2s}
+.sss details[open] summary::after{transform:rotate(45deg)}
+.sss details p{padding:0 0 18px;color:var(--ink2);font-size:15.5px}
+.cta{background:linear-gradient(150deg,var(--gece-2),var(--gece-3));border:1px solid var(--cizgi);border-radius:18px;padding:34px;margin:48px 0 0;text-align:center}
+.cta h2{font-size:25px;margin:0 0 10px}
+.cta p{color:var(--ink2);margin:0 auto 22px;max-width:460px;font-size:15.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:12px;font-weight:600;font-size:15px;background:linear-gradient(120deg,#8E93FF,#6366F1 50%,#8B37E8);color:#fff;text-decoration:none}
+.btn.ikinci{background:transparent;border:1px solid var(--cizgi);color:var(--ink);margin-left:8px}
+.ilgili{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:34px 0 0}
+.ilgili a{display:block;background:var(--gece-2);border:1px solid var(--cizgi);border-radius:14px;padding:16px 18px;text-decoration:none;transition:border-color .2s,transform .2s}
+.ilgili a:hover{border-color:rgba(142,147,255,.5);transform:translateY(-2px)}
+.ilgili b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.ilgili span{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--cizgi);padding:28px 0;font-size:13px;color:var(--mut);margin-top:60px}
+footer .ic{display:flex;gap:10px 22px;flex-wrap:wrap;justify-content:space-between;max-width:1060px;margin:0 auto;padding:0 22px}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+<header class="ust"><div class="ust-ic">
+  <a href="/" class="logo">
+    <svg width="30" height="30" viewBox="0 0 48 48" fill="none" style="border-radius:8px;flex-shrink:0">
+      <defs>
+        <linearGradient id="aidatLG" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4F46E5"/><stop offset="50%" stop-color="#4338CA"/><stop offset="100%" stop-color="#1E1B4B"/></linearGradient>
+        <linearGradient id="aidatTL" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#C7D2FE"/></linearGradient>
+        <linearGradient id="aidatTR" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E0E7FF"/><stop offset="100%" stop-color="#A5B4FC"/></linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#aidatLG)"/>
+      <rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
+      <path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#aidatTL)"/>
+      <path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
+      <rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#aidatTR)"/>
+      <path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
+      <rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
+      <rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
+      <circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
+      <path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
+    </svg>
+    <span>Konut Panel</span>
+  </a>
+  <nav>
+    <a href="/site-yonetim-programi" class="gizle">Site yönetimi</a>
+    <a href="/aidat-takip-programi" class="gizle">Aidat takibi</a>
+    <a href="/blog">Blog</a>
+    <a href="/#fiyat">Fiyat</a>
+    <a href="/uygulama">Giriş / Kaydol</a>
+  </nav>
+</div></header>
+
+<div class="sinir">
+  <nav class="kirinti"><a href="/">Ana sayfa</a> › Aidat takip programı</nav>
+  <span class="eyebrow">Aidat takibi</span>
+  <h1>Aidat Takip Programı</h1>
+  <p class="ozet">Otomatik tahakkuk, daire bazlı borç ekranı, makbuz üretimi ve tahsilat oranı. Kim ödedi kim ödemedi sorusu tek bakışta cevaplanır.</p>
+  <article>
+    <p>Aidat takibi, site yönetiminin en çok zaman alan ve en çok tartışma çıkaran işidir. Sebep basit: <strong>para hareketi ile daire kaydı farklı yerlerde durur.</strong> Banka ekstresinde "HAVALE - A. YILMAZ" yazar, sizin listenizde "A Blok 12" vardır. İkisini eşleştirmek elle yapılır ve her ay tekrarlanır.</p>
+
+    <h2>Elle takipte neler ters gider</h2>
+    <ul>
+      <li><strong>Kısmi ödemeler.</strong> Sakin 1.500 TL yerine 1.000 TL yatırır. Excel'de bu satır ne "ödendi" ne "ödenmedi" olur.</li>
+      <li><strong>Devreden borç.</strong> Geçen aydan kalan tutar bu ayın tahakkukuyla toplanır, tablo karışır.</li>
+      <li><strong>Makbuz numarası.</strong> Elden tahsilatta koçanla verilen makbuzların numarası atlanır ya da tekrarlanır.</li>
+      <li><strong>İsim eşleşmesi.</strong> Aynı kişi üç farklı yazımla havale yapar.</li>
+      <li><strong>Yıl sonu.</strong> Genel kurulda "toplam ne kadar tahsil edildi" sorusuna hazır cevap yoktur.</li>
+    </ul>
+
+    <h2>Konut Panel'de aidat takibi</h2>
+
+    <h3>Otomatik tahakkuk</h3>
+    <p>Aylık tutar ve dağıtım şekli bir kez tanımlanır. Her ay tahakkuk kendiliğinden oluşur; yöneticinin tablo kopyalamasına gerek kalmaz. Tutar değiştiğinde yalnızca gelecek aylar etkilenir, geçmiş kayıtlar korunur.</p>
+
+    <h3>Daire bazlı borç ekranı</h3>
+    <p>Her dairenin ödediği, ödemediği ve devreden bakiyesi ayrı görünür. Sakin uygulamayı açtığında yalnızca kendi borcunu görür — komşusunun borcunu göremez. Bu, hem gizlilik hem huzur meselesidir.</p>
+
+    <h3>Makbuz üretimi</h3>
+    <p>Ödeme onaylandığında sıralı bir makbuz numarası üretilir ve sakinin ekranına düşer. Dekont fotoğrafı gönderme ya da koçan arama derdi biter.</p>
+
+    <h3>Kasaya otomatik yansıma</h3>
+    <p>Onaylanan her aidat, kasaya gelir olarak yazılır. Böylece "tahsil edilen" ile "kasadaki" tutar birbirini tutar. Ayrıca elle gider kaydı girilir; ay sonunda net kasa tek bakışta görünür.</p>
+
+    <h3>Tahsilat oranı</h3>
+    <p>Panelde aylık tahsilat oranı yüzde olarak ve son altı ayın grafiğiyle görünür. Hangi ayda düştüğü, hangi blokta geciktiği anlaşılır. Yönetim kuruluna sunulacak tek rakam budur.</p>
+
+    <h3>Kiracı ve malik ayrımı</h3>
+    <p>Kat Mülkiyeti Kanunu'na göre ortak gider ve avans payından kural olarak kat maliki sorumludur; bağımsız bölümü kullanan kiracı da malikle birlikte müştereken sorumlu tutulabilir. Programda her daire için aidatı kimin ödeyeceği ayrı işaretlenir; demirbaş ve büyük onarım payı malike, ortak gider kiracıya yazılabilir.</p>
+
+    <div class="kutu">
+      <h3>Şeffaflık tartışmayı bitiriyor</h3>
+      <p>Yöneticilerin en çok geri bildirim aldığı özellik bu. Sakin kasanın durumunu ve giderlerin nereye gittiğini kendi ekranından görebildiğinde, yıl sonu toplantısındaki "para nereye gitti" tartışması kendiliğinden ortadan kalkıyor. Toplam gelir-gider özetinin sakinlerle paylaşılıp paylaşılmayacağı yöneticinin tercihindedir.</p>
+    </div>
+
+    <h2>Geçiş nasıl olur</h2>
+    <p>Elinizdeki daire ve borç listesi Excel biçimindeyse toplu olarak aktarılır; her daireyi tek tek girmenize gerek yoktur. Geçmiş dönem borçları devreden bakiye olarak tanımlanır, böylece sistem ilk günden doğru rakamla başlar.</p>
+    <p>Verilerinizi istediğiniz an Excel olarak geri indirebilirsiniz. Sisteme girdiğiniz bilgi sizde kalır.</p>
+
+    <h2>Sık sorulan sorular</h2>
+    <div class="sss">
+      <details><summary>Aidat takip programı nasıl çalışır?</summary><p>Daire listesi ve aylık aidat tutarı tanımlandıktan sonra program her ay otomatik tahakkuk oluşturur. Ödeme işlendiğinde makbuz numarası üretilir, sakinin ekranına düşer ve kasaya gelir olarak yazılır. Ödenmeyen daireler ayrı listede toplanır.</p></details>
+      <details><summary>Aidat borcu olan daireyi nasıl takip ederim?</summary><p>Borçlu daireler ayrı bir ekranda, borç tutarı ve kaç aydır ödenmediği ile birlikte listelenir. Tahsilat oranı yüzde olarak panelde görünür ve son altı ayın grafiği çıkarılır. Böylece hangi ayda tahsilatın düştüğü fark edilir.</p></details>
+      <details><summary>Kiracı mı malik mi ödeyecek?</summary><p>İkisi de tanımlanabilir. Kat Mülkiyeti Kanunu'na göre ortak gider ve avans payından kural olarak kat maliki sorumludur; ancak kiracı da bağımsız bölümü kullanıyorsa müştereken sorumludur. Programda her daire için aidatı kimin ödeyeceği ayrı işaretlenir ve iki taraf da yalnızca kendi borcunu görür.</p></details>
+      <details><summary>Makbuz kesmek zorunda mıyım?</summary><p>Site yönetimleri tahsil ettikleri aidat için makbuz düzenler. Program her onaylanan ödemede sıralı makbuz numarası üretir ve kaydı tutar; bu, elden tahsilatta yaşanan numara karmaşasını ortadan kaldırır.</p></details>
+      <details><summary>Banka entegrasyonu var mı?</summary><p>Şu an otomatik banka entegrasyonu bulunmuyor; ödemeler yönetici tarafından işlenir. Banka ekstresi yükleyip açıklamadan daire eşleştiren yarı otomatik mutabakat geliştirme listemizde.</p></details>
+    </div>
+
+    <section class="cta">
+      <h2>Tahsilat oranınızı görün</h2>
+      <p>Mevcut daire ve borç listenizi aktaralım, ilk aydan itibaren doğru rakamla çalışın.</p>
+      <a href="/#iletisim" class="btn">Ücretsiz demo isteyin</a>
+      <a href="/#fiyat" class="btn ikinci">Fiyatları görün</a>
+    </section>
+    <div class="ilgili"><a href="/site-yonetim-programi"><b>Site Yönetim Programı</b><span>Çok bloklu siteler için aidat, kasa, rezervasyon ve güvenlik</span></a>
+<a href="/apartman-yonetim-programi"><b>Apartman Yönetim Programı</b><span>Tek bloklu apartmanlar için sade yönetim çözümü</span></a><a href="/blog"><b>Blog</b><span>Yöneticiler için rehberler</span></a></div>
+  </article>
+</div>
+
+<footer><div class="ic">
+  <span>© <span id="yil">2026</span> Konut Panel. Tüm hakları saklıdır.</span>
+  <span><a href="/kullanim-kosullari.html">Kullanım koşulları</a> · <a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/veri-isleyen-sozlesmesi.html">Veri işleyen sözleşmesi</a></span>
+</div></footer>
+<script src="/i18n.js"></script>
+<script>document.getElementById("yil").textContent=new Date().getFullYear();</script>
+</body>
+</html>

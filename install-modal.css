@@ -1,0 +1,326 @@
+/* =============================================================================
+ *  KONUT PANEL — PWA Kurulum Modalı Stilleri (install-modal.css)
+ *  Koyu Tema (#0B0B0F) + Mor Vurgu Rengi (#7C5CFF) + Mobil Bottom-Sheet
+ * ========================================================================== */
+
+:root {
+  --kp-bg: #0B0B0F;
+  --kp-card-bg: #12121A;
+  --kp-card-surface: #181824;
+  --kp-border: #232334;
+  --kp-border-focus: #7C5CFF;
+  --kp-primary: #7C5CFF;
+  --kp-primary-hover: #6A48F5;
+  --kp-primary-glow: rgba(124, 92, 255, 0.25);
+  --kp-text: #FFFFFF;
+  --kp-text-muted: #94A3B8;
+  --kp-text-subtle: #64748B;
+  --kp-step-bg: rgba(124, 92, 255, 0.15);
+  --kp-step-color: #A58EFF;
+  --kp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ——— Modal Arka Planı (Backdrop) ——— */
+.pwa-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 5, 8, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s var(--kp-ease), visibility 0.25s var(--kp-ease);
+}
+
+.pwa-modal-backdrop.pwa-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ——— Modal Kartı ——— */
+.pwa-modal-card {
+  background: var(--kp-card-bg);
+  border: 1px solid var(--kp-border);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 440px;
+  padding: 28px 24px 24px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: var(--kp-text);
+  transform: scale(0.94) translateY(12px);
+  transition: transform 0.3s var(--kp-ease);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.pwa-modal-backdrop.pwa-active .pwa-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* ——— Bottom Sheet Drag Tutamacı (Mobilde) ——— */
+.pwa-sheet-handle {
+  display: none;
+  width: 40px;
+  height: 4px;
+  background: #33334A;
+  border-radius: 99px;
+  margin: -12px auto 16px;
+}
+
+/* ——— Kapatma Butonu ——— */
+.pwa-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--kp-card-surface);
+  border: 1px solid var(--kp-border);
+  color: var(--kp-text-muted);
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pwa-modal-close:hover {
+  background: #232336;
+  color: var(--kp-text);
+  border-color: #383852;
+}
+
+.pwa-modal-close:focus-visible {
+  outline: 2px solid var(--kp-primary);
+  outline-offset: 2px;
+}
+
+/* ——— Modal Başlığı ve İkon ——— */
+.pwa-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.pwa-app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.pwa-title-wrap h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--kp-text);
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.pwa-title-wrap p {
+  font-size: 13px;
+  color: var(--kp-text-muted);
+  line-height: 1.3;
+}
+
+/* ——— Platform Bilgi Rozeti ——— */
+.pwa-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--kp-card-surface);
+  border: 1px solid var(--kp-border);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12.5px;
+  color: var(--kp-text-muted);
+  margin-bottom: 18px;
+}
+
+.pwa-platform-badge svg {
+  color: var(--kp-primary);
+}
+
+/* ——— Adım Listesi (1, 2, 3) ——— */
+.pwa-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pwa-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--kp-card-surface);
+  border: 1px solid var(--kp-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #DDE2EC;
+}
+
+.pwa-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--kp-step-bg);
+  color: var(--kp-step-color);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pwa-step-item b,
+.pwa-step-item strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.pwa-step-item .pwa-inline-icon {
+  display: inline-flex;
+  vertical-align: -3px;
+  margin: 0 3px;
+  color: var(--kp-primary);
+}
+
+/* ——— Alt Aksiyon Butonu ——— */
+.pwa-btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 44px;
+  background: var(--kp-primary);
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 4px 16px var(--kp-primary-glow);
+}
+
+.pwa-btn-action:hover {
+  background: var(--kp-primary-hover);
+}
+
+.pwa-btn-action:active {
+  transform: scale(0.98);
+}
+
+.pwa-btn-secondary {
+  background: var(--kp-card-surface);
+  color: var(--kp-text);
+  border: 1px solid var(--kp-border);
+  box-shadow: none;
+  margin-top: 8px;
+}
+
+.pwa-btn-secondary:hover {
+  background: #232336;
+}
+
+/* ——— Toast Bildirim ——— */
+.pwa-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--kp-card-bg);
+  border: 1px solid var(--kp-border);
+  color: var(--kp-text);
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-size: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s var(--kp-ease);
+}
+
+.pwa-toast.pwa-toast-show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pwa-toast svg {
+  color: #4ADE80;
+  flex-shrink: 0;
+}
+
+/* ——— Buton Spinner Durumu ——— */
+.pwa-btn-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pwa-btn-loading::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: pwaSpin 0.6s linear infinite;
+  margin-left: 8px;
+  vertical-align: -2px;
+}
+
+@keyframes pwaSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ——— Mobil Bottom Sheet Görünümü ——— */
+@media (max-width: 640px) {
+  .pwa-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .pwa-modal-card {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    max-width: 100%;
+    transform: translateY(100%);
+    padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .pwa-modal-backdrop.pwa-active .pwa-modal-card {
+    transform: translateY(0);
+  }
+
+  .pwa-sheet-handle {
+    display: block;
+  }
+}

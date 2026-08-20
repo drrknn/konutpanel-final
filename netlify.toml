@@ -1,0 +1,147 @@
+# ═══════════════════════════════════════════════════════════════════
+#  KONUT PANEL — Netlify yapılandırması
+#  Yönlendirmeler + güvenlik başlıkları + sunucu tarafı blog
+# ═══════════════════════════════════════════════════════════════════
+
+[build]
+  publish    = "."
+  functions  = "netlify/functions"
+
+# ————— YÖNLENDİRMELER —————
+# Sıra önemlidir: üstteki kural önce çalışır.
+
+# force = true şart: kökte index.html dosyası var ve Netlify'da
+# var olan dosya, yönlendirme kuralını gölgeler. force onu ezer.
+[[redirects]]
+  from = "/"
+  to = "/anasayfa.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/uygulama"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/yonetim"
+  to = "/admin.html"
+  status = 200
+
+# eski adresler kalıcı olarak yeni ada taşınsın (SEO değeri korunur)
+[[redirects]]
+  from = "/anasayfa"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+
+# SEO sayfaları — .html uzantısı olmadan da açılsın
+[[redirects]]
+  from = "/site-yonetim-programi"
+  to = "/site-yonetim-programi.html"
+  status = 200
+
+[[redirects]]
+  from = "/apartman-yonetim-programi"
+  to = "/apartman-yonetim-programi.html"
+  status = 200
+
+[[redirects]]
+  from = "/aidat-takip-programi"
+  to = "/aidat-takip-programi.html"
+  status = 200
+
+# .html uzantılı adresler kanonik hâle 301 ile yönlensin (çift içerik olmasın)
+# Yapay zekâ ile makale üretimi (Gemini anahtarı sunucuda kalır)
+[[redirects]]
+  from = "/api/makale-uret"
+  to = "/.netlify/functions/makale-uret"
+  status = 200
+
+# Şifre sıfırlama fonksiyonu (service_role kullanır, sunucuda çalışır)
+[[redirects]]
+  from = "/api/sifre-sifirla"
+  to = "/.netlify/functions/sifre-sifirla"
+  status = 200
+
+# Muhasebeciye otomatik e-posta gönderimi (Resend API & ZIP ekleri)
+[[redirects]]
+  from = "/api/muhasebeci-mail"
+  to = "/.netlify/functions/muhasebeci-mail"
+  status = 200
+
+# ————— GÜVENLİK BAŞLIKLARI —————
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Tarayıcı, sunucunun bildirdiği içerik türünü tahmin etmeye çalışmasın.
+    X-Content-Type-Options = "nosniff"
+    # Site başka bir sayfanın iframe'ine gömülemez (clickjacking).
+    X-Frame-Options = "DENY"
+    # HTTPS zorunlu, alt alan adları dahil.
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Dış sitelere tam adres sızmasın.
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Gerekmeyen cihaz izinleri kapalı.
+    Permissions-Policy = "camera=(self), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
+    # Çapraz kaynak pencere erişimi kapalı.
+    Cross-Origin-Opener-Policy = "same-origin"
+    # İçerik Güvenlik Politikası — XSS'e karşı en güçlü katman.
+    # Yalnızca burada sayılan kaynaklardan kod/veri yüklenebilir.
+    # DİKKAT: script-src listesi uygulamanın gerçekten kullandığı kaynaklardan
+    # üretilmiştir. Supabase kütüphanesi esm.sh üzerinden yüklenir; bu adres
+    # listede yoksa uygulama HİÇ açılmaz, sonsuz bekleme ekranında kalır.
+    # Yeni bir CDN eklersen buraya da eklemeyi unutma.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://esm.sh https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Service-Worker-Allowed = "/"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/.well-known/assetlinks.json"
+  [headers.values]
+    Content-Type = "application/json"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"
+
+# Statik varlıklar uzun süre önbellekte kalsın (hız + Core Web Vitals)
+[[headers]]
+  for = "/screenshots/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Yapılandırma dosyası ve SQL klasörü indekslenmesin
+[[headers]]
+  for = "/config.js"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/sql/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

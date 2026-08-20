@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Site Yönetim Programı ve Aidat Takip Uygulaması | Konut Panel</title>
+<meta name="description" content="Aidat takibi, gelir-gider, duyuru, arıza talebi, ziyaretçi defteri ve ortak alan rezervasyonu tek programda. Site ve apartman yönetimi için Türkçe bulut yazılım. Daire başına aylık 100 TL.">
+<meta name="keywords" content="site yönetim programı, apartman yönetim programı, aidat takip programı, kat mülkiyeti, aidat takibi, site yönetim yazılımı, apartman aidat uygulaması">
+<meta name="author" content="Konut Panel">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#0B0B0F">
+<meta name="geo.region" content="TR">
+<link rel="canonical" href="https://konutpanel.com/">
+<link rel="alternate" hreflang="tr" href="https://konutpanel.com/">
+<link rel="alternate" hreflang="x-default" href="https://konutpanel.com/">
+<link rel="alternate" type="application/rss+xml" title="Konut Panel Blog" href="https://konutpanel.com/rss.xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Konut Panel">
+<meta property="og:title" content="Site ve Apartman Yönetim Programı | Konut Panel">
+<meta property="og:description" content="Aidat kovalamayı bırakın. Aidat, gelir-gider, duyuru, arıza ve ziyaretçi takibi tek panelde. Türkçe, bulut tabanlı, indirmeden çalışır.">
+<meta property="og:url" content="https://konutpanel.com/">
+<meta property="og:image" content="https://konutpanel.com/icons/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Konut Panel — site ve apartman yönetim programı">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Site ve Apartman Yönetim Programı | Konut Panel">
+<meta name="twitter:description" content="Aidat kovalamayı bırakın. Sitenizin tamamı tek panelde.">
+<meta name="twitter:image" content="https://konutpanel.com/icons/icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Konut Panel">
+
+<link rel="stylesheet" href="/install-modal.css">
+<script src="/install.js" defer></script>
+<script>
+  /* PWA: Service Worker kaydi (satir ici — tarayici disi tarayicilar da gorebilsin) */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').catch(function (e) {
+        console.warn('[SW] kayit hatasi:', e);
+      });
+    });
+  }
+</script>
+
+<link rel="preconnect" href="https://esm.sh" crossorigin>
+<link rel="dns-prefetch" href="https://esm.sh">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Konut Panel","applicationCategory":"BusinessApplication","applicationSubCategory":"Property Management Software","operatingSystem":"Web, iOS, Android","inLanguage":"tr-TR","url":"https://konutpanel.com/","description":"Site ve apartman yönetimi için aidat takibi, gelir-gider, duyuru, arıza talebi, ziyaretçi defteri ve ortak alan rezervasyonu programı.","featureList":["Aidat ve borç takibi","Gelir-gider ve kasa","Duyuru ve bildirim","Arıza ve talep yönetimi","Ziyaretçi defteri","Ortak alan rezervasyonu","Anket ve oylama","Demirbaş ve bakım takibi","Excel dışa/içe aktarım","Yetki ve roller"],"offers":{"@type":"Offer","price":"50","priceCurrency":"TRY","description":"Daire başına aylık (+ KDV)","availability":"https://schema.org/InStock","url":"https://konutpanel.com/#fiyat"},"publisher":{"@type":"Organization","name":"Konut Panel"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Konut Panel","url":"https://konutpanel.com/","logo":{"@type":"ImageObject","url":"https://konutpanel.com/icons/icon-512.png"},"description":"Site ve apartman yönetimi için Türkçe bulut yazılım.","areaServed":{"@type":"Country","name":"Türkiye"},"contactPoint":[{"@type":"ContactPoint","telephone":"+90-539-606-8442","contactType":"customer service","areaServed":"TR","availableLanguage":["Turkish"],"email":"info@konutpanel.com"}],"knowsAbout":["site yönetimi","apartman yönetimi","aidat takibi","kat mülkiyeti","ortak gider paylaşımı","apartman yönetim yazılımı"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Konut Panel","url":"https://konutpanel.com/","inLanguage":"tr-TR"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Tek apartman için de kullanılabiliyor mu?","acceptedAnswer":{"@type":"Answer","text":"Evet. Kurulumda blok sayısına 1 yazmanız yeterli. Sistem tek blokluk bir apartman düzeni kurar; site için var olan bütün özellikler aynı şekilde çalışır."}},{"@type":"Question","name":"Sakinler birbirinin borcunu görebiliyor mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Her sakin yalnızca kendi dairesine ait borç ve ödemeleri görür. Sitenin toplam gelir-gider özetini paylaşmak yöneticinin tercihindedir."}},{"@type":"Question","name":"Elimizdeki Excel listesini aktarabilir miyiz?","acceptedAnswer":{"@type":"Answer","text":"Evet. Daire, sakin ve borç listelerinizi Excel olarak yükleyebilir, bütün verinizi istediğiniz an Excel olarak indirebilirsiniz."}},{"@type":"Question","name":"Uygulama indirmek zorunda mıyız?","acceptedAnswer":{"@type":"Answer","text":"Hayır, iki seçenek var. İsterseniz App Store veya Google Play üzerinden indirirsiniz, isterseniz hiç indirmeden İndirmeden Kullan düğmesiyle telefonunuzun veya bilgisayarınızın ana ekranına eklersiniz."}},{"@type":"Question","name":"Yönetim değişince veriler ne oluyor?","acceptedAnswer":{"@type":"Answer","text":"Hesap siteye aittir, kişiye değil. Yönetici değiştiğinde yetkiler devredilir; geçmiş kayıtlar, raporlar ve belgeler yerinde kalır."}},{"@type":"Question","name":"Kiracı ile ev sahibinin borcu ayrılıyor mu?","acceptedAnswer":{"@type":"Answer","text":"Evet. Aidat ve ortak gider kiracıya, demirbaş ve büyük onarım payı malike yazılabilir."}},{"@type":"Question","name":"Site yönetim programı ne kadar tutuyor?","acceptedAnswer":{"@type":"Answer","text":"Konut Panel'de daire başına aylık 50 TL + KDV, yıllık toplu ödemede 35 TL + KDV'dir. Kurulum, eğitim ve destek dahildir; modül başına ek ücret yoktur."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Site ve Apartman Yönetim Yazılımı","serviceType":"Property Management Software","provider":{"@type":"Organization","name":"Konut Panel","url":"https://konutpanel.com/"},"areaServed":{"@type":"Country","name":"Türkiye"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Konut Panel paketleri","itemListElement":[{"@type":"Offer","name":"Aylık paket","price":"50","priceCurrency":"TRY","description":"Daire başına aylık, + KDV"},{"@type":"Offer","name":"Yıllık paket","price":"35","priceCurrency":"TRY","description":"Daire başına aylık, yıllık toplu peşin ödemede, + KDV"}]}}</script>
+
+<style>
+/* ═══════════════════════════════════════════════
+   ORTAK ALAN — sunum biçiminde ana sayfa
+   Marka rengi: --marka-a / --marka-b
+   ═══════════════════════════════════════════════ */
+:root{
+  --gece:#0A0C11;
+  --gece-2:#12151C;
+  --gece-3:#1B212C;
+  --metin-ac:rgba(255,255,255,.72);
+  --metin-sonuk:rgba(255,255,255,.48);
+  --cizgi:#232A36;
+  --isik:#FFC24A;
+  --marka-a:#8E93FF;
+  --marka-b:#8B37E8;
+  --yumusak:cubic-bezier(.22,.61,.36,1);
+  --ust-h:62px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0}
+body{
+  background:var(--gece);color:#fff;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow:hidden;overscroll-behavior:none;
+}
+h1,h2,h3{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.025em;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--marka-a);outline-offset:3px;border-radius:8px}
+
+.etiket{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--marka-a);display:block;margin-bottom:16px}
+.dugme{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  white-space:nowrap;
+  min-height:48px;padding:0 24px;border-radius:12px;font-weight:600;font-size:15px;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .18s var(--yumusak),box-shadow .18s var(--yumusak),border-color .2s;
+}
+.dugme:hover{transform:translateY(-2px)}
+.dugme-ana{background:linear-gradient(120deg,#8E93FF,#6366F1 50%,#8B37E8);color:#fff;box-shadow:0 8px 24px rgba(99,102,241,.38)}
+.dugme-cizgi{background:transparent;border-color:rgba(255,255,255,.24);color:#fff}
+.dugme-cizgi:hover{border-color:var(--marka-a)}
+
+/* ——— üst çubuk ——— */
+.ust{
+  position:fixed;top:0;left:0;right:0;height:var(--ust-h);z-index:60;
+  display:flex;align-items:center;gap:18px;padding:0 22px;
+  background:linear-gradient(to bottom,rgba(10,12,17,.95),rgba(10,12,17,0));
+}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;cursor:pointer}
+.logo svg{width:29px;height:29px;flex:none;border-radius:8px}
+.logo-yazi{display:flex;flex-direction:column;line-height:1.05}
+.logo-yazi i{font-family:'Inter',sans-serif;font-style:normal;font-weight:400;font-size:10.5px;letter-spacing:.02em;color:var(--metin-sonuk);margin-top:2px}
+@media(max-width:560px){.logo-yazi i{display:none}}
+.ust-sag{margin-left:auto;display:flex;align-items:center;gap:10px}
+.ust .dugme{min-height:40px;padding:0 16px;font-size:13.5px}
+.ust-bag{font-size:14px;color:var(--metin-ac);padding:0 4px;white-space:nowrap;transition:color .18s}
+.ust-bag:hover{color:#fff}
+.giris-btn .kisa,.demo-btn .kisa{display:none}
+
+/* Mobilde metin bağlantılar gizlenir ama GİRİŞ ve DEMO düğmeleri kalır */
+@media(max-width:760px){
+  .ust-bag{display:none}
+}
+@media(max-width:430px){
+  .giris-btn .uzun,.demo-btn .uzun{display:none}
+  .giris-btn .kisa,.demo-btn .kisa{display:inline}
+  .ust .dugme{padding:0 12px;font-size:12.5px}
+  .ust{padding:0 12px;gap:10px}
+  .ust-sag{gap:7px}
+  .logo-yazi i{display:none}
+  .logo{font-size:15.5px}
+  .logo svg{width:26px;height:26px}
+}
+/* cok dar cihazlar: logo yazisi gizlenir, dugmeler tam gorunur */
+@media(max-width:380px){
+  .logo-yazi{display:none}
+  .ust .dugme{padding:0 10px;font-size:12px}
+  .ust-sag{gap:6px}
+}
+
+.ilerleme{position:fixed;top:0;left:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--marka-a),var(--marka-b));width:0;transition:width .5s var(--yumusak)}
+
+/* ——— nokta gezinme ——— */
+.noktalar{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:9px}
+.noktalar button{width:9px;height:9px;padding:0;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.24);transition:background .25s,transform .25s var(--yumusak)}
+.noktalar button:hover{background:rgba(255,255,255,.5)}
+.noktalar button.aktif{background:var(--isik);transform:scale(1.5)}
+@media(max-width:640px){.noktalar{right:9px;gap:7px}.noktalar button{width:7px;height:7px}}
+
+/* ——— slaytlar ——— */
+.sunum{position:relative;height:100dvh;width:100%;overflow:hidden}
+.sayfa{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:calc(var(--ust-h) + 20px) 60px 46px;
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(44px);
+  transition:opacity .55s var(--yumusak),transform .6s var(--yumusak),visibility .6s;
+}
+.sayfa.aktif{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.sayfa.gecti{transform:translateY(-44px)}
+@media(max-width:760px){.sayfa{padding:calc(var(--ust-h) + 14px) 22px 66px}}
+
+.ic{
+  width:100%;max-width:1060px;max-height:100%;
+  overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:none;-ms-overflow-style:none;   /* çubuk görünmez, kaydırma çalışır */
+}
+.ic::-webkit-scrollbar{width:0;height:0;display:none}
+/* içerik taşıyorsa altta yumuşak bir solma ipucu */
+.sayfa.tasan::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:70px;pointer-events:none;
+  background:linear-gradient(to top,var(--gece),transparent);
+}
+
+.sayfa .gir{opacity:0;transform:translateY(20px);transition:opacity .5s var(--yumusak),transform .5s var(--yumusak)}
+.sayfa.aktif .gir{opacity:1;transform:none}
+.sayfa.aktif .gir:nth-child(1){transition-delay:.10s}
+.sayfa.aktif .gir:nth-child(2){transition-delay:.18s}
+.sayfa.aktif .gir:nth-child(3){transition-delay:.26s}
+.sayfa.aktif .gir:nth-child(4){transition-delay:.34s}
+.sayfa.aktif .gir:nth-child(5){transition-delay:.42s}
+
+/* ——— giriş slaytı ——— */
+.giris{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;width:100%}
+.giris h1{font-size:clamp(32px,4.8vw,58px);font-weight:800}
+.giris h1 em{font-style:normal;background:linear-gradient(120deg,#8E93FF,#6366F1 50%,#8B37E8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.giris-alt{margin-top:18px;font-size:clamp(15px,1.5vw,18px);color:var(--metin-ac);max-width:520px}
+.giris-dugmeler{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.giris-notlar{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:24px;font-size:13px;color:var(--metin-sonuk)}
+.giris-notlar span{display:flex;align-items:center;gap:7px}
+.tik{width:15px;height:15px;flex:none;color:var(--marka-a)}
+.kaydir-ipucu{
+  position:absolute;left:50%;bottom:20px;transform:translateX(-50%);
+  transition:opacity .4s ease;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--metin-sonuk);
+  font-family:'JetBrains Mono',monospace;
+}
+.kaydir-ipucu svg{
+  width:18px;height:18px;
+  animation:zipla 6s cubic-bezier(.4,0,.3,1) infinite;
+  will-change:transform,opacity;
+}
+/* Tek bir yavaş iniş-çıkış, ardından uzun bekleme.
+   Döngünün yalnızca ilk üçte biri hareketli; gerisi durgun. */
+@keyframes zipla{
+  0%  {transform:translate3d(0,0,0);   opacity:.4}
+  10% {transform:translate3d(0,9px,0); opacity:1}
+  22% {transform:translate3d(0,0,0);   opacity:.4}
+  100%{transform:translate3d(0,0,0);   opacity:.4}
+}
+}
+@media(max-width:860px){.giris{grid-template-columns:1fr;gap:24px}.giris .bina-kabi{max-width:190px}}
+
+/* ——— bina ——— */
+.bina-kabi{position:relative;width:100%;max-width:320px;margin:0 auto}
+.bina{width:100%;height:auto;display:block;filter:drop-shadow(0 26px 54px rgba(0,0,0,.5))}
+.pencere{fill:#1B212C;transition:fill .5s var(--yumusak),filter .5s var(--yumusak)}
+.pencere.yanik{fill:var(--isik);filter:drop-shadow(0 0 10px rgba(255,194,74,.9))}
+.pencere.odak{animation:nabiz 2.4s ease-in-out infinite}
+@keyframes nabiz{0%,100%{filter:drop-shadow(0 0 10px rgba(255,194,74,.9))}50%{filter:drop-shadow(0 0 21px rgba(255,194,74,1))}}
+
+/* ——— hikâye sahnesi ——— */
+/* Bina genişliği ekran YÜKSEKLİĞİNE bağlı; yüksekliği 4/3 katı.
+   Söz alanı da tam bina yüksekliğinde, böylece satır yüzdeleri
+   pencerelerle birebir çakışır. */
+.sahne{
+  display:flex;align-items:center;
+  gap:clamp(24px,4vw,60px);width:100%;
+  --bina-g:clamp(132px,26vh,290px);
+}
+.bina-sutun{
+  flex:none;width:var(--bina-g);
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.6vh,16px);
+}
+.sahne .bina-kabi{width:100%;max-width:none;margin:0}
+.sozler{position:relative;flex:1;height:calc(var(--bina-g) * 4 / 3);min-width:0}
+.soz{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);transition:top .7s var(--yumusak)}
+.isin{
+  position:absolute;left:-56px;top:50%;width:56px;height:2px;transform:translateY(-50%);
+  background:linear-gradient(90deg,rgba(255,194,74,0),var(--isik));
+  box-shadow:0 0 12px rgba(255,194,74,.7);
+}
+.soz-ic{transition:opacity .3s ease,transform .4s var(--yumusak)}
+.soz-ic.degisiyor{opacity:0;transform:translateX(14px)}
+.soz-no{font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.15vh,11.5px);letter-spacing:.16em;color:var(--isik);display:block;margin-bottom:clamp(6px,1.2vh,12px)}
+.soz-metin{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(16px,calc(1.05vh + .82vw),29px);line-height:1.32;letter-spacing:-.02em}
+.soz-kim{margin-top:clamp(8px,1.4vh,14px);font-size:clamp(12px,1.35vh,13.5px);color:var(--metin-sonuk);display:flex;align-items:center;gap:10px}
+.soz-kim s{width:24px;height:1px;background:rgba(255,255,255,.3);display:block;text-decoration:none}
+.soz-rozet{margin-top:clamp(10px,1.9vh,20px);display:inline-flex;align-items:center;gap:9px;padding:clamp(6px,.9vh,8px) 15px;border-radius:999px;background:rgba(255,194,74,.10);border:1px solid rgba(255,194,74,.28);font-size:clamp(12px,1.35vh,13.5px);color:var(--isik);font-weight:500}
+.soz-rozet svg{width:15px;height:15px;flex:none;display:block}
+.sayac{font-family:'JetBrains Mono',monospace;font-size:clamp(9.5px,1.1vh,11px);letter-spacing:.14em;color:var(--metin-sonuk);text-align:center;white-space:nowrap}
+@media(max-width:860px){
+  .sahne{flex-direction:column;gap:clamp(10px,2.4vh,20px);--bina-g:clamp(96px,17vh,150px)}
+  .sozler{width:100%;height:auto;flex:0 1 auto}
+  .soz{position:static;transform:none}
+  .isin{display:none}
+  .soz-metin{font-size:clamp(16px,calc(1.5vh + 1.9vw),24px)}
+}
+
+/* ——— başlık ——— */
+.baslik{max-width:640px;margin-bottom:clamp(18px,3vh,32px)}
+.baslik h2{font-size:clamp(26px,3.4vw,40px)}
+.baslik p{margin-top:14px;color:var(--metin-ac);font-size:clamp(14.5px,1.4vw,17px)}
+
+/* ——— özet ızgara ——— */
+.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.1vh,13px)}
+@media(max-width:860px){.izgara{grid-template-columns:1fr 1fr;gap:9px}}
+@media(max-width:520px){.izgara{grid-template-columns:1fr}}
+.hucre{
+  background:var(--gece-2);border:1px solid var(--cizgi);border-radius:14px;
+  padding:clamp(11px,1.5vh,17px) clamp(13px,1.4vw,18px);
+  display:flex;gap:12px;align-items:flex-start;
+  transition:border-color .25s,transform .25s var(--yumusak),background .25s;
+}
+.hucre:hover{border-color:rgba(142,147,255,.5);transform:translateY(-3px);background:var(--gece-3)}
+.hucre-simge{
+  width:32px;height:32px;border-radius:9px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(135deg,rgba(142,147,255,.20),rgba(139,55,232,.20));color:var(--marka-a);
+}
+.hucre-simge svg{width:17px;height:17px}
+.hucre h3{font-size:clamp(14px,1.5vh,15.5px);margin-bottom:3px}
+.hucre p{font-size:clamp(12.2px,1.35vh,13.5px);color:var(--metin-sonuk);line-height:1.45}
+
+/* ——— adımlar ——— */
+.adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:a}
+@media(max-width:860px){.adimlar{grid-template-columns:1fr;gap:12px}}
+.adim{background:var(--gece-2);border:1px solid var(--cizgi);border-radius:17px;padding:26px 24px}
+.adim::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--marka-a);display:block;margin-bottom:14px}
+.adim h3{font-size:18px;margin-bottom:8px}
+.adim p{font-size:14.5px;color:var(--metin-sonuk)}
+
+/* ——— fiyat ——— */
+.fiyat-alan{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(16px,2.4vw,32px);align-items:start}
+@media(max-width:900px){.fiyat-alan{grid-template-columns:1fr;gap:16px}}
+.paketler{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,16px)}
+@media(max-width:620px){.paketler{grid-template-columns:1fr}}
+.paket{
+  position:relative;background:var(--gece-2);border:1px solid var(--cizgi);
+  border-radius:18px;padding:clamp(16px,2.4vh,26px) clamp(16px,1.6vw,22px);
+  transition:border-color .25s,transform .25s var(--yumusak);
+}
+.paket:hover{border-color:rgba(142,147,255,.45);transform:translateY(-3px)}
+.paket.one-cikan{
+  background:linear-gradient(158deg,rgba(142,147,255,.13),rgba(139,55,232,.09));
+  border-color:rgba(142,147,255,.42);
+}
+.rozet{
+  position:absolute;top:-11px;right:16px;
+  background:linear-gradient(120deg,#8E93FF,#6366F1 50%,#8B37E8);color:#fff;
+  font-size:11px;font-weight:600;letter-spacing:.02em;
+  padding:4px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(99,102,241,.4);
+}
+.paket-ad{font-size:clamp(12.5px,1.4vh,14px);color:var(--metin-ac);font-weight:600;margin-bottom:6px}
+.paket-rakam{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.paket-rakam b{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1;
+  font-size:clamp(34px,calc(2.6vh + 1.7vw),52px);
+}
+.paket-rakam span{font-size:clamp(11.5px,1.3vh,13px);color:var(--metin-sonuk)}
+.paket-not{font-size:clamp(11.5px,1.3vh,13px);color:var(--metin-sonuk);margin-top:9px;line-height:1.5}
+.paket-ornek{
+  margin-top:clamp(10px,1.6vh,15px);padding-top:clamp(10px,1.6vh,15px);
+  border-top:1px solid var(--cizgi);
+  font-size:clamp(11.5px,1.3vh,13.5px);color:var(--metin-ac);line-height:1.55;
+}
+.paket-ornek b{color:#fff;font-weight:600}
+.kazanc{color:var(--marka-a);font-weight:500}
+.paket-yan{background:var(--gece-2);border:1px solid var(--cizgi);border-radius:18px;padding:clamp(16px,2.4vh,24px) clamp(16px,1.6vw,22px)}
+.yan-baslik{font-size:clamp(12.5px,1.4vh,14px);font-weight:600;color:var(--metin-ac);margin-bottom:clamp(10px,1.6vh,14px)}
+.dahil{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:clamp(5px,.85vh,9px)}
+@media(min-width:901px) and (max-height:820px){.dahil{grid-template-columns:1fr 1fr;gap:5px 14px}}
+@media(max-width:900px){.dahil{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dahil{grid-template-columns:1fr}}
+.dahil li{display:flex;gap:8px;align-items:flex-start;font-size:clamp(12px,1.35vh,14px);color:var(--metin-ac);line-height:1.4}
+.dahil svg{width:15px;height:15px;flex:none;margin-top:2px;color:var(--marka-a)}
+.yan-not{font-size:clamp(11px,1.2vh,12.5px);color:var(--metin-sonuk);margin-top:10px;text-align:center;line-height:1.5}
+
+/* ——— SSS ——— */
+.sss{max-width:760px}
+.sss details{border-bottom:1px solid var(--cizgi)}
+.sss summary{cursor:pointer;list-style:none;padding:15px 0;font-weight:600;font-size:16px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"+";font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--marka-a);transition:transform .2s}
+.sss details[open] summary::after{transform:rotate(45deg)}
+.sss details p{padding:0 0 16px;color:var(--metin-sonuk);font-size:14.5px}
+
+/* ——— iletişim ——— */
+.iletisim{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+@media(max-width:860px){.iletisim{grid-template-columns:1fr;gap:22px}}
+.yollar{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.yol{display:flex;gap:13px;align-items:center;padding:13px 15px;background:var(--gece-2);border:1px solid var(--cizgi);border-radius:13px;transition:border-color .2s,transform .2s var(--yumusak)}
+.yol:hover{border-color:var(--marka-a);transform:translateX(3px)}
+.yol-simge{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.05);color:var(--marka-a);flex:none}
+.yol-simge svg{width:18px;height:18px}
+.yol.wa .yol-simge{background:rgba(37,211,102,.14);color:#39D178}
+.yol b{display:block;font-size:14.5px;font-weight:600}
+.yol span{font-size:12.5px;color:var(--metin-sonuk)}
+
+.form{background:var(--gece-2);border:1px solid var(--cizgi);border-radius:18px;padding:24px}
+.alan{margin-bottom:13px}
+.alan label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--metin-ac)}
+.alan input,.alan select,.alan textarea{width:100%;padding:11px 13px;border:1px solid var(--cizgi);border-radius:10px;font-family:'Inter',sans-serif;font-size:16px;background:rgba(255,255,255,.04);color:#fff;transition:border-color .18s,background .18s}
+.alan input::placeholder,.alan textarea::placeholder{color:rgba(255,255,255,.32)}
+.alan select option{background:#12151C;color:#fff}
+.alan input:focus,.alan select:focus,.alan textarea:focus{border-color:var(--marka-a);background:rgba(255,255,255,.07);outline:none}
+.alan textarea{resize:vertical;min-height:68px}
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:560px){.ikili{grid-template-columns:1fr}}
+.onay{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--metin-sonuk);margin:4px 0 16px}
+.onay input{width:18px;height:18px;flex:none;margin-top:1px;accent-color:var(--marka-a)}
+.onay a{color:var(--marka-a);text-decoration:underline}
+.gizli{position:absolute;left:-9999px}
+.form .dugme{width:100%}
+
+/* ——— hakkımızda ——— */
+.hakkinda{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:center}
+@media(max-width:860px){.hakkinda{grid-template-columns:1fr;gap:20px}}
+.hakkinda p{color:var(--metin-ac);font-size:clamp(14.5px,1.4vw,16.5px);margin-bottom:13px}
+
+/* ——— kurulum yolları ——— */
+.kurulum-yollari{
+  background:var(--gece-2);border:1px solid var(--cizgi);border-radius:18px;
+  padding:clamp(16px,2.4vh,24px) clamp(16px,2vw,26px);margin-bottom:clamp(18px,2.6vh,30px);
+}
+.ky-baslik{font-size:clamp(12.5px,1.4vh,14px);font-weight:600;color:var(--metin-ac);margin-bottom:clamp(10px,1.6vh,15px)}
+.ky-not{font-size:clamp(11.5px,1.25vh,13px);color:var(--metin-sonuk);margin-top:clamp(10px,1.6vh,14px);line-height:1.55;max-width:520px;margin-left:auto;margin-right:auto}
+.ky-kur{
+  display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:11px;cursor:pointer;
+  background:linear-gradient(120deg,rgba(142,147,255,.16),rgba(139,55,232,.16));
+  border:1px solid rgba(142,147,255,.45);color:#fff;font-family:inherit;
+  transition:transform .2s var(--yumusak),border-color .2s,background .2s;
+}
+.ky-kur:hover{transform:translateY(-3px);border-color:var(--marka-a);background:linear-gradient(120deg,rgba(142,147,255,.26),rgba(139,55,232,.26))}
+.ky-kur svg{width:21px;height:21px;flex:none;color:var(--marka-a)}
+.ky-kur i{font-style:normal;display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--marka-a);text-align:left}
+.ky-kur b{display:block;font-size:13px;font-weight:600;line-height:1.2;text-align:left}
+
+/* ——— kapanış ——— */
+.kapanis{text-align:center;width:100%}
+.kapanis h2{font-size:clamp(28px,4vw,46px);margin-bottom:14px}
+.kapanis > p{color:var(--metin-ac);max-width:520px;margin:0 auto 26px}
+.kapanis-dugmeler{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.sosyal{display:flex;gap:9px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.sosyal a{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--cizgi);color:var(--metin-ac);transition:background .2s,color .2s,transform .2s var(--yumusak),border-color .2s}
+.sosyal a:hover{background:rgba(255,255,255,.08);color:#fff;transform:translateY(-3px);border-color:rgba(255,255,255,.3)}
+.sosyal svg{width:18px;height:18px}
+.magaza{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.magaza a{display:flex;align-items:center;gap:10px;padding:8px 15px;border-radius:11px;border:1px solid var(--cizgi);color:var(--metin-ac);transition:background .2s,border-color .2s}
+.magaza a:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.28)}
+.magaza svg{width:20px;height:20px;flex:none}
+.magaza i{font-style:normal;display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--metin-sonuk)}
+.magaza b{display:block;font-size:13px;font-weight:600;color:#fff;line-height:1.2;text-align:left}
+.yasal{display:flex;gap:8px 22px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--metin-sonuk);padding-top:20px;border-top:1px solid var(--cizgi)}
+.yasal a:hover{color:#fff}
+.telif{margin-top:13px;font-size:12.5px;color:rgba(255,255,255,.36)}
+
+/* ——— WhatsApp ——— */
+.wa-balon{position:fixed;right:16px;bottom:16px;z-index:65;display:flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:12px 17px;border-radius:999px;font-weight:600;font-size:14px;box-shadow:0 10px 28px rgba(37,211,102,.35);transition:transform .2s var(--yumusak)}
+.wa-balon:hover{transform:translateY(-3px)}
+.wa-balon svg{width:20px;height:20px}
+@media(max-width:760px){.wa-balon span{display:none}.wa-balon{padding:14px;right:12px;bottom:12px}}
+
+/* ——— çerez ——— */
+.cerez{position:fixed;left:16px;right:16px;bottom:16px;z-index:80;max-width:600px;margin:0 auto;background:var(--gece-3);border:1px solid var(--cizgi);border-radius:15px;padding:16px 20px;display:none;gap:14px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--metin-ac);box-shadow:0 20px 46px rgba(0,0,0,.45)}
+.cerez.goster{display:flex}
+.cerez a{color:var(--marka-a);text-decoration:underline}
+.cerez .dugme{min-height:38px;padding:0 16px;font-size:13.5px;margin-left:auto}
+
+/* ——— iOS Safari PWA Bilgilendirmesi ——— */
+.ios-kur-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px}
+.ios-kur-kart{background:#12151C;border:1px solid #232A36;border-radius:18px;width:100%;max-width:390px;padding:24px;position:relative;box-shadow:0 24px 48px rgba(0,0,0,.6);color:#fff}
+.ios-kur-kapat{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:#1A212B;border:1px solid #232A36;color:#A4ACBA;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.ios-kur-kapat:hover{background:#232A36;color:#fff}
+.ios-kur-adim{display:flex;align-items:flex-start;gap:12px;margin:14px 0;font-size:14px;color:rgba(255,255,255,.85);line-height:1.45}
+.ios-kur-no{width:22px;height:22px;border-radius:50%;background:rgba(99,102,241,.2);color:#8E93FF;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* JavaScript çalışmazsa bütün slaytlar normal sayfa gibi alt alta görünsün.
+   Arama motoru robotları ve eski tarayıcılar için önemli. */
+</style>
+<noscript><style>
+  body{overflow:auto !important}
+  .sunum{height:auto !important;overflow:visible !important}
+  .sayfa{position:static !important;opacity:1 !important;visibility:visible !important;
+         transform:none !important;pointer-events:auto !important;
+         min-height:auto !important;padding:56px 22px !important;
+         border-bottom:1px solid var(--cizgi)}
+  .sayfa .gir{opacity:1 !important;transform:none !important}
+  .ic{max-height:none !important;overflow:visible !important}
+  .noktalar,.kaydir-ipucu,.ilerleme{display:none !important}
+  .soz{position:static !important;transform:none !important}
+  .isin{display:none !important}
+  .sozler{min-height:0 !important}
+</style></noscript>
+</head>
+<body>
+
+<script src="/config.js"></script>
+<script src="/i18n.js"></script>
+<div class="ilerleme" id="ilerleme"></div>
+
+<header class="ust">
+  <a class="logo" data-git="0" aria-label="Konut Panel">
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="anaLG" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#4F46E5"/>
+          <stop offset="50%" stop-color="#4338CA"/>
+          <stop offset="100%" stop-color="#1E1B4B"/>
+        </linearGradient>
+        <linearGradient id="anaTLeft" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#C7D2FE"/>
+        </linearGradient>
+        <linearGradient id="anaTRight" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E0E7FF"/>
+          <stop offset="100%" stop-color="#A5B4FC"/>
+        </linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#anaLG)"/>
+      <rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
+      <path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#anaTLeft)"/>
+      <path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
+      <rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="15.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="18.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#anaTRight)"/>
+      <path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
+      <rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="27.2" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="30.5" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
+      <rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
+      <rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
+      <circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
+      <path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-yazi">Konut Panel<i>Site yönetimi, tek panelde</i></span>
+  </a>
+  <div class="ust-sag">
+    <a href="/site-yonetim-programi" class="ust-bag">Çözümler</a>
+    <a href="/blog" class="ust-bag">Blog</a>
+    <a href="/uygulama" class="dugme dugme-cizgi giris-btn"><span class="uzun">Giriş yap / Kaydol</span><span class="kisa">Giriş / Kaydol</span></a>
+    <button class="dugme dugme-ana demo-btn" data-git="6"><span class="uzun">Demo isteyin</span><span class="kisa">Demo</span></button>
+  </div>
+</header>
+
+<nav class="noktalar" id="noktalar" aria-label="Sayfa gezinme"></nav>
+
+<main class="sunum" id="sunum">
+
+  <!-- ═══ 1 · GİRİŞ ═══ -->
+  <section class="sayfa" data-ad="Giriş">
+    <div class="ic">
+      <div class="giris">
+        <div>
+          <span class="etiket gir">Site ve apartman yönetim programı</span>
+          <h1 class="gir"><em>Aidat kovalamayı</em> bırakın.</h1>
+          <p class="giris-alt gir">Kim ödedi, kim ödemedi, kasada ne var, hangi arıza bekliyor — hepsi tek ekranda ve anlık. Defter, dağınık Excel ve kimsenin okumadığı WhatsApp grubu olmadan.</p>
+          <div class="giris-dugmeler gir">
+            <button class="dugme dugme-ana" data-git="6">Ücretsiz demo isteyin
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="dugme dugme-cizgi" data-git="1">Nasıl çalıştığını görün</button>
+            <button class="dugme dugme-cizgi" id="kurBtn1" title="Uygulamayı indirmeden doğrudan cihazınıza kurun">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3"/></svg>
+              <span>İndirmeden Kullan</span>
+            </button>
+          </div>
+          <div class="giris-notlar gir">
+            <span><svg class="tik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Kurulum ücreti yok</span>
+            <span><svg class="tik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> İster indirin, ister indirmeden kullanın</span>
+            <span><svg class="tik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Veriniz sizde kalır</span>
+          </div>
+        </div>
+        <div class="bina-kabi gir">
+          <svg class="bina" viewBox="0 0 300 400" aria-label="Işıkları yanan apartman">
+            <defs><linearGradient id="cephe" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1B212C"/><stop offset="1" stop-color="#12151C"/>
+            </linearGradient></defs>
+            <rect x="30" y="46" width="240" height="330" rx="10" fill="url(#cephe)"/>
+            <rect x="0" y="374" width="300" height="4" rx="2" fill="rgba(255,255,255,.10)"/>
+            <rect x="146" y="22" width="6" height="26" rx="3" fill="rgba(255,255,255,.18)"/>
+            <circle cx="149" cy="19" r="4.5" fill="#8E93FF"/>
+            <rect x="128" y="336" width="44" height="40" rx="4" fill="#0A0C11"/>
+            <rect x="134" y="344" width="14" height="24" rx="2" fill="#1B212C"/>
+            <rect x="152" y="344" width="14" height="24" rx="2" fill="#1B212C"/>
+            <g id="girisPencereler">
+              <rect class="pencere" x="54"  y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" x="129" y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" x="204" y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" x="54"  y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="129" y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="204" y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="54"  y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="129" y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="204" y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="54"  y="264" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="129" y="264" width="42" height="30" rx="4"/>
+              <rect class="pencere" x="204" y="264" width="42" height="30" rx="4"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="kaydir-ipucu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      Kaydırın
+    </div>
+  </section>
+
+  <!-- ═══ 2 · HİKÂYE (12 iç sayfa) ═══ -->
+  <section class="sayfa" data-ad="Sakinler ne diyor" data-hikaye="1">
+    <div class="ic">
+      <div class="sahne">
+        <div class="bina-sutun">
+        <div class="bina-kabi">
+          <svg class="bina" viewBox="0 0 300 400" aria-hidden="true">
+            <rect x="30" y="46" width="240" height="330" rx="10" fill="url(#cephe)"/>
+            <rect x="0" y="374" width="300" height="4" rx="2" fill="rgba(255,255,255,.10)"/>
+            <rect x="146" y="22" width="6" height="26" rx="3" fill="rgba(255,255,255,.18)"/>
+            <circle cx="149" cy="19" r="4.5" fill="#8E93FF"/>
+            <rect x="128" y="336" width="44" height="40" rx="4" fill="#0A0C11"/>
+            <rect x="134" y="344" width="14" height="24" rx="2" fill="#1B212C"/>
+            <rect x="152" y="344" width="14" height="24" rx="2" fill="#1B212C"/>
+            <g id="hikayePencereler">
+              <rect class="pencere" data-p="1"  x="54"  y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="2"  x="129" y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="3"  x="204" y="72"  width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="4"  x="54"  y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="5"  x="129" y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="6"  x="204" y="136" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="7"  x="54"  y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="8"  x="129" y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="9"  x="204" y="200" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="10" x="54"  y="264" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="11" x="129" y="264" width="42" height="30" rx="4"/>
+              <rect class="pencere" data-p="12" x="204" y="264" width="42" height="30" rx="4"/>
+            </g>
+          </svg>
+        </div>
+          <div class="sayac" id="sayac"></div>
+        </div>
+        <div class="sozler">
+          <div class="soz" id="soz">
+            <span class="isin"></span>
+            <div class="soz-ic" id="sozIc">
+              <span class="soz-no" id="sozNo"></span>
+              <p class="soz-metin" id="sozMetin"></p>
+              <div class="soz-kim"><s></s> <span id="sozKim"></span></div>
+              <span class="soz-rozet"><span id="sozSimge"></span><span id="sozAd"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · ÖZELLİKLER ═══ -->
+  <section class="sayfa" data-ad="Özellikler">
+    <div class="ic">
+      <div class="baslik gir">
+        <span class="etiket">Tek pakette</span>
+        <h2>Yöneticinin bütün işi, tek panelde</h2>
+        <p>Sakinin gördüğü sade uygulama ve yöneticinin kullandığı panel aynı veriyi paylaşır. Kimse aynı bilgiyi iki kere girmez.</p>
+      </div>
+      <div class="izgara gir">
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div><h3>Aidat ve borç</h3><p>Tahakkuk otomatik, gecikme ayrı. Herkes yalnızca kendi borcunu görür.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/></svg></div><div><h3>Gelir-gider ve kasa</h3><p>Toplanan, harcanan, kalan. Ay kapanışı ve yıllık rapor tek tuşla.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></div><div><h3>Duyurular</h3><p>Su kesintisi, bakım, toplantı çağrısı. Asansöre kâğıt asmadan.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 005.3 5.3l-8 8a2.8 2.8 0 01-4-4z"/></svg></div><div><h3>Arıza ve talep</h3><p>Fotoğrafla bildirilir, numara alır, durumu izlenir.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg></div><div><h3>Ziyaretçi defteri</h3><p>Siteye giren kişi, plaka ve saat kayıt altında.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><div><h3>Ortak alan rezervasyonu</h3><p>Spor salonu, toplantı odası, kort. Sakin uygun saati ayırtır.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div><h3>Anket ve oylama</h3><p>Kararları dijital toplayın, sonuç anında görünsün.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div><h3>Demirbaş ve bakım</h3><p>Asansör, jeneratör, hidrofor. Bakım tarihi yaklaşınca hatırlatır.</p></div></div>
+        <div class="hucre"><div class="hucre-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 4v6c0 5-3.4 7.6-8 9-4.6-1.4-8-4-8-9V7z"/></svg></div><div><h3>Yetki ve roller</h3><p>Yönetici, denetim, güvenlik, malik, kiracı. Herkes yetkisi kadarını görür.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · NASIL BAŞLANIR ═══ -->
+  <section class="sayfa" data-ad="Nasıl başlanır">
+    <div class="ic">
+      <div class="baslik gir">
+        <span class="etiket">Üç adım</span>
+        <h2>Bugün başlarsanız, bu akşam sakinler girebilir</h2>
+        <p>Kurulum sihirbazı blok ve daire sayısını sorar, düzeni sizin yerinize kurar. Elinizde Excel varsa toplu aktarırız.</p>
+      </div>
+      <div class="adimlar gir">
+        <div class="adim"><h3>Siteyi tanımlayın</h3><p>Blok ve daire sayısını girin. Tek apartmansanız blok sayısına 1 yazmanız yeterli; sistem daire listesini kendisi oluşturur.</p></div>
+        <div class="adim"><h3>Sakinleri davet edin</h3><p>Her daireye özel davet kodu üretilir. Sakin kodu girer, kendi dairesine bağlanır. Kodları WhatsApp grubundan toplu paylaşabilirsiniz.</p></div>
+        <div class="adim"><h3>Aidatı çalıştırın</h3><p>Aylık tutarı ve dağıtım şeklini belirleyin. Tahakkuk otomatik işlenir, borç ekranı ilk günden doğru çalışır.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · FİYAT ═══ -->
+  <section class="sayfa" data-ad="Fiyat">
+    <div class="ic">
+      <div class="baslik gir">
+        <span class="etiket">Fiyatlandırma</span>
+        <h2>Tek paket, gizli kalem yok</h2>
+        <p>Modül modül satmıyoruz. Ne varsa hepsi dahil. Yalnızca ödeme sıklığını seçiyorsunuz.</p>
+      </div>
+
+      <div class="fiyat-alan gir">
+        <div class="paketler">
+          <div class="paket">
+            <div class="paket-ad">Aylık ödeme</div>
+            <div class="paket-rakam"><b>50 ₺</b><span>+ KDV / daire / ay</span></div>
+            <div class="paket-not">+ KDV · Her ay faturalanır, istediğiniz zaman bırakabilirsiniz.</div>
+            <div class="paket-ornek">50 daireli site → aylık <b>2.500 ₺</b> + KDV</div>
+          </div>
+
+          <div class="paket one-cikan">
+            <span class="rozet">%30 indirimli</span>
+            <div class="paket-ad">Yıllık ödeme</div>
+            <div class="paket-rakam"><b>35 ₺</b><span>+ KDV / daire / ay</span></div>
+            <div class="paket-not">+ KDV · Yıllık toplu peşin faturalanır.</div>
+            <div class="paket-ornek">50 daireli site → yıllık <b>21.000 ₺</b> + KDV<br><span class="kazanc">Aylık ödemeye göre yılda 9.000 ₺ tasarruf</span></div>
+          </div>
+        </div>
+
+        <div class="paket-yan">
+          <div class="yan-baslik">İki pakette de aynısı var</div>
+          <ul class="dahil">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Sınırsız sakin hesabı</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Aidat ve borç takibi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Gelir-gider ve raporlar</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Duyuru ve bildirim</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Arıza ve talep yönetimi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Ziyaretçi defteri</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Anket ve oylama</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Ortak alan rezervasyonu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Demirbaş ve bakım takibi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Excel dışa/içe aktarım</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Otomatik yedekleme</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Kurulum ve eğitim desteği</li>
+          </ul>
+          <button class="dugme dugme-ana" style="margin-top:20px;width:100%" data-git="6">Sitenize özel teklif alın</button>
+          <p class="yan-not">Daire sayınıza göre net tutarı birlikte hesaplayalım. Kurulum ve eğitim ücretsiz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · SSS ═══ -->
+  <section class="sayfa" data-ad="Sık sorulanlar">
+    <div class="ic">
+      <div class="baslik gir">
+        <span class="etiket">Sık sorulanlar</span>
+        <h2>Yöneticilerin en çok sorduğu sorular</h2>
+      </div>
+      <div class="sss gir">
+        <details open><summary>Tek apartman için de kullanılabiliyor mu?</summary><p>Evet. Kurulumda blok sayısına 1 yazmanız yeterli. Sistem tek blokluk bir apartman düzeni kurar; site için var olan bütün özellikler aynı şekilde çalışır.</p></details>
+        <details><summary>Sakinler birbirinin borcunu görebiliyor mu?</summary><p>Hayır. Her sakin yalnızca kendi dairesine ait borç ve ödemeleri görür. Sitenin toplam gelir-gider özetini paylaşmak ise yöneticinin tercihindedir.</p></details>
+        <details><summary>Elimizdeki Excel listesini aktarabilir miyiz?</summary><p>Evet. Daire, sakin ve borç listelerinizi Excel olarak yükleyebilir, aynı şekilde bütün verinizi istediğiniz an Excel olarak indirebilirsiniz.</p></details>
+        <details><summary>Uygulama indirmek zorunda mıyız?</summary><p>Hayır, iki seçeneğiniz var. İsterseniz App Store veya Google Play’den indirirsiniz. İsterseniz hiç indirmeden, siteye girip “İndirmeden Kullan” düğmesine basarsınız — uygulama telefonunuzun veya bilgisayarınızın ana ekranına eklenir ve doğrudan açılır. İkinci yol, mağazayla uğraşmak istemeyen sakinler için son derece pratiktir.</p></details>
+        <details><summary>Yönetim değişince veriler ne oluyor?</summary><p>Hesap siteye aittir, kişiye değil. Yönetici değiştiğinde yetkiler devredilir; geçmiş kayıtlar, raporlar ve belgeler yerinde kalır.</p></details>
+        <details><summary>Kiracı ile ev sahibinin borcu ayrılıyor mu?</summary><p>Evet. Aidat ve ortak gider kiracıya, demirbaş ve büyük onarım payı malike yazılabilir. İkisi de yalnızca kendi borcunu görür.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · İLETİŞİM ═══ -->
+  <section class="sayfa" data-ad="Demo ve iletişim">
+    <div class="ic">
+      <div class="iletisim">
+        <div class="gir">
+          <span class="etiket">Demo ve randevu</span>
+          <h2 style="font-size:clamp(24px,3vw,36px)">Sitenizi 20 dakikada birlikte kuralım</h2>
+          <p style="margin-top:14px;color:var(--metin-ac);font-size:15.5px">Formu doldurun, size uygun saatte arayalım. Ekran paylaşarak sitenizin gerçek daire listesiyle demo hesabı açıyoruz — anlatmak yerine gösteriyoruz.</p>
+          <div class="yollar">
+            <a class="yol wa" href="https://wa.me/905396068442?text=Merhaba%2C%20Ortak%20Alan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">
+              <span class="yol-simge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg></span>
+              <span><b>WhatsApp'tan yazın</b><span>Mesai saatleri içinde hızlı yanıt</span></span>
+            </a>
+            <a class="yol" href="tel:+905396068442">
+              <span class="yol-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.4 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></span>
+              <span><b>0 (539) 606 84 42</b><span>Hafta içi 09:00 – 18:00</span></span>
+            </a>
+            <a class="yol" href="mailto:info@konutpanel.com">
+              <span class="yol-simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></span>
+              <span><b>info@konutpanel.com</b><span>Teklif ve iş birliği</span></span>
+            </a>
+          </div>
+        </div>
+
+        <form class="form gir" id="demoForm" name="demo-talebi" novalidate>
+          <p class="gizli"><label>Boş bırakın <input id="botAlani" name="bot-alani" tabindex="-1" autocomplete="off"></label></p>
+          <div class="ikili">
+            <div class="alan"><label for="ad">Ad soyad</label><input id="ad" name="ad" type="text" required autocomplete="name" placeholder="Adınız soyadınız"></div>
+            <div class="alan"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" required autocomplete="tel" placeholder="0 5__ ___ __ __"></div>
+          </div>
+          <div class="alan"><label for="eposta">E-posta</label><input id="eposta" name="eposta" type="email" required autocomplete="email" placeholder="ornek@eposta.com"></div>
+          <div class="ikili">
+            <div class="alan"><label for="site">Site / apartman adı</label><input id="site" name="site" type="text" placeholder="Örn. Papatya Konakları"></div>
+            <div class="alan"><label for="daire">Daire sayısı</label>
+              <select id="daire" name="daire"><option>1 – 25 daire</option><option>26 – 75 daire</option><option>76 – 200 daire</option><option>200 daireden fazla</option></select>
+            </div>
+          </div>
+          <div class="alan"><label for="gorusme">Ne zaman arayalım?</label>
+            <select id="gorusme" name="gorusme"><option>En kısa sürede</option><option>Hafta içi sabah (09:00 – 12:00)</option><option>Hafta içi öğleden sonra (13:00 – 18:00)</option><option>Akşam (18:00 sonrası)</option></select>
+          </div>
+          <div class="alan"><label for="mesaj">Eklemek istedikleriniz</label><textarea id="mesaj" name="mesaj" placeholder="Şu an aidat takibini nasıl yapıyorsunuz?"></textarea></div>
+          <label class="onay"><input type="checkbox" name="kvkk" id="dkvkk" required><span>Talebimin değerlendirilmesi ve benimle iletişime geçilmesi amacıyla verdiğim bilgilerin işlenmesini kabul ediyorum. <a href="kvkk.html" target="_blank">Aydınlatma metni</a></span></label>
+          <label class="onay"><input type="checkbox" name="ticari" id="dticari"><span>Ürün duyuruları ve kampanyalar hakkında <b>ticari elektronik ileti</b> almak istiyorum. <span style="opacity:.7">(isteğe bağlı)</span></span></label>
+          <button type="submit" class="dugme dugme-ana" id="demoBtn">Demo talebi gönderin</button>
+          <p id="demoMsg" style="margin-top:12px;font-size:14px;display:none"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · HAKKIMIZDA ═══ -->
+  <section class="sayfa" data-ad="Hakkımızda">
+    <div class="ic">
+      <div class="hakkinda">
+        <div class="gir">
+          <span class="etiket">Hakkımızda</span>
+          <h2 style="font-size:clamp(24px,3.2vw,38px)">Site yönetimini kâğıttan kurtarmak için kurduk</h2>
+        </div>
+        <div class="gir">
+          <p>Konut Panel, apartman ve site yönetimlerinin gündelik işini tek bir yerde toplamak için geliştirildi. Aidat defterinin, dağınık Excel dosyalarının ve kimsenin okumadığı WhatsApp gruplarının yerini alan sade bir sistem kurmak istedik.</p>
+          <p>Ürünü sahadan gelen geri bildirimlerle geliştiriyoruz: gerçek yöneticilerle konuşuyor, gerçek sitelerde deniyor ve isteneni ekliyoruz. Bir özelliğin var olması bizim için yeterli değil; yaşı ne olursa olsun her sakinin kullanabilmesi gerekiyor.</p>
+          <p>Yazılım Türkiye'de geliştirildi, arayüzü tamamen Türkçe ve Kat Mülkiyeti Kanunu'nun işleyişine göre kurgulandı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9 · KAPANIŞ ═══ -->
+  <section class="sayfa" data-ad="Başlayın">
+    <div class="ic">
+      <div class="kapanis">
+        <h2 class="gir">Sitenizin ışıklarını yakalım</h2>
+        <p class="gir">Demo hesabınızı bugün açalım, ilk aidat dönemini birlikte kuralım.</p>
+        <div class="kapanis-dugmeler gir">
+          <button class="dugme dugme-ana" data-git="6">Demo isteyin</button>
+          <a href="/uygulama" class="dugme dugme-cizgi">Uygulamaya girin</a>
+        </div>
+        <div class="sosyal gir">
+          <a href="#" aria-label="Instagram" title="Instagram — yakında"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook" title="Facebook — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21h-4z"/></svg></a>
+          <a href="#" aria-label="TikTok" title="TikTok — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3h-2.9v12.1a2.6 2.6 0 11-2.1-2.55V9.6a5.6 5.6 0 105.1 5.57V9.05a6.7 6.7 0 003.9 1.25V7.35a3.85 3.85 0 01-3.9-3.85z"/></svg></a>
+          <a href="#" aria-label="X" title="X — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3h3.3l-7.2 8.2L22 21h-6.6l-4.3-5.6L6 21H2.7l7.7-8.8L2.4 3H9l3.9 5.2zm-1.2 16h1.8L7.7 4.8H5.8z"/></svg></a>
+        </div>
+        <div class="kurulum-yollari gir">
+          <div class="ky-baslik">Telefonunuza iki türlü alabilirsiniz</div>
+          <div class="magaza">
+            <a href="#" title="App Store — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.5zM14.2 5.3c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.9-1.3z"/></svg><span><i>Yakında</i><b>App Store</b></span></a>
+            <a href="#" title="Google Play — yakında"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2zM16.5 15.2l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1zM15.6 16.1L12.4 13l-9.3 9.3c.3.3.9.4 1.5 0l11-6.2M15.6 7.9L4.6 1.7c-.6-.3-1.2-.3-1.5 0L12.4 11z"/></svg><span><i>Yakında</i><b>Google Play</b></span></a>
+            <button type="button" class="ky-kur" id="kurBtn2" title="Uygulamayı indirmeden doğrudan cihazınıza kurun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3"/></svg><span><i>PWA Kurulumu</i><b>İndirmeden Kullan</b></span></button>
+          </div>
+          <p class="ky-not">Mağazadan indirmek istemiyorsanız “İndirmeden Kullan” yeterli. Tarayıcınız onay soracak, evet demeniz kâfi — uygulama doğrudan ana ekranınıza kurulur.</p>
+        </div>
+        <nav class="yasal gir" style="border-top:0;padding-top:0;margin-bottom:12px">
+          <a href="/site-yonetim-programi">Site yönetim programı</a>
+          <a href="/apartman-yonetim-programi">Apartman yönetim programı</a>
+          <a href="/aidat-takip-programi">Aidat takip programı</a>
+        </nav>
+        <nav class="yasal gir" style="border-top:0;padding-bottom:14px">
+          <a href="/site-yonetim-programi">Site yönetim programı</a>
+          <a href="/apartman-yonetim-programi">Apartman yönetim programı</a>
+          <a href="/aidat-takip-programi">Aidat takip programı</a>
+        </nav>
+        <nav class="yasal gir">
+          <a href="/blog">Blog</a>
+          <a href="kullanim-kosullari.html">Kullanım koşulları</a>
+          <a href="gizlilik.html">Gizlilik politikası</a>
+          <a href="kvkk.html">KVKK aydınlatma metni</a>
+          <a href="veri-isleyen-sozlesmesi.html">Veri işleyen sözleşmesi</a>
+          <a href="mailto:info@konutpanel.com">İletişim</a>
+        </nav>
+        <p class="telif gir">© <span id="yil">2026</span> Konut Panel. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a class="wa-balon" href="https://wa.me/905396068442?text=Merhaba%2C%20Ortak%20Alan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<div class="cerez" id="cerez" role="dialog" aria-label="Çerez bildirimi">
+  <span>Deneyimi iyileştirmek için çerez kullanıyoruz. Ayrıntılar <a href="gizlilik.html">gizlilik politikamızda</a>.</span>
+  <button class="dugme dugme-ana" id="cerezTamam">Tamam</button>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var SIMGE = {
+  aidat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>',
+  ziyaret:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg>',
+  ariza:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 005.3 5.3l-8 8a2.8 2.8 0 01-4-4z"/></svg>',
+  kasa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/></svg>',
+  duyuru:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>',
+  oylama:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
+  rezerve:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  kiraci:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>',
+  rapor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>',
+  arsiv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 8v13H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><path d="M10 12h4"/></svg>',
+  belge:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h6l2 3h8v12a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>',
+  kurulum:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>'
+};
+
+/* p = pencere no, sat = satır (yazının dikey hizası) */
+var ADIMLAR = [
+  {p:8,  sat:3, no:'Daire 8 — 3. kat',        kim:'Sakin',                ad:'Aidat ödeme ve makbuz',   s:'aidat',   metin:'“Aidatı tek tıkla ödedim, makbuz anında telefonuma düştü. Ne dekont fotoğrafı gönderdim ne de kapı çaldım.”'},
+  {p:5,  sat:2, no:'Daire 5 — 2. kat',        kim:'Sakin',                ad:'Ziyaretçi defteri',       s:'ziyaret', metin:'“Online ziyaretçi defteri sayesinde siteye kimin girdiğini görebiliyorum. Plakası, saati, hangi daireye geldiği kayıtlı.”'},
+  {p:11, sat:4, no:'Daire 11 — 4. kat',       kim:'Sakin',                ad:'Arıza ve talep takibi',   s:'ariza',   metin:'“Otoparktaki kırık lambayı fotoğrafla bildirdim. Talebim numara aldı, iki gün sonra çözüldü bildirimi geldi.”'},
+  {p:2,  sat:1, no:'Daire 2 — 1. kat',        kim:'Kat maliki',           ad:'Gelir-gider şeffaflığı',  s:'kasa',    metin:'“Sitenin kasasında ne var, para nereye harcanmış — hepsi açık. Artık yıl sonu toplantısında kimse tartışmıyor.”'},
+  {p:9,  sat:3, no:'Daire 9 — 3. kat',        kim:'Sakin',                ad:'Duyuru ve bildirim',      s:'duyuru',  metin:'“Asansör bakımı duyurusu bildirim olarak geldi. Asansöre yapıştırılan kâğıdı görmediğim için mağdur olmadım.”'},
+  {p:6,  sat:2, no:'Daire 6 — 2. kat',        kim:'Sakin',                ad:'Anket ve oylama',         s:'oylama',  metin:'“Havuz saatleri için oylama açıldı, telefondan oy verdim. Kimse toplantı için akşamını ayırmak zorunda kalmadı.”'},
+  {p:12, sat:4, no:'Daire 12 — 4. kat',       kim:'Sakin',                ad:'Ortak alan rezervasyonu', s:'rezerve', metin:'“Spor salonunu cumartesi sabahına telefondan ayırttım. Kapıda kimseyle sıra tartışması yaşamıyoruz.”'},
+  {p:3,  sat:1, no:'Daire 3 — 1. kat',        kim:'Kiracı',               ad:'Kiracı ve malik ayrımı',  s:'kiraci',  metin:'“Aidatı ben ödüyorum, demirbaş payını ev sahibim. Sistem ikisini ayrı tutuyor, kimse kimseye borçlu kalmıyor.”'},
+  {p:7,  sat:3, no:'Daire 7 — Yönetim odası', kim:'Site yöneticisi',      ad:'Yönetici raporları',      s:'rapor',   metin:'“Ay sonu raporunu tek tuşla aldım. Kim ne kadar borçlu, hangi gider hangi kaleme girmiş — dosya hazır.”'},
+  {p:4,  sat:2, no:'Daire 4 — 2. kat',        kim:'Denetim kurulu üyesi', ad:'Yönetim devri ve arşiv',  s:'arsiv',   metin:'“Yönetim değişti ama hiçbir kayıt kaybolmadı. Yeni yönetici aynı sisteme girdi, geçmiş olduğu gibi duruyor.”'},
+  {p:10, sat:4, no:'Daire 10 — 4. kat',       kim:'Kat maliki',           ad:'Belge arşivi',            s:'belge',   metin:'“Yönetim planı, sigorta poliçesi, asansör raporu… Hepsi belgeler bölümünde. Aradığımda buluyorum.”'},
+  {p:1,  sat:1, no:'Daire 1 — 1. kat',        kim:'Sakin',                ad:'İki türlü kurulum',       s:'kurulum', metin:'“Uygulama mağazasından indirmeyi bilmiyordum. Yöneticinin gönderdiği linke tıkladım, telefon sordu, evet dedim; ana ekranıma eklendi.”'}
+];
+window.ADIMLAR = ADIMLAR;
+
+/* pencere satırlarının bina yüksekliğine göre dikey merkezleri */
+var SATIR_ORAN = {1:0.2175, 2:0.3775, 3:0.5375, 4:0.6975};
+
+/* Yazıyı yanan pencerenin hizasına taşır; ama kutunun dışına taşacaksa
+   içeride kalacak en yakın noktaya sabitler. Böylece hiçbir ekranda
+   yazının üstü ya da altı kesilmez. */
+function sozHizala(satir){
+  var kutu = document.querySelector('.sozler');
+  if(!kutu || window.innerWidth <= 860){ sozEl.style.top=''; sozEl.style.transform=''; return; }
+  var kutuY = kutu.clientHeight;
+  var yaziY = sozEl.offsetHeight;
+  var pay   = 6;
+  var hedef = kutuY * SATIR_ORAN[satir];
+  var enAz  = yaziY/2 + pay;
+  var enCok = kutuY - yaziY/2 - pay;
+  if(enAz > enCok) hedef = kutuY/2;                 /* yazı kutudan uzunsa ortala */
+  else hedef = Math.min(Math.max(hedef, enAz), enCok);
+  sozEl.style.top = Math.round(hedef) + 'px';
+  sozEl.style.transform = 'translateY(-50%)';
+}
+
+var sayfalar = Array.prototype.slice.call(document.querySelectorAll('.sayfa'));
+var HIKAYE = 1;
+for(var k=0;k<sayfalar.length;k++){ if(sayfalar[k].hasAttribute('data-hikaye')){ HIKAYE = k; break; } }
+
+var aktif = 0, adim = 0;
+var azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nokta gezinme */
+var noktaKabi = document.getElementById('noktalar');
+sayfalar.forEach(function(s,i){
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.setAttribute('aria-label', s.getAttribute('data-ad') || ('Sayfa '+(i+1)));
+  b.title = s.getAttribute('data-ad') || '';
+  b.addEventListener('click', function(){ sayfayaGit(i); });
+  noktaKabi.appendChild(b);
+});
+var noktalar = Array.prototype.slice.call(noktaKabi.children);
+
+var sozEl   = document.getElementById('soz');
+var sozIcEl = document.getElementById('sozIc');
+var sayacEl = document.getElementById('sayac');
+
+function ikiHane(n){ return n < 10 ? '0'+n : ''+n; }
+
+/* bütün pencereleri söndür — slayta her girişte sıfırdan başlasın */
+function pencereleriSondur(){
+  var hepsi = document.querySelectorAll('#hikayePencereler .pencere');
+  for(var i=0;i<hepsi.length;i++) hepsi[i].classList.remove('yanik','odak');
+}
+/* o adıma kadar olan pencereleri yakar (geri sarma için) */
+function pencereleriKadar(n){
+  pencereleriSondur();
+  for(var i=0;i<=n && i<ADIMLAR.length;i++){
+    var q = document.querySelector('#hikayePencereler .pencere[data-p="'+ADIMLAR[i].p+'"]');
+    if(q) q.classList.add('yanik');
+  }
+}
+
+var yakGecikme;
+function adimGoster(i, animasyonlu){
+  var a = ADIMLAR[i];
+  var eski = document.querySelectorAll('#hikayePencereler .odak');
+  for(var j=0;j<eski.length;j++) eski[j].classList.remove('odak');
+  var pen = document.querySelector('#hikayePencereler .pencere[data-p="'+a.p+'"]');
+  clearTimeout(yakGecikme);
+  if(pen){
+    if(animasyonlu || azHareket){
+      pen.classList.add('yanik'); pen.classList.add('odak');
+    } else {
+      /* slayta ilk girişte: önce sönük dursun, göz görsün diye kısa gecikmeyle yansın */
+      yakGecikme = setTimeout(function(){
+        pen.classList.add('yanik'); pen.classList.add('odak');
+      }, 420);
+    }
+  }
+
+  sozHizala(a.sat);
+
+  function yaz(){
+    document.getElementById('sozNo').textContent    = a.no;
+    document.getElementById('sozMetin').textContent = a.metin;
+    document.getElementById('sozKim').textContent   = a.kim;
+    document.getElementById('sozAd').textContent    = a.ad;
+    document.getElementById('sozSimge').innerHTML   = SIMGE[a.s] || '';
+    sayacEl.textContent = ikiHane(i+1) + ' / 12 daire aydınlandı';
+  }
+
+  if(animasyonlu && !azHareket){
+    sozIcEl.classList.add('degisiyor');
+    setTimeout(function(){ yaz(); sozIcEl.classList.remove('degisiyor'); }, 190);
+  } else { yaz(); requestAnimationFrame(function(){ sozHizala(a.sat); }); }
+}
+window.KP_adimGoster = adimGoster;
+window.KP_getAdim = function(){ return adim; };
+
+function sayfayaGit(i, adimNo){
+  i = Math.max(0, Math.min(sayfalar.length-1, i));
+  sayfalar.forEach(function(s,j){
+    s.classList.toggle('aktif', j===i);
+    s.classList.toggle('gecti', j<i);
+  });
+  noktalar.forEach(function(b,j){ b.classList.toggle('aktif', j===i); });
+  aktif = i;
+  if(i === HIKAYE){
+    adim = (typeof adimNo === 'number') ? adimNo : 0;
+    if(adim === 0) pencereleriSondur();      /* baştan giriliyor: bina karanlık */
+    else pencereleriKadar(adim - 1);          /* geri dönülüyor: öncekiler yanık */
+    adimGoster(adim, false);
+  }
+  ilerlemeGuncelle();
+  tasmaKontrol();
+}
+
+/* içerik ekrana sığmıyorsa alta solma ekle */
+function tasmaKontrol(){
+  var s = sayfalar[aktif], ic = s.querySelector('.ic');
+  if(!ic) return;
+  requestAnimationFrame(function(){
+    s.classList.toggle('tasan', ic.scrollHeight - ic.clientHeight > 8);
+  });
+}
+
+function ilerlemeGuncelle(){
+  var toplam = sayfalar.length - 1 + ADIMLAR.length - 1;
+  var yer = aktif > HIKAYE ? (aktif + ADIMLAR.length - 1)
+          : (aktif === HIKAYE ? aktif + adim : aktif);
+  document.getElementById('ilerleme').style.width = Math.round(yer / toplam * 100) + '%';
+}
+
+function ilerle(yon){
+  if(aktif === HIKAYE){
+    if(yon > 0 && adim < ADIMLAR.length-1){
+      adim++; adimGoster(adim,true); ilerlemeGuncelle(); return;
+    }
+    if(yon < 0 && adim > 0){
+      adim--;
+      /* Geri kaydırırken sonraki adımların ışıkları sönsün.
+         pencereleriKadar önce hepsini söndürür, sonra bu adıma
+         kadar olanları yakar — yani ileri gidiş tam tersine döner. */
+      pencereleriKadar(adim);
+      adimGoster(adim,true);
+      ilerlemeGuncelle(); return;
+    }
+  }
+  var hedef = aktif + yon;
+  if(hedef < 0 || hedef > sayfalar.length-1) return;
+  if(hedef === HIKAYE) sayfayaGit(hedef, yon > 0 ? 0 : ADIMLAR.length-1);
+  else sayfayaGit(hedef);
+}
+
+/* uzun içerik kendi içinde kaysın (form, SSS) */
+function icKaydirilirMi(hedef, yon){
+  var el = hedef;
+  while(el && el !== document.body){
+    if(el.classList && el.classList.contains('ic')){
+      var tasma = el.scrollHeight - el.clientHeight;
+      if(tasma > 6){
+        if(yon > 0 && el.scrollTop < tasma - 2) return true;
+        if(yon < 0 && el.scrollTop > 2) return true;
+      }
+      return false;
+    }
+    el = el.parentNode;
+  }
+  return false;
+}
+
+/* ——— tek kaydırma = tek sayfa ——— */
+var kilit = false, zaman;
+document.addEventListener('wheel', function(e){
+  if(Math.abs(e.deltaY) < 2) return;
+  var yon = e.deltaY > 0 ? 1 : -1;
+  if(icKaydirilirMi(e.target, yon)) return;
+  e.preventDefault();
+  clearTimeout(zaman);
+  zaman = setTimeout(function(){ kilit = false; }, 300);
+  if(kilit) return;
+  kilit = true;
+  ilerle(yon);
+}, {passive:false});
+
+document.addEventListener('keydown', function(e){
+  if(/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); ilerle(1); }
+  else if(e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); ilerle(-1); }
+  else if(e.key==='Home'){ e.preventDefault(); sayfayaGit(0);
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(function(){ if(aktif===HIKAYE) adimGoster(adim,true); });
+} }
+  else if(e.key==='End'){ e.preventDefault(); sayfayaGit(sayfalar.length-1); }
+});
+
+var basY = 0, basHedef = null;
+document.addEventListener('touchstart', function(e){
+  basY = e.touches[0].clientY; basHedef = e.target;
+}, {passive:true});
+document.addEventListener('touchend', function(e){
+  var fark = basY - e.changedTouches[0].clientY;
+  if(Math.abs(fark) < 45) return;
+  var yon = fark > 0 ? 1 : -1;
+  if(icKaydirilirMi(basHedef, yon)) return;
+  ilerle(yon);
+}, {passive:true});
+
+var atlayanlar = document.querySelectorAll('[data-git]');
+for(var d=0; d<atlayanlar.length; d++){
+  (function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      sayfayaGit(parseInt(el.getAttribute('data-git'),10));
+    });
+  })(atlayanlar[d]);
+}
+
+document.getElementById('yil').textContent = new Date().getFullYear();
+sayfayaGit(0);
+
+var girisPen = Array.prototype.slice.call(document.querySelectorAll('#girisPencereler .pencere'));
+if(azHareket){ girisPen.forEach(function(p){ p.classList.add('yanik'); }); }
+else {
+  girisPen.sort(function(){ return Math.random()-.5; });
+  girisPen.forEach(function(p,i){ setTimeout(function(){ p.classList.add('yanik'); }, 420 + i*110); });
+}
+
+/* ═══════════ DEMO TALEBİ ═══════════
+   Form doğrudan Supabase'e yazar. Anahtar tarayıcıda görünür ama
+   demo_talep_olustur fonksiyonu yalnızca kayıt ekleyebilir; tabloyu
+   okuyamaz. Aynı telefondan 10 dakikada bir talep kabul edilir. */
+(function demoFormu(){
+  var f=document.getElementById("demoForm");
+  if(!f) return;
+  var btn=document.getElementById("demoBtn");
+  var msg=document.getElementById("demoMsg");
+
+  function goster(metin,hata){
+    msg.textContent=metin;
+    msg.style.color=hata?"#FF8A8A":"#7BE3C0";
+    msg.style.display="block";
+  }
+
+  f.addEventListener("submit", async function(e){
+    e.preventDefault();
+    if(document.getElementById("botAlani").value) return;      // bot tuzağı
+
+    var ad=document.getElementById("ad").value.trim();
+    var tel=document.getElementById("telefon").value.trim();
+    var eposta=document.getElementById("eposta").value.trim();
+    if(ad.length<2)  return goster("Ad soyad girin.",true);
+    if(tel.replace(/[^0-9]/g,"").length<10) return goster("Geçerli bir telefon girin.",true);
+    if(!document.querySelector('input[name="kvkk"]').checked)
+      return goster("Devam etmek için onay kutusunu işaretleyin.",true);
+
+    btn.disabled=true; var eski=btn.textContent; btn.textContent="Gönderiliyor…";
+    try{
+      var CFG=window.KONUT_PANEL_CONFIG||{};
+      if(!CFG.SUPABASE_URL || !CFG.SUPABASE_ANON_KEY){
+        throw new Error("Sunucu ayarları yüklenemedi");
+      }
+      var y=await fetch(CFG.SUPABASE_URL+"/rest/v1/rpc/demo_talep_olustur",{
+        method:"POST",
+        headers:{ "Content-Type":"application/json",
+                  apikey:CFG.SUPABASE_ANON_KEY,
+                  Authorization:"Bearer "+CFG.SUPABASE_ANON_KEY },
+        body:JSON.stringify({
+          p_ad:ad, p_telefon:tel, p_eposta:eposta||null,
+          p_site_adi:document.getElementById("site").value.trim()||null,
+          p_daire_araligi:document.getElementById("daire").value,
+          p_gorusme:document.getElementById("gorusme").value,
+          p_mesaj:(document.getElementById("dticari").checked?"[Ticari ileti izni verildi] ":"")+(document.getElementById("mesaj").value.trim()||"") || null })
+      });
+      if(!y.ok){
+        var h=await y.json().catch(function(){return {};});
+        /* Teşhis için ayrıntıyı konsola bas — kullanıcıya sade mesaj göster */
+        console.error("Demo talebi hatası:", y.status, h);
+        if(y.status===404){
+          throw new Error("Sistem henüz hazır değil");
+        }
+        throw new Error(h.message || h.hint || ("Gönderilemedi ("+y.status+")"));
+      }
+      f.reset();
+      goster("Talebiniz alındı. En kısa sürede sizi arayacağız.",false);
+      btn.textContent="Gönderildi ✓";
+      return;
+    }catch(err){
+      goster((err.message||"Bir sorun oluştu")+" — dilerseniz 0539 606 8442 numarasından ulaşabilirsiniz.",true);
+      btn.disabled=false; btn.textContent=eski;
+    }
+  });
+})();
+
+var cerez = document.getElementById('cerez'), kabul = false;
+try { kabul = localStorage.getItem('kp-cerez')==='1'; } catch(err){}
+if(!kabul) setTimeout(function(){ cerez.classList.add('goster'); }, 2200);
+document.getElementById('cerezTamam').addEventListener('click', function(){
+  cerez.classList.remove('goster');
+  try { localStorage.setItem('kp-cerez','1'); } catch(err){}
+});
+
+window.addEventListener('resize', function(){
+  if(aktif===HIKAYE){ pencereleriKadar(adim); adimGoster(adim,true); }
+  tasmaKontrol();
+});
+
+})();
+</script>
+</body>
+</html>

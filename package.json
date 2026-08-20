@@ -1,0 +1,18 @@
+{
+  "name": "konutpanel",
+  "version": "1.0.0",
+  "description": "Site ve apartman yönetim programı — aidat, kasa ve arıza takibi",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Build complete')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "jszip": "^3.10.1",
+    "resend": "^6.20.0",
+    "sharp": "^0.35.3"
+  }
+}
