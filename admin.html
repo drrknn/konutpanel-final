@@ -243,45 +243,7 @@ main{max-width:1080px;margin:0 auto;padding:24px 22px 60px}
         <div class="adm-ripple r1"></div>
         <div class="adm-ripple r2"></div>
         <div class="adm-logo-box">
-          <svg width="52" height="52" viewBox="0 0 48 48" fill="none" style="border-radius:14px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.55))">
-            <defs>
-              <linearGradient id="admLGSplash" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#4F46E5"/>
-                <stop offset="50%" stop-color="#4338CA"/>
-                <stop offset="100%" stop-color="#1E1B4B"/>
-              </linearGradient>
-              <linearGradient id="admTLSplash" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="100%" stop-color="#C7D2FE"/>
-              </linearGradient>
-              <linearGradient id="admTRSplash" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#E0E7FF"/>
-                <stop offset="100%" stop-color="#A5B4FC"/>
-              </linearGradient>
-            </defs>
-            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#admLGSplash)"/>
-            <rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
-            <path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#admTLSplash)"/>
-            <path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
-            <rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="15.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="18.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#admTRSplash)"/>
-            <path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
-            <rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="27.2" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="30.5" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-            <rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
-            <rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
-            <circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
-            <path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
-          </svg>
+          <img src="/icons/icon-192.png" width="56" height="56" alt="Konut Panel" style="border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.55);display:block">
         </div>
       </div>
 
@@ -425,46 +387,8 @@ async function rpc(n,a={}){const{data,error}=await sb.rpc(n,a);if(error)throw er
 function modal(inner){const host=$("#modalHost");host.innerHTML=`<div class="modal-bg"><div class="modal">${inner}</div></div>`;const bg=host.querySelector(".modal-bg");bg.onclick=e=>{if(e.target===bg)host.innerHTML="";};return host.querySelector(".modal");}
 function closeModal(){$("#modalHost").innerHTML="";}
 
-/* ================= logo (ana sayfayla birebir aynı — satır içi SVG) ================= */
-const LOGO=(s)=>`<svg width="${s}" height="${s}" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Konut Panel" style="display:block;flex:0 0 auto">
-<defs>
-  <linearGradient id="admLG" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
-    <stop offset="0%" stop-color="#4F46E5"/>
-    <stop offset="50%" stop-color="#4338CA"/>
-    <stop offset="100%" stop-color="#1E1B4B"/>
-  </linearGradient>
-  <linearGradient id="admTLeft" x1="12" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse">
-    <stop offset="0%" stop-color="#FFFFFF"/>
-    <stop offset="100%" stop-color="#C7D2FE"/>
-  </linearGradient>
-  <linearGradient id="admTRight" x1="26" y1="18" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-    <stop offset="0%" stop-color="#E0E7FF"/>
-    <stop offset="100%" stop-color="#A5B4FC"/>
-  </linearGradient>
-</defs>
-<rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#admLG)"/>
-<rect x="2" y="2" width="44" height="44" rx="11.5" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1"/>
-<path d="M13 35V16C13 15.2 13.6 14.5 14.4 14.5H21.6C22.4 14.5 23 15.2 23 16V35H13Z" fill="url(#admTLeft)"/>
-<path d="M13 16L23 12V14.5L13 16Z" fill="#FFFFFF"/>
-<rect x="15.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="18.5" y="17.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="15.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="18.5" y="20.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="15.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="18.5" y="23.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="15.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="18.5" y="26.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<path d="M25 35V21C25 20.2 25.6 19.5 26.4 19.5H33.6C34.4 19.5 35 20.2 35 21V35H25Z" fill="url(#admTRight)"/>
-<path d="M25 21L35 17.5V19.5L25 21Z" fill="#FFFFFF"/>
-<rect x="27.2" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="30.5" y="22.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="27.2" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="30.5" y="25.5" width="2.2" height="1.4" rx=".4" fill="#4338CA"/>
-<rect x="21.5" y="29" width="5" height="3" rx=".8" fill="#38BDF8"/>
-<rect x="11.5" y="34" width="25" height="2.5" rx=".8" fill="#FFFFFF"/>
-<circle cx="24" cy="11.5" r="1.8" fill="#FCD34D"/>
-<path d="M24 9V9.8M24 13.2V14M21.5 11.5H22.3M25.7 11.5H26.5" stroke="#FCD34D" stroke-width=".6" stroke-linecap="round"/>
-</svg>`;
+/* ================= logo (Konut Panel Yeni 3D Logo) ================= */
+const LOGO=(s)=>`<img src="/icons/icon-192.png" width="${s}" height="${s}" alt="Konut Panel" style="border-radius:10px;object-fit:cover;flex:0 0 auto;display:block">`;
 
 /* ================= CSV: kurulum bilgileri dışa/içe aktarım (yalnız süper-admin) =================
    Sütunlar: site_id (anahtar, salt-okunur), ad, adres, aidat_tutari, iban, iban_sahibi,

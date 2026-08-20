@@ -119,6 +119,10 @@
       nav_demo: "Demo isteyin",
       nav_demo_kisa: "Demo",
       nav_anasayfa: "Ana sayfa",
+      theme_title: "Tema",
+      theme_toggle: "Temayı değiştir",
+      theme_dark: "Koyu tema",
+      theme_light: "Açık tema",
 
       hero_etiket: "Site ve apartman yönetim programı",
       hero_h1_em: "Aidat kovalamayı",
@@ -224,6 +228,10 @@
       nav_demo: "Request Demo",
       nav_demo_kisa: "Demo",
       nav_anasayfa: "Home",
+      theme_title: "Theme",
+      theme_toggle: "Toggle theme",
+      theme_dark: "Dark theme",
+      theme_light: "Light theme",
 
       hero_etiket: "Property & HOA Management Software",
       hero_h1_em: "Stop chasing",
@@ -329,6 +337,10 @@
       nav_demo: "Запросить демо",
       nav_demo_kisa: "Демо",
       nav_anasayfa: "Главная",
+      theme_title: "Тема",
+      theme_toggle: "Сменить тему",
+      theme_dark: "Тёмная тема",
+      theme_light: "Светлая тема",
 
       hero_etiket: "Программа для управления домами и ЖК",
       hero_h1_em: "Забудьте о погоне",
@@ -434,6 +446,10 @@
       nav_demo: "Demo anfordern",
       nav_demo_kisa: "Demo",
       nav_anasayfa: "Startseite",
+      theme_title: "Design",
+      theme_toggle: "Design wechseln",
+      theme_dark: "Dunkles Design",
+      theme_light: "Helles Design",
 
       hero_etiket: "Software für Haus- und Liegenschaftsverwaltung",
       hero_h1_em: "Schluss mit dem",
@@ -628,6 +644,15 @@
       } else {
         demoUstBtn.textContent = d.nav_demo;
       }
+    }
+
+    const temaBtn = document.getElementById('temaBtn');
+    if (temaBtn) {
+      temaBtn.setAttribute('aria-label', d.theme_toggle || 'Temayı değiştir');
+      const isDark = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark';
+      temaBtn.setAttribute('title', isDark ? (d.theme_light || 'Açık tema') : (d.theme_dark || 'Koyu tema'));
+      const tYazi = temaBtn.querySelector('.tema-yazi');
+      if (tYazi) tYazi.textContent = d.theme_title || 'Tema';
     }
 
     // Hero Section
@@ -911,9 +936,9 @@
 
     container.innerHTML = `
       <button type="button" class="kp-lang-btn" id="kpLangBtn" aria-label="Select Language / Dil Seçimi" style="
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        color: #E9ECF2;
+        background: var(--gece-2, #12151C);
+        border: 1px solid var(--cizgi, #232A36);
+        color: var(--metin-ac, #E9ECF2);
         padding: 6px 10px;
         border-radius: 9px;
         font-family: inherit;
@@ -936,11 +961,11 @@
         top: calc(100% + 6px);
         right: 0;
         min-width: 144px;
-        background: #141822;
-        border: 1px solid #283040;
+        background: var(--gece-2, #141822);
+        border: 1px solid var(--cizgi, #283040);
         border-radius: 12px;
         padding: 6px;
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        box-shadow: var(--golge, 0 16px 36px rgba(0, 0, 0, 0.65));
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       ">
@@ -951,9 +976,9 @@
             <button type="button" class="kp-lang-item" data-lang="${code}" style="
               width: 100%;
               text-align: left;
-              background: ${isSelected ? 'rgba(124, 92, 255, 0.18)' : 'transparent'};
-              border: 1px solid ${isSelected ? 'rgba(124, 92, 255, 0.35)' : 'transparent'};
-              color: ${isSelected ? '#A58EFF' : '#D0D6E2'};
+              background: ${isSelected ? 'var(--marka-soft, rgba(124, 92, 255, 0.18))' : 'transparent'};
+              border: 1px solid ${isSelected ? 'var(--marka-bd, rgba(124, 92, 255, 0.35))' : 'transparent'};
+              color: ${isSelected ? 'var(--marka-a, #8E93FF)' : 'var(--metin-ac, #D0D6E2)'};
               padding: 8px 12px;
               border-radius: 8px;
               font-family: inherit;
@@ -967,7 +992,7 @@
             ">
               <span style="font-size: 15px;">${l.flag}</span>
               <span>${l.name}</span>
-              ${isSelected ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A58EFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+              ${isSelected ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: var(--marka-a, #8E93FF);"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
             </button>
           `;
         }).join('')}
@@ -975,7 +1000,7 @@
     `;
 
     // Header içine yerleştir
-    const girisBtn = headerRight.querySelector('.giris-btn') || headerRight.querySelector('.btn') || headerRight.firstElementChild;
+    const girisBtn = headerRight.querySelector('#temaBtn') || headerRight.querySelector('.giris-btn') || headerRight.querySelector('.btn') || headerRight.firstElementChild;
     if (girisBtn && girisBtn.parentElement === headerRight) {
       headerRight.insertBefore(container, girisBtn);
     } else {
@@ -1023,9 +1048,9 @@
     items.forEach((it) => {
       const code = it.getAttribute('data-lang');
       const isSelected = code === currentLang;
-      it.style.background = isSelected ? 'rgba(124, 92, 255, 0.18)' : 'transparent';
-      it.style.borderColor = isSelected ? 'rgba(124, 92, 255, 0.35)' : 'transparent';
-      it.style.color = isSelected ? '#A58EFF' : '#D0D6E2';
+      it.style.background = isSelected ? 'var(--marka-soft, rgba(124, 92, 255, 0.18))' : 'transparent';
+      it.style.borderColor = isSelected ? 'var(--marka-bd, rgba(124, 92, 255, 0.35))' : 'transparent';
+      it.style.color = isSelected ? 'var(--marka-a, #8E93FF)' : 'var(--metin-ac, #D0D6E2)';
     });
   }
 
