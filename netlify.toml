@@ -117,7 +117,9 @@
   [headers.values]
     Content-Type = "application/json"
     Access-Control-Allow-Origin = "*"
-    Cache-Control = "public, max-age=3600"
+    # Kisa tutuluyor: imzalama anahtari degistiginde Google'in eski
+    # kopyayi onbellekten servis etmesi dogrulamayi saatlerce bloke ediyor.
+    Cache-Control = "public, max-age=60, must-revalidate"
 
 # Statik varlıklar uzun süre önbellekte kalsın (hız + Core Web Vitals)
 [[headers]]
