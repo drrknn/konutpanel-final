@@ -3,7 +3,7 @@
  *  Cache-First for App Shell & Precached Assets, Network-First for Navigation
  * ========================================================================== */
 
-const CACHE_NAME = 'konutpanel-v8';
+const CACHE_NAME = 'konutpanel-v9';
 
 const PRECACHE_ASSETS = [
   '/',
