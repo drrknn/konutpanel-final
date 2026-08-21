@@ -8218,7 +8218,8 @@ function bildirimRealtimeBaslat(){
 }
 
 async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_tablo, kaynak_id, hedef_ekran, onem = "normal" }){
-  if(!S.site?.id) return;
+  if(!S.site?.id){ console.warn("[bildirim] site bilgisi yok, atlandı"); return; }
+  console.log("[bildirim] çağrıldı:", { alici_id, alici_rol, tur, baslik });
   try{
     let aliciIds = [];
     if(alici_id){
@@ -8243,7 +8244,11 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
       aliciIds = (data || []).map(p => p.id);
     }
 
-    if(!aliciIds.length) return;
+    console.log("[bildirim] alıcı sayısı:", aliciIds.length, aliciIds);
+    if(!aliciIds.length){
+      console.warn("[bildirim] alıcı bulunamadı — profiller sorgusu boş döndü (RLS?)");
+      return;
+    }
 
     const rows = aliciIds.map(uid => ({
       site_id: S.site.id,
