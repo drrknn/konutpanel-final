@@ -1148,7 +1148,8 @@ const CFG = (window.KONUT_PANEL_CONFIG && window.KONUT_PANEL_CONFIG.SUPABASE_URL
   ? window.KONUT_PANEL_CONFIG
   : {
       SUPABASE_URL: "https://byuygverwpjskloqrele.supabase.co",
-      SUPABASE_ANON_KEY: "sb_publishable_f2gGJkl1dAdncuqLdIsfig_SaJoGG85"
+      SUPABASE_ANON_KEY: "sb_publishable_f2gGJkl1dAdncuqLdIsfig_SaJoGG85",
+      VAPID_PUBLIC_KEY: ""
     };
 const sb = createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY);
 
@@ -7895,6 +7896,95 @@ function bildirimSesCal(){
   }catch(e){}
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   WEB PUSH ABONELİĞİ
+   İzin "granted" olduğunda cihazı sunucuya kaydeder. Bu kayıt
+   olmadan uygulama kapalıyken bildirim GELMEZ; izin tek başına
+   yeterli değildir.
+   ═══════════════════════════════════════════════════════════════ */
+
+function vapidAnahtariCevir(base64){
+  const dolgu = "=".repeat((4 - (base64.length % 4)) % 4);
+  const duz = (base64 + dolgu).replace(/-/g, "+").replace(/_/g, "/");
+  const ham = atob(duz);
+  const dizi = new Uint8Array(ham.length);
+  for(let i = 0; i < ham.length; i++) dizi[i] = ham.charCodeAt(i);
+  return dizi;
+}
+
+let PUSH_ABONE_DENENDI = false;
+
+async function pushAboneOl(){
+  try{
+    if(Notification.permission !== "granted") return;
+    if(!("serviceWorker" in navigator) || !("PushManager" in window)) return;
+
+    const vapid = (CFG && CFG.VAPID_PUBLIC_KEY) || "";
+    if(!vapid){
+      console.warn("[push] VAPID_PUBLIC_KEY tanımlı değil — push aboneliği atlandı");
+      return;
+    }
+
+    const reg = await navigator.serviceWorker.ready;
+    let abonelik = await reg.pushManager.getSubscription();
+    if(!abonelik){
+      abonelik = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: vapidAnahtariCevir(vapid)
+      });
+    }
+
+    const { data:{ session } } = await sb.auth.getSession();
+    if(!session?.access_token) return;   // giriş yoksa sonra tekrar denenir
+
+    await fetch("/.netlify/functions/push-abone", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + session.access_token
+      },
+      body: JSON.stringify({
+        abonelik: abonelik.toJSON(),
+        cihaz_adi: navigator.userAgent.slice(0, 120)
+      })
+    });
+    PUSH_ABONE_DENENDI = true;
+  }catch(e){
+    console.warn("[push] abonelik kurulamadı:", e);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   İZİN DEĞİŞİKLİĞİNİ İZLE
+   TWA'da Notification.requestPermission() sözü, Android'in izin
+   penceresi kapanmadan çözülüp "default" dönebiliyor — banner bu
+   yüzden ekranda kalıyordu. Aşağıdaki üç kanal izni sonradan da
+   yakalayıp banner'ı kaldırır.
+   ═══════════════════════════════════════════════════════════════ */
+function bildirimIzniIzle(){
+  if(!("Notification" in window)) return;
+
+  const kontrol = () => {
+    bildirimBannerGuncelle();
+    if(Notification.permission === "granted" && !PUSH_ABONE_DENENDI) pushAboneOl();
+  };
+
+  if(navigator.permissions?.query){
+    navigator.permissions.query({ name: "notifications" }).then((durum) => {
+      durum.onchange = kontrol;
+    }).catch(()=>{});
+  }
+
+  document.addEventListener("visibilitychange", () => { if(!document.hidden) kontrol(); });
+  window.addEventListener("focus", kontrol);
+
+  let sayac = 0;
+  const zamanlayici = setInterval(() => {
+    kontrol();
+    if(++sayac >= 15 || Notification.permission === "granted") clearInterval(zamanlayici);
+  }, 1000);
+}
+
 async function bildirimIzniIste(sessiz=false){
   if(!("Notification" in window)){
     if(!sessiz) toast("Tarayıcınız bildirim özelliğini desteklemiyor.", "err");
@@ -7916,6 +8006,7 @@ async function bildirimIzniIste(sessiz=false){
       bildirimSesCal();
       cihazBildirimiGonder("Konut Panel Bildirimleri Açıldı 🔔", "Yeni aidat, makbuz ve duyurulardan anında haberdar olacaksınız.");
       bildirimBannerGuncelle();
+      pushAboneOl();                 // uygulama kapaliyken de bildirim gelsin
       return true;
     } else {
       if(!sessiz) toast("Bildirim izni verilmedi.", "err");
@@ -7931,6 +8022,8 @@ async function bildirimIzniIste(sessiz=false){
 function bildirimIzniOtomatikSor(){
   if(!("Notification" in window)) return;
   bildirimBannerGuncelle();
+  bildirimIzniIzle();
+  if(Notification.permission === "granted") pushAboneOl();
   
   if(Notification.permission === "default"){
     // İlk kullanıcı tıklamasında hemen sistem iznini patlat

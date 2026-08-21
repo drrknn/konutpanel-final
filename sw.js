@@ -3,7 +3,7 @@
  *  Cache-First for App Shell & Precached Assets, Network-First for Navigation
  * ========================================================================== */
 
-const CACHE_NAME = 'konutpanel-v9';
+const CACHE_NAME = 'konutpanel-v10';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -118,4 +118,74 @@ self.addEventListener('fetch', (event) => {
       })
     );
   }
+});
+
+
+/* ═══════════════════════════════════════════════════════════════
+   WEB PUSH — uygulama kapaliyken gelen bildirimler
+   Sunucudan (Netlify Function) gonderilen push mesajlari burada
+   yakalanir ve Android bildirimi olarak gosterilir. TWA'da
+   DelegationService devrede oldugu icin bildirim "Chrome" degil
+   "Konut Panel" adiyla dusar.
+   ═══════════════════════════════════════════════════════════════ */
+
+self.addEventListener('push', (event) => {
+  let veri = {};
+  try {
+    veri = event.data ? event.data.json() : {};
+  } catch (e) {
+    veri = { baslik: 'Konut Panel', govde: event.data ? event.data.text() : '' };
+  }
+
+  const baslik = veri.baslik || 'Konut Panel';
+  const secenekler = {
+    body: veri.govde || '',
+    icon: veri.ikon || '/icons/icon-192.png',
+    badge: '/icons/icon-maskable-192.png',
+    tag: veri.etiket || 'konutpanel-genel',
+    renotify: true,
+    requireInteraction: veri.onemli === true,
+    // Titresim deseni — sessiz moddaki cihazlarda da fark edilir
+    vibrate: [220, 90, 220, 90, 380],
+    data: {
+      url: veri.url || '/uygulama',
+      tur: veri.tur || 'genel',
+      kayitId: veri.kayitId || null
+    },
+    actions: veri.aksiyonlar || []
+  };
+
+  event.waitUntil(self.registration.showNotification(baslik, secenekler));
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const hedef = (event.notification.data && event.notification.data.url) || '/uygulama';
+
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((liste) => {
+      // Uygulama zaten acikssa o pencereyi one al ve ilgili sayfaya yonlendir
+      for (const istemci of liste) {
+        if ('focus' in istemci) {
+          istemci.postMessage({ tip: 'bildirim-tiklandi', veri: event.notification.data });
+          return istemci.focus();
+        }
+      }
+      // Acik pencere yoksa yenisini ac
+      if (self.clients.openWindow) return self.clients.openWindow(hedef);
+    })
+  );
+});
+
+/* Abonelik suresi dolarsa sessizce yenile */
+self.addEventListener('pushsubscriptionchange', (event) => {
+  event.waitUntil(
+    self.registration.pushManager.subscribe(event.oldSubscription.options)
+      .then((yeniAbonelik) => fetch('/.netlify/functions/push-abone', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ abonelik: yeniAbonelik, yenileme: true })
+      }))
+      .catch(() => {})
+  );
 });
