@@ -94,29 +94,39 @@ export default async (request) => {
   if (!kullanici.ok || !kullanici.veri?.id) return json(401, { hata: "Oturum doğrulanamadı" });
   const cagiranId = kullanici.veri.id;
 
-  /* 2. Çağıran, hedef sitenin yöneticisi mi? */
+  /* 2. Çağıran hedef sitenin üyesi mi?
+     Yalnızca yöneticiyle sınırlamıyoruz: sakin de ödeme bildirdiğinde
+     yöneticiye bildirim gitmesi gerekiyor. Kısıt şu: kişi yalnızca
+     KENDİ sitesinin üyelerine bildirim gönderebilir. */
   const profil = await sb(
     `/rest/v1/profiller?id=eq.${cagiranId}&select=id,rol,site_id`,
     { method: "GET" },
     SERVIS
   );
   const p = Array.isArray(profil.veri) ? profil.veri[0] : null;
-  if (!p) return json(403, { hata: "Profil bulunamadı" });
+  if (!p?.site_id) return json(403, { hata: "Profil bulunamadı" });
 
   const hedefSite = site_id || p.site_id;
-  const yetkili = p.rol === "yonetici" && String(p.site_id) === String(hedefSite);
-  if (!yetkili) return json(403, { hata: "Bu site için bildirim gönderme yetkiniz yok" });
-
-  /* 3. Alıcı listesini çıkar */
-  let alicilar = kullanici_idler;
-  if (!Array.isArray(alicilar) || alicilar.length === 0) {
-    const uyeler = await sb(
-      `/rest/v1/profiller?site_id=eq.${hedefSite}&select=id`,
-      { method: "GET" },
-      SERVIS
-    );
-    alicilar = (uyeler.veri || []).map((u) => u.id);
+  if (String(p.site_id) !== String(hedefSite)) {
+    return json(403, { hata: "Başka bir siteye bildirim gönderemezsiniz" });
   }
+
+  /* 3. Alıcı listesini çıkar — HER DURUMDA aynı siteyle sınırla */
+  const uyeler = await sb(
+    `/rest/v1/profiller?site_id=eq.${hedefSite}&select=id`,
+    { method: "GET" },
+    SERVIS
+  );
+  const siteUyeleri = new Set((uyeler.veri || []).map((u) => String(u.id)));
+
+  let alicilar;
+  if (Array.isArray(kullanici_idler) && kullanici_idler.length) {
+    // İstenen alıcılardan yalnızca bu sitede olanlar geçer
+    alicilar = kullanici_idler.filter((id) => siteUyeleri.has(String(id)));
+  } else {
+    alicilar = [...siteUyeleri];
+  }
+
   if (alicilar.length === 0) return json(200, { tamam: true, gonderilen: 0, not: "Alıcı yok" });
 
   /* 4. Aboneliklerini getir */

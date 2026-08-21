@@ -3336,6 +3336,24 @@ async function opKayitlar(c, tur){
         const sel=h(`<select class="inp" style="max-width:200px;padding:7px 28px 7px 11px;font-size:12.5px"><option value="">${t("assign_staff")}</option>${gorevliler.map(g=>`<option value="${g.id}" ${x.atanan===g.id?"selected":""}>${esc(g.ad||t("role_gorevli"))}</option>`).join("")}</select>`);
         sel.onchange=async()=>{try{
           await sb.from("talepler").update({atanan:sel.value||null,durum:sel.value?"atandi":"acik"}).eq("id",x.id);
+          if(sel.value){
+            bildirimGonder({
+              alici_id:sel.value, tur:"talep_atama",
+              baslik:"🛠️ Size Bir Talep Atandı",
+              metin:(x.aciklama||x.baslik||"Yeni görev").slice(0,80),
+              kaynak_tablo:"talepler", kaynak_id:x.id,
+              hedef_ekran:"operasyon", onem:"yuksek"
+            });
+            if(x.olusturan && x.olusturan!==sel.value){
+              bildirimGonder({
+                alici_id:x.olusturan, tur:"talep_durum",
+                baslik:"🛠️ Talebiniz İşleme Alındı",
+                metin:"Bildirdiğiniz konu bir görevliye atandı.",
+                kaynak_tablo:"talepler", kaynak_id:x.id,
+                hedef_ekran:"operasyon", onem:"normal"
+              });
+            }
+          }
           toast("✓"); opKayitlar(c,tur);
         }catch(e){toast(niceError(e),"err");}};
         a.appendChild(sel);
@@ -4056,7 +4074,14 @@ function duyuruModal(refresh){
   mdl.querySelector("#cx").onclick=closeModal;
   mdl.querySelector("#sv").appendChild(guard(h(`<button class="btn full">${LANG==="tr"?"Yayınla":"Publish"}</button>`),async()=>{
     const baslik=$("#bl").value.trim(),metin=$("#mt").value.trim();if(!baslik||!metin)throw new Error("!");
-    const {error}=await sb.from("duyurular").insert({site_id:S.site.id,baslik,metin,yayinlayan:S.user.id});if(error)throw error;closeModal();toast("✓");refresh();
+    const {error}=await sb.from("duyurular").insert({site_id:S.site.id,baslik,metin,yayinlayan:S.user.id});if(error)throw error;
+    bildirimGonder({
+      alici_rol:"sakinler", tur:"duyuru",
+      baslik:`📢 Yeni Duyuru: ${baslik}`,
+      metin:(metin||"").slice(0,100),
+      kaynak_tablo:"duyurular", hedef_ekran:"panel", onem:"normal"
+    });
+    closeModal();toast("✓");refresh();
   }));
 }
 async function kurallarView(c){
@@ -4235,7 +4260,14 @@ function toplantiModal(refresh){
   mdl.querySelector("#cx").onclick=closeModal;
   mdl.querySelector("#sv").appendChild(guard(h(`<button class="btn full">${t("add")}</button>`),async()=>{
     const baslik=$("#bl").value.trim();if(!baslik)throw new Error("!");
-    const zm=$("#zm").value;const {error}=await sb.from("toplantilar").insert({site_id:S.site.id,baslik,gundem:$("#gn").value.trim()||null,yer:$("#yr").value.trim()||null,zaman:zm?new Date(zm).toISOString():null,olusturan:S.user.id});if(error)throw error;closeModal();toast("✓");refresh();
+    const zm=$("#zm").value;const {error}=await sb.from("toplantilar").insert({site_id:S.site.id,baslik,gundem:$("#gn").value.trim()||null,yer:$("#yr").value.trim()||null,zaman:zm?new Date(zm).toISOString():null,olusturan:S.user.id});if(error)throw error;
+    bildirimGonder({
+      alici_rol:"sakinler", tur:"toplanti",
+      baslik:`📅 Toplantı Duyurusu: ${baslik}`,
+      metin: zm ? `Tarih: ${new Date(zm).toLocaleString("tr-TR")}` : "Toplantı planlandı.",
+      kaynak_tablo:"toplantilar", hedef_ekran:"panel", onem:"yuksek"
+    });
+    closeModal();toast("✓");refresh();
   }));
 }
 
@@ -8227,7 +8259,53 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
     }));
 
     await sb.from("bildirimler").insert(rows);
+
+    /* Cihaz bildirimi (web push) — uygulama kapalıyken de ulaşsın.
+       Kendine bildirim göndermenin anlamı yok, listeden çıkarılır. */
+    pushTetikle({
+      aliciIds: aliciIds.filter(uid => uid !== S.prof?.id),
+      baslik: baslik || "Konut Panel",
+      metin: metin || "",
+      hedef_ekran: hedef_ekran || "panel",
+      tur: tur || "sistem",
+      onem
+    });
   }catch(e){}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PUSH TETİKLEME
+   bildirimGonder() her çağrıldığında devreye girer; ayrı ayrı
+   olaylara kod eklemeye gerek yoktur. Hata olursa sessiz geçer —
+   push başarısız diye uygulama içi bildirim kaybolmamalı.
+   ═══════════════════════════════════════════════════════════════ */
+async function pushTetikle({ aliciIds, baslik, metin, hedef_ekran, tur, onem }){
+  try{
+    if(!aliciIds?.length || !S.site?.id) return;
+
+    const { data:{ session } } = await sb.auth.getSession();
+    if(!session?.access_token) return;
+
+    await fetch("/.netlify/functions/push-gonder", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + session.access_token
+      },
+      body: JSON.stringify({
+        site_id: S.site.id,
+        kullanici_idler: aliciIds,
+        baslik,
+        govde: metin,
+        url: "/uygulama#" + (hedef_ekran || "panel"),
+        tur,
+        etiket: "konutpanel-" + (tur || "genel"),
+        onemli: onem === "yuksek"
+      })
+    });
+  }catch(e){
+    console.warn("[push] gönderilemedi:", e);
+  }
 }
 
 async function bildirimSayacTazele(){
