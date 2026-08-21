@@ -8258,9 +8258,8 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
       okundu: false
     }));
 
-    await sb.from("bildirimler").insert(rows);
-
     /* Cihaz bildirimi (web push) — uygulama kapalıyken de ulaşsın.
+       ÖNCE çağrılır: aşağıdaki insert RLS'e takılırsa bile push gitsin.
        Kendine bildirim göndermenin anlamı yok, listeden çıkarılır. */
     pushTetikle({
       aliciIds: aliciIds.filter(uid => uid !== S.prof?.id),
@@ -8270,7 +8269,17 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
       tur: tur || "sistem",
       onem
     });
-  }catch(e){}
+
+    /* Uygulama içi bildirim — ayrı try, push'u etkilemesin */
+    try{
+      const { error } = await sb.from("bildirimler").insert(rows);
+      if(error) console.warn("[bildirim] tabloya yazılamadı:", error.message);
+    }catch(e){
+      console.warn("[bildirim] tabloya yazılamadı:", e);
+    }
+  }catch(e){
+    console.warn("[bildirim] gönderilemedi:", e);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -8281,12 +8290,13 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
    ═══════════════════════════════════════════════════════════════ */
 async function pushTetikle({ aliciIds, baslik, metin, hedef_ekran, tur, onem }){
   try{
-    if(!aliciIds?.length || !S.site?.id) return;
+    if(!aliciIds?.length){ console.warn("[push] alıcı yok, atlandı"); return; }
+    if(!S.site?.id){ console.warn("[push] site bilgisi yok, atlandı"); return; }
 
     const { data:{ session } } = await sb.auth.getSession();
-    if(!session?.access_token) return;
+    if(!session?.access_token){ console.warn("[push] oturum yok, atlandı"); return; }
 
-    await fetch("/.netlify/functions/push-gonder", {
+    const y = await fetch("/.netlify/functions/push-gonder", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -8303,6 +8313,8 @@ async function pushTetikle({ aliciIds, baslik, metin, hedef_ekran, tur, onem }){
         onemli: onem === "yuksek"
       })
     });
+    const sonuc = await y.json().catch(() => ({}));
+    console.log("[push] sonuç:", y.status, sonuc);
   }catch(e){
     console.warn("[push] gönderilemedi:", e);
   }
