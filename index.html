@@ -8244,9 +8244,22 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
       aliciIds = (data || []).map(p => p.id);
     }
 
-    console.log("[bildirim] alıcı sayısı:", aliciIds.length, aliciIds);
+    /* Cihaz bildirimi (web push).
+       aliciIds boş olsa bile çalışır: alıcıları sunucu service_role ile
+       çözer. İstemcide RLS yüzünden sakin, yönetici profillerini
+       göremiyor ve liste boş dönüyordu. */
+    pushTetikle({
+      aliciIds: aliciIds.filter(uid => uid !== S.prof?.id),
+      alici_rol,
+      baslik: baslik || "Konut Panel",
+      metin: metin || "",
+      hedef_ekran: hedef_ekran || "panel",
+      tur: tur || "sistem",
+      onem
+    });
+
     if(!aliciIds.length){
-      console.warn("[bildirim] alıcı bulunamadı — profiller sorgusu boş döndü (RLS?)");
+      console.warn("[bildirim] istemcide alıcı bulunamadı (RLS) — uygulama içi bildirim yazılmadı, push sunucudan gönderildi");
       return;
     }
 
@@ -8262,18 +8275,6 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
       onem: onem || "normal",
       okundu: false
     }));
-
-    /* Cihaz bildirimi (web push) — uygulama kapalıyken de ulaşsın.
-       ÖNCE çağrılır: aşağıdaki insert RLS'e takılırsa bile push gitsin.
-       Kendine bildirim göndermenin anlamı yok, listeden çıkarılır. */
-    pushTetikle({
-      aliciIds: aliciIds.filter(uid => uid !== S.prof?.id),
-      baslik: baslik || "Konut Panel",
-      metin: metin || "",
-      hedef_ekran: hedef_ekran || "panel",
-      tur: tur || "sistem",
-      onem
-    });
 
     /* Uygulama içi bildirim — ayrı try, push'u etkilemesin */
     try{
@@ -8293,9 +8294,9 @@ async function bildirimGonder({ alici_id, alici_rol, tur, baslik, metin, kaynak_
    olaylara kod eklemeye gerek yoktur. Hata olursa sessiz geçer —
    push başarısız diye uygulama içi bildirim kaybolmamalı.
    ═══════════════════════════════════════════════════════════════ */
-async function pushTetikle({ aliciIds, baslik, metin, hedef_ekran, tur, onem }){
+async function pushTetikle({ aliciIds, alici_rol, baslik, metin, hedef_ekran, tur, onem }){
   try{
-    if(!aliciIds?.length){ console.warn("[push] alıcı yok, atlandı"); return; }
+    if(!aliciIds?.length && !alici_rol){ console.warn("[push] hedef yok, atlandı"); return; }
     if(!S.site?.id){ console.warn("[push] site bilgisi yok, atlandı"); return; }
 
     const { data:{ session } } = await sb.auth.getSession();
@@ -8309,7 +8310,8 @@ async function pushTetikle({ aliciIds, baslik, metin, hedef_ekran, tur, onem }){
       },
       body: JSON.stringify({
         site_id: S.site.id,
-        kullanici_idler: aliciIds,
+        kullanici_idler: aliciIds?.length ? aliciIds : undefined,
+        alici_rol: aliciIds?.length ? undefined : alici_rol,
         baslik,
         govde: metin,
         url: "/uygulama#" + (hedef_ekran || "panel"),

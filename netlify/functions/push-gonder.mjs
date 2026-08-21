@@ -77,13 +77,13 @@ export default async (request) => {
   catch { return json(400, { hata: "Geçersiz istek gövdesi" }); }
 
   const {
-    site_id, kullanici_idler, baslik, govde: metin,
+    site_id, kullanici_idler, alici_rol, baslik, govde: metin,
     url, tur, etiket, onemli, kayitId,
   } = govde || {};
 
   if (!baslik) return json(400, { hata: "Başlık zorunlu" });
-  if (!site_id && !Array.isArray(kullanici_idler)) {
-    return json(400, { hata: "site_id veya kullanici_idler gerekli" });
+  if (!site_id && !Array.isArray(kullanici_idler) && !alici_rol) {
+    return json(400, { hata: "site_id, kullanici_idler veya alici_rol gerekli" });
   }
 
   /* 1. Çağıranı doğrula */
@@ -111,21 +111,36 @@ export default async (request) => {
     return json(403, { hata: "Başka bir siteye bildirim gönderemezsiniz" });
   }
 
-  /* 3. Alıcı listesini çıkar — HER DURUMDA aynı siteyle sınırla */
+  /* 3. Alıcı listesini çıkar — HER DURUMDA aynı siteyle sınırla.
+     Rol bazlı hedefleme burada, service_role ile yapılır: istemci
+     tarafında RLS yüzünden sakin, yönetici profillerini göremiyor. */
   const uyeler = await sb(
-    `/rest/v1/profiller?site_id=eq.${hedefSite}&select=id`,
+    `/rest/v1/profiller?site_id=eq.${hedefSite}&select=id,rol`,
     { method: "GET" },
     SERVIS
   );
-  const siteUyeleri = new Set((uyeler.veri || []).map((u) => String(u.id)));
+  const siteProfilleri = uyeler.veri || [];
+  const siteUyeleri = new Set(siteProfilleri.map((u) => String(u.id)));
+
+  const ROL_KUMESI = {
+    yoneticiler: ["yonetici", "yonetici_yrd", "blok_yonetici"],
+    sakinler:    ["sakin"],
+    gorevliler:  ["gorevli"],
+  };
 
   let alicilar;
   if (Array.isArray(kullanici_idler) && kullanici_idler.length) {
     // İstenen alıcılardan yalnızca bu sitede olanlar geçer
     alicilar = kullanici_idler.filter((id) => siteUyeleri.has(String(id)));
+  } else if (alici_rol && ROL_KUMESI[alici_rol]) {
+    const roller = ROL_KUMESI[alici_rol];
+    alicilar = siteProfilleri.filter((u) => roller.includes(u.rol)).map((u) => u.id);
   } else {
     alicilar = [...siteUyeleri];
   }
+
+  // Gönderen kendine bildirim almasın
+  alicilar = alicilar.filter((id) => String(id) !== String(cagiranId));
 
   if (alicilar.length === 0) return json(200, { tamam: true, gonderilen: 0, not: "Alıcı yok" });
 
