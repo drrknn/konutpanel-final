@@ -10,10 +10,13 @@
 # ————— YÖNLENDİRMELER —————
 # Sıra önemlidir: üstteki kural önce çalışır.
 
+# force = true şart: kökte index.html dosyası var ve Netlify'da
+# var olan dosya, yönlendirme kuralını gölgeler. force onu ezer.
 [[redirects]]
   from = "/"
-  to = "/index.html"
+  to = "/anasayfa.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/uygulama"
@@ -21,19 +24,20 @@
   status = 200
 
 [[redirects]]
-  from = "/anasayfa"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/anasayfa.html"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/yonetim"
-  to = "/index.html"
+  to = "/admin.html"
   status = 200
+
+# eski adresler kalıcı olarak yeni ada taşınsın (SEO değeri korunur)
+[[redirects]]
+  from = "/anasayfa"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
 
 # SEO sayfaları — .html uzantısı olmadan da açılsın
 [[redirects]]
@@ -43,33 +47,12 @@
 
 [[redirects]]
   from = "/apartman-yonetim-programi"
-  to = "/site-yonetim-programi.html"
+  to = "/apartman-yonetim-programi.html"
   status = 200
 
 [[redirects]]
   from = "/aidat-takip-programi"
-  to = "/site-yonetim-programi.html"
-  status = 200
-
-# Hukuki sayfalar
-[[redirects]]
-  from = "/kullanim-kosullari"
-  to = "/kullanim-kosullari.html"
-  status = 200
-
-[[redirects]]
-  from = "/kvkk"
-  to = "/kvkk.html"
-  status = 200
-
-[[redirects]]
-  from = "/veri-isleyen-sozlesmesi"
-  to = "/veri-isleyen-sozlesmesi.html"
-  status = 200
-
-[[redirects]]
-  from = "/gizlilik"
-  to = "/kvkk.html"
+  to = "/aidat-takip-programi.html"
   status = 200
 
 # .html uzantılı adresler kanonik hâle 301 ile yönlensin (çift içerik olmasın)
