@@ -3,35 +3,31 @@
  *  Cache-First for App Shell & Precached Assets, Network-First for Navigation
  * ========================================================================== */
 
-const CACHE_NAME = 'konutpanel-v14';
+const CACHE_NAME = 'konutpanel-v15';
 
 const PRECACHE_ASSETS = [
   '/',
   '/?source=pwa',
-  '/anasayfa.html',
   '/index.html',
   '/offline.html',
   '/install-modal.css',
   '/install.js',
-  '/manifest.webmanifest',
-  '/icons/favicon-32.png',
-  '/icons/apple-touch-icon-180.png',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/icons/icon-maskable-192.png',
-  '/icons/icon-maskable-512.png',
-  '/screenshots/desktop-1280x720.png',
-  '/screenshots/mobile-720x1280.png'
+  '/manifest.webmanifest'
 ];
 
 // 1. Kurulum (Install) — App shell önbelleğe alınır
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(PRECACHE_ASSETS).catch((err) => {
-        console.warn('[SW] Precache asset uyarisi:', err);
-      });
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // Tek bir kaynağın 404 vermesi tüm önbellek kurulumunu bozmasın
+      for (const asset of PRECACHE_ASSETS) {
+        try {
+          await cache.add(asset);
+        } catch (err) {
+          console.warn('[SW] Precache uyarisi (' + asset + '):', err);
+        }
+      }
     })
   );
 });
