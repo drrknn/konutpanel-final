@@ -886,9 +886,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover{opacity:1}
   .auth-top-bar{margin-bottom:10px}
 }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
+/* prefers-reduced-motion kaldırıldı */
 @media print{.sidebar,.topbar,.topbar-m,.mobnav,.foot,.pagehead{display:none!important}.content{padding:0}}
 
 /* ===== v2.1 — ikon boyutu + premium cila ===== */
@@ -972,10 +970,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover{opacity:1}
 /* buton içi spinner ortalama */
 .btn .spin{border-width:2px}
 
-@media(prefers-reduced-motion:reduce){
-  .content>*,.kpis>*,.statline>*,.grid3>*,.grid2>*,.rankrow{animation:none!important}
-  .rcard:hover,.kpi:hover,.rankrow:hover,.btn:hover{transform:none!important}
-}
+/* animasyonlar aktif */
 
 /* ziyaretçi kartı — telefonda düzgün dizilim */
 .vcard{border:1px solid var(--line);border-left:3px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;background:var(--card2);transition:border-color .2s,box-shadow .2s}
