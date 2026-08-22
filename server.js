@@ -1,10 +1,7 @@
 import express from 'express';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import makaleUretHandler from './netlify/functions/makale-uret.mjs';
-import sayfaHandler from './netlify/functions/sayfa.mjs';
-import sifreSifirlaHandler from './netlify/functions/sifre-sifirla.mjs';
-import muhasebeciMailHandler from './netlify/functions/muhasebeci-mail.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,8 +13,15 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Helper to adapt Express req/res to Web Standard Request/Response
-async function runWebHandler(handler, req, res) {
+async function runWebHandler(modulePath, req, res) {
   try {
+    const fullPath = path.join(__dirname, modulePath);
+    if (!fs.existsSync(fullPath)) {
+      return res.status(404).json({ error: `Function ${modulePath} not found` });
+    }
+    const module = await import(fullPath);
+    const handler = module.default || module.handler || module;
+
     const protocol = req.protocol || 'http';
     const host = req.get('host') || `localhost:${PORT}`;
     const url = new URL(req.originalUrl || req.url, `${protocol}://${host}`);
@@ -59,103 +63,141 @@ async function runWebHandler(handler, req, res) {
     res.send(Buffer.from(arrayBuffer));
   } catch (err) {
     console.error('Handler execution error:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error', message: err.message });
   }
 }
 
 // API Routes
 app.all(['/api/makale-uret', '/.netlify/functions/makale-uret'], (req, res) => {
-  return runWebHandler(makaleUretHandler, req, res);
+  return runWebHandler('netlify/functions/makale-uret.mjs', req, res);
 });
 
 app.all(['/api/sifre-sifirla', '/.netlify/functions/sifre-sifirla'], (req, res) => {
-  return runWebHandler(sifreSifirlaHandler, req, res);
+  return runWebHandler('netlify/functions/sifre-sifirla.mjs', req, res);
 });
 
 app.all(['/api/muhasebeci-mail', '/.netlify/functions/muhasebeci-mail'], (req, res) => {
-  return runWebHandler(muhasebeciMailHandler, req, res);
+  return runWebHandler('netlify/functions/muhasebeci-mail.mjs', req, res);
 });
 
 // SSR Page generator routes (Blog, Articles, Sitemap, RSS)
 app.get(['/blog', '/blog.html'], (req, res) => {
-  return runWebHandler(sayfaHandler, req, res);
+  return runWebHandler('netlify/functions/sayfa.mjs', req, res);
 });
 
 app.get('/y/:slug', (req, res) => {
-  return runWebHandler(sayfaHandler, req, res);
+  return runWebHandler('netlify/functions/sayfa.mjs', req, res);
 });
 
 app.get('/sitemap.xml', (req, res) => {
-  return runWebHandler(sayfaHandler, req, res);
+  return runWebHandler('netlify/functions/sayfa.mjs', req, res);
 });
 
 app.get('/rss.xml', (req, res) => {
-  return runWebHandler(sayfaHandler, req, res);
+  return runWebHandler('netlify/functions/sayfa.mjs', req, res);
 });
 
 // App & Landing route aliases matching netlify.toml
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'anasayfa.html'));
+  const anasayfaPath = path.join(__dirname, 'anasayfa.html');
+  if (fs.existsSync(anasayfaPath)) {
+    return res.sendFile(anasayfaPath);
+  }
+  return res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get(['/anasayfa', '/anasayfa.html'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'anasayfa.html'));
+  const anasayfaPath = path.join(__dirname, 'anasayfa.html');
+  if (fs.existsSync(anasayfaPath)) {
+    return res.sendFile(anasayfaPath);
+  }
+  return res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get(['/uygulama', '/uygulama.html'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  return res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get(['/yonetim', '/yonetim.html'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
+  const adminPath = path.join(__dirname, 'admin.html');
+  if (fs.existsSync(adminPath)) {
+    return res.sendFile(adminPath);
+  }
+  return res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/site-yonetim-programi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'site-yonetim-programi.html'));
+  const p = path.join(__dirname, 'site-yonetim-programi.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/apartman-yonetim-programi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'apartman-yonetim-programi.html'));
+  const p = path.join(__dirname, 'apartman-yonetim-programi.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/aidat-takip-programi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'aidat-takip-programi.html'));
+  const p = path.join(__dirname, 'aidat-takip-programi.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/gizlilik', (req, res) => {
-  res.sendFile(path.join(__dirname, 'gizlilik.html'));
+  const p = path.join(__dirname, 'gizlilik.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/kullanim-kosullari', (req, res) => {
-  res.sendFile(path.join(__dirname, 'kullanim-kosullari.html'));
+  const p = path.join(__dirname, 'kullanim-kosullari.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/kvkk', (req, res) => {
-  res.sendFile(path.join(__dirname, 'kvkk.html'));
+  const p = path.join(__dirname, 'kvkk.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/veri-isleyen-sozlesmesi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'veri-isleyen-sozlesmesi.html'));
+  const p = path.join(__dirname, 'veri-isleyen-sozlesmesi.html');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get(['/.well-known/assetlinks.json', '/assetlinks.json'], (req, res) => {
-  res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
+  const p = path.join(__dirname, '.well-known', 'assetlinks.json');
+  if (fs.existsSync(p)) {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    return res.sendFile(p);
+  }
+  res.status(404).send('Not found');
 });
 
 app.get(['/manifest.webmanifest', '/manifest.json'], (req, res) => {
-  res.setHeader('Content-Type', 'application/manifest+json; charset=utf-8');
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'manifest.webmanifest'));
+  const p = path.join(__dirname, 'manifest.webmanifest');
+  if (fs.existsSync(p)) {
+    res.setHeader('Content-Type', 'application/manifest+json; charset=utf-8');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    return res.sendFile(p);
+  }
+  res.status(404).send('Not found');
 });
 
 app.get('/sw.js', (req, res) => {
-  res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-  res.setHeader('Service-Worker-Allowed', '/');
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'sw.js'));
+  const p = path.join(__dirname, 'sw.js');
+  if (fs.existsSync(p)) {
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    res.setHeader('Service-Worker-Allowed', '/');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    return res.sendFile(p);
+  }
+  res.status(404).send('Not found');
 });
 
 app.use('/icons', express.static(path.join(__dirname, 'icons'), {
@@ -184,7 +226,11 @@ app.use((req, res) => {
   if (req.path.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|webmanifest|json|js|css|woff2?|ttf)$/i)) {
     return res.status(404).type('text/plain').send('Asset not found');
   }
-  res.status(404).sendFile(path.join(__dirname, 'anasayfa.html'));
+  const anasayfaPath = path.join(__dirname, 'anasayfa.html');
+  if (fs.existsSync(anasayfaPath)) {
+    return res.status(404).sendFile(anasayfaPath);
+  }
+  res.status(404).sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {

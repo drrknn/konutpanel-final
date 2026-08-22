@@ -1,6 +1,0 @@
-{
-  "name": "Konut Panel",
-  "description": "Site ve apartman yönetim programı, aidat takip ve duyuru platformu",
-  "requestFramePermissions": ["camera"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
