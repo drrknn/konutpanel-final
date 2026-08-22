@@ -344,16 +344,22 @@ async function run() {
     let content = fs.readFileSync(path.join(rootDir, htmlFile), 'utf8');
 
     // Replace old favicon link base64
-    content = content.replace(/<link rel="icon" type="image\/x-icon" href="data:image\/png;base64,[^"]+"/g, `<link rel="icon" type="image/x-icon" href="/icons/favicon-32.png"`);
-    content = content.replace(/<link rel="icon" id="favicon" type="image\/png" sizes="32x32" href="data:image\/png;base64,[^"]+"/g, `<link rel="icon" id="favicon" type="image/png" sizes="32x32" href="/icons/favicon-32.png"`);
-    content = content.replace(/<link rel="apple-touch-icon" id="appleicon" sizes="180x180" href="data:image\/png;base64,[^"]+"/g, `<link rel="apple-touch-icon" id="appleicon" sizes="180x180" href="/icons/apple-touch-icon.png"`);
-    content = content.replace(/<link rel="apple-touch-icon" sizes="180x180" href="data:image\/png;base64,[^"]+"/g, `<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"`);
+    content = content.replace(/<link rel="icon"[^>]*href="data:image\/png;base64,[^"]+"/g, `<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png"`);
+    content = content.replace(/<link rel="apple-touch-icon"[^>]*href="data:image\/png;base64,[^"]+"/g, `<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"`);
 
     // Replace old splash logo base64
     content = content.replace(/<img src="data:image\/png;base64,[^"]+" width="56" height="56" alt="Konut Panel"[^>]*>/g, `<img src="${logo192B64}" width="56" height="56" alt="Konut Panel" style="border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.55);display:block">`);
 
-    // Replace LOGO=(s) function base64
-    content = content.replace(/const LOGO=\(s\)=>`<img class="kplogo" src="data:image\/png;base64,[^"]+"/g, `const LOGO=(s)=>\`<img class="kplogo" src="${logo192B64}"`);
+    // Replace LOGO=(s)=> function with exact modern base64
+    content = content.replace(/const LOGO\s*=\s*\([^)]*\)\s*=>\s*`<img[^`]+src="[^"]+"[^`]*>/g, `const LOGO=(s)=>\`<img class="kplogo" src="${logo192B64}" width="\${s}" height="\${s}" alt="Konut Panel" style="border-radius:10px;object-fit:cover;flex:0 0 auto;display:block">\``);
+
+    // Replace any legacy base64 logo with class="logo-img" or similar
+    content = content.replace(/<img[^>]+class="logo-img"[^>]*src="data:image\/png;base64,[^"]+"[^>]*>/g, `<img src="${logo192B64}" alt="Konut Panel Logo" width="32" height="32" class="logo-img" style="border-radius:8px;display:block">`);
+    content = content.replace(/<img[^>]*src="data:image\/png;base64,[^"]+"[^>]*alt="Konut Panel Logo"[^>]*>/g, `<img src="${logo192B64}" alt="Konut Panel Logo" width="32" height="32" class="logo-img" style="border-radius:8px;display:block">`);
+
+    // Also replace direct legacy base64 strings in img tags
+    content = content.replace(/src="data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAA[^"]+"/g, `src="${logo192B64}"`);
+    content = content.replace(/src="data:image\/png;base64,s5d3vftbqktCTUGWbfqqZYaFZ[^"]+"/g, `src="${logo192B64}"`);
 
     fs.writeFileSync(path.join(rootDir, htmlFile), content, 'utf8');
     console.log(`✓ Updated icons and logo in ${htmlFile}`);
