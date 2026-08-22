@@ -1,0 +1,60 @@
+{
+  "packageId": "com.konutpanel.app",
+  "host": "konutpanel.com",
+  "name": "Konut Panel",
+  "launcherName": "Konut Panel",
+  "display": "standalone",
+  "themeColor": "#0B0B0F",
+  "themeColorDark": "#0B0B0F",
+  "navigationColor": "#0B0B0F",
+  "navigationColorDark": "#0B0B0F",
+  "navigationDividerColor": "#0B0B0F",
+  "navigationDividerColorDark": "#0B0B0F",
+  "backgroundColor": "#0B0B0F",
+  "enableNotifications": true,
+  "startUrl": "/?source=pwa",
+  "iconUrl": "https://konutpanel.com/icons/icon-512.png",
+  "maskableIconUrl": "https://konutpanel.com/icons/icon-maskable-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "my-key-alias"
+  },
+  "appVersionName": "1.0.2",
+  "appVersionCode": 3,
+  "shortcuts": [
+    {
+      "name": "Uygulamayi Ac",
+      "short_name": "Panel",
+      "url": "/uygulama?source=pwa-shortcut",
+      "chosenIconUrl": "https://konutpanel.com/icons/icon-192.png"
+    },
+    {
+      "name": "Ucretsiz Demo",
+      "short_name": "Demo",
+      "url": "/?source=pwa-shortcut#demo",
+      "chosenIconUrl": "https://konutpanel.com/icons/icon-192.png"
+    }
+  ],
+  "generatorApp": "manual",
+  "webManifestUrl": "https://konutpanel.com/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://konutpanel.com/",
+  "minSdkVersion": 23,
+  "orientation": "default",
+  "fingerprints": [
+    {
+      "name": "play-app-signing",
+      "value": "35:86:9A:36:E4:BE:0F:77:C1:DC:26:19:7A:42:39:9A:20:3F:E2:43:79:BF:57:38:F2:A8:EA:5D:2F:5A:2E:51"
+    },
+    {
+      "name": "upload-key",
+      "value": "0B:71:9B:6A:C0:64:B8:A7:E6:1B:C1:47:59:66:5A:15:FA:FC:A9:F4:81:88:31:33:E7:3F:9B:E1:95:FF:2C:C2"
+    }
+  ]
+}

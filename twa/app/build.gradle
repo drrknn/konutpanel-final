@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.konutpanel.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.konutpanel.app"
+        minSdk 23
+        targetSdk 35
+        versionCode 7
+        versionName "1.0.7"
+        // Play Console'a her yuklemede versionCode ARTIRILMALI
+    }
+
+    signingConfigs {
+        release {
+            // ONEMLI: PWABuilder'dan gelen mevcut keystore kullanilmali.
+            // Aksi halde Play "yanlis anahtarla imzalanmis" hatasi verir.
+            // Play'e kayitli yukleme anahtari (SHA1 F7:48:D6:...).
+            // Bu keystore proje kokunde: android.keystore
+            storeFile file("../android.keystore")
+            storePassword "lNxXe5wIyEVL"
+            keyAlias "my-key-alias"
+            keyPassword "lNxXe5wIyEVL"
+        }
+    }
+
+    buildTypes {
+        release {
+            // TWA'da kod kuculteme kazanci yok; R8 launcher sinifini ve
+            // ikon kaynaklarini budayip uygulamanin cokmesine yol aciyordu.
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // Lint, bu ortamda cokup derlemeyi durduruyordu; release derlemesinde
+    // lint kontrolu kapatildi (uretilen APK/AAB etkilenmez).
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+}

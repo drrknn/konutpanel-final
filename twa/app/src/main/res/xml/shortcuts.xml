@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="panel"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_panel_short"
+        android:shortcutLongLabel="@string/shortcut_panel_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.konutpanel.app"
+            android:targetClass="android.support.customtabs.trusted.LauncherActivity"
+            android:data="https://konutpanel.com/uygulama?source=pwa-shortcut" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="demo"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_demo_short"
+        android:shortcutLongLabel="@string/shortcut_demo_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.konutpanel.app"
+            android:targetClass="android.support.customtabs.trusted.LauncherActivity"
+            android:data="https://konutpanel.com/?source=pwa-shortcut" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

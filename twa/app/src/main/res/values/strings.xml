@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Konut Panel</string>
+    <string name="launcherName">Konut Panel</string>
+    <string name="hostName">konutpanel.com</string>
+    <string name="launchUrl">https://konutpanel.com/?source=pwa</string>
+    <string name="webManifestUrl">https://konutpanel.com/manifest.webmanifest</string>
+    <string name="providerAuthority">com.konutpanel.app.fileprovider</string>
+    <string name="assetStatements">
+        [{
+          \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+          \"target\": {
+            \"namespace\": \"web\",
+            \"site\": \"https://konutpanel.com\"
+          }
+        }]
+    </string>
+    <string name="shortcut_panel_name">Uygulamayı Aç</string>
+    <string name="shortcut_panel_short">Panel</string>
+    <string name="shortcut_demo_name">Ücretsiz Demo</string>
+    <string name="shortcut_demo_short">Demo</string>
+</resources>

@@ -8071,17 +8071,33 @@ async function bildirimIzniIste(sessiz=false){
   }
 }
 
-/* Her girişte bildirim iznini kontrol et */
+/* Her girişte bildirim iznini kontrol et ve bildirimler açılana kadar kullanıcıya nazikçe hatırlat */
 function bildirimIzniOtomatikSor(){
   if(!("Notification" in window)) return;
   bildirimBannerGuncelle();
   bildirimIzniIzle();
-  if(Notification.permission === "granted") pushAboneOl();
+  if(Notification.permission === "granted"){
+    pushAboneOl();
+    return;
+  }
+  
+  // Bildirim izni verilmemişse 2 saniye sonra otomatik hatırlatıcı modal göster
+  const sonHatirlatma = parseInt(localStorage.getItem("kp_bl_last_prompt") || "0", 10);
+  const simdi = Date.now();
+  // 10 dakikada bir veya bildirim kapalıysa nazikçe hatırlat
+  if(simdi - sonHatirlatma > 10 * 60 * 1000){
+    setTimeout(()=>{
+      if(Notification.permission !== "granted" && !document.querySelector("#blOtomatikMdl")){
+        bildirimIzniDiyalogu();
+        localStorage.setItem("kp_bl_last_prompt", String(Date.now()));
+      }
+    }, 2000);
+  }
 }
 
 function bildirimBannerGuncelle(){
   let banner = document.querySelector("#blSabitBanner");
-  if(!("Notification" in window) || Notification.permission === "granted" || sessionStorage.getItem("bl_banner_closed") === "1"){
+  if(!("Notification" in window) || Notification.permission === "granted"){
     if(banner) banner.remove();
     return;
   }
@@ -8115,24 +8131,15 @@ function bildirimBannerGuncelle(){
     <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0">
       <span style="font-size:17px;flex:none">🔔</span>
       <span style="line-height:1.35;font-size:12.5px">${isDenied 
-        ? "<b>Bildirimler Kapalı:</b> Aidat ve duyurular için ayarlardan açabilirsiniz." 
+        ? "<b>Bildirimler Kapalı:</b> Aidat ve acil duyuruları kaçırmamak için bildirimleri açın." 
         : "<b>Anlık Bildirimleri Açın:</b> Aidat ve duyurulardan haberdar olun."}</span>
     </div>
     <div style="display:flex;align-items:center;gap:6px;flex:none">
       ${!isDenied 
         ? `<button class="btn sm" id="blBannerAcBtn" style="background:#fff;color:#4f46e5;font-weight:700;border:none;padding:5px 12px;border-radius:7px;font-size:12px">Bildirimleri Aç</button>` 
         : `<button class="btn sm" id="blBannerNasılBtn" style="background:rgba(255,255,255,.2);color:#fff;font-weight:600;border:none;padding:5px 10px;border-radius:7px;font-size:12px">Nasıl Açılır?</button>`}
-      <button type="button" id="blBannerKapatBtn" aria-label="Kapat" style="color:rgba(255,255,255,.8);padding:4px 6px;font-size:16px;cursor:pointer;line-height:1;border-radius:6px">✕</button>
     </div>
   `;
-
-  const kapatBtn = banner.querySelector("#blBannerKapatBtn");
-  if(kapatBtn){
-    kapatBtn.onclick = () => {
-      sessionStorage.setItem("bl_banner_closed", "1");
-      banner.remove();
-    };
-  }
 
   const btn = banner.querySelector("#blBannerAcBtn");
   if(btn){
@@ -8150,28 +8157,31 @@ function bildirimBannerGuncelle(){
 }
 
 function bildirimIzniDiyalogu(){
-  if(Notification.permission === "granted" || sessionStorage.getItem("bl_banner_closed") === "1") return;
+  if(Notification.permission === "granted") return;
+  const isDenied = Notification.permission === "denied";
   const mdl = modal(`
     <div id="blOtomatikMdl" style="text-align:center;padding:10px 0 5px">
       <div style="width:60px;height:60px;margin:0 auto 12px;border-radius:50%;background:rgba(99,102,241,.15);display:flex;align-items:center;justify-content:center;font-size:26px">🔔</div>
       <h2 style="font-size:19px;margin-bottom:6px">Anlık Bildirimleri Açın</h2>
       <p class="mut small" style="margin-bottom:16px;line-height:1.55">
-        Yeni aidat tahakkukları, dijital ıslak imzalı makbuzlarınız, yönetici duyuruları ve acil durum bildirimlerinden <b>anında haberdar olmak için</b> bildirimlere izin verin.
+        ${isDenied 
+          ? "Uygulama bildirimleriniz cihazınızdan kapatılmış. Yeni aidat tahakkukları, ıslak imzalı makbuzlarınız ve bina duyurularını alabilmek için bildirimleri açmanız önerilir."
+          : "Yeni aidat tahakkukları, dijital ıslak imzalı makbuzlarınız, yönetici duyuruları ve acil durum bildirimlerinden <b>anında haberdar olmak için</b> bildirimlere izin verin."}
       </p>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="btn full" id="blDiyalogIzinBtn" style="padding:11px;font-weight:700;font-size:14px">🔔 Bildirimlere İzin Ver</button>
-        <button class="btn ghost full" id="blDiyalogSonraBtn" style="font-size:13px">${t("cancel")}</button>
+        <button class="btn full" id="blDiyalogIzinBtn" style="padding:11px;font-weight:700;font-size:14px">🔔 ${isDenied ? "Nasıl Açılır Göster" : "Bildirimlere İzin Ver"}</button>
+        <button class="btn ghost full" id="blDiyalogSonraBtn" style="font-size:13px">Daha Sonra Hatırlat</button>
       </div>
     </div>
   `);
 
   mdl.querySelector("#blDiyalogSonraBtn").onclick = () => {
-    sessionStorage.setItem("bl_banner_closed", "1");
+    localStorage.setItem("kp_bl_last_prompt", String(Date.now()));
     closeModal();
   };
   mdl.querySelector("#blDiyalogIzinBtn").onclick = async () => {
     closeModal();
-    await bildirimIzniIste();
+    await bildirimIzniIste(false);
   };
 }
 
