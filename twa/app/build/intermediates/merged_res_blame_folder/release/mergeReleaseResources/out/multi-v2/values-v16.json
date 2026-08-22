@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.konutpanel.app-mergeReleaseResources-5:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\idris\\.gradle\\caches\\9.3.0\\transforms\\b3cb38b817b15dbb366dc898fba9e553\\workspace\\transformed\\core-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

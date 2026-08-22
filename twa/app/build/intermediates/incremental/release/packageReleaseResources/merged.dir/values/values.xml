@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="enableNotification">true</bool>
+    <color name="backgroundColor">#0B0B0F</color>
+    <color name="colorPrimary">#0B0B0F</color>
+    <color name="colorPrimaryDark">#0B0B0F</color>
+    <color name="ic_launcher_background">#6E6BF2</color>
+    <color name="navigationColor">#0B0B0F</color>
+    <color name="navigationColorDark">#0B0B0F</color>
+    <color name="navigationDividerColor">#0B0B0F</color>
+    <color name="navigationDividerColorDark">#0B0B0F</color>
+    <integer name="splashScreenFadeOutDuration">300</integer>
+    <string name="appName">Konut Panel</string>
+    <string name="assetStatements">
+        [{
+          \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+          \"target\": {
+            \"namespace\": \"web\",
+            \"site\": \"https://konutpanel.com\"
+          }
+        }]
+    </string>
+    <string name="hostName">konutpanel.com</string>
+    <string name="launchUrl">https://konutpanel.com/?source=pwa</string>
+    <string name="launcherName">Konut Panel</string>
+    <string name="providerAuthority">com.konutpanel.app.fileprovider</string>
+    <string name="shortcut_demo_name">Ücretsiz Demo</string>
+    <string name="shortcut_demo_short">Demo</string>
+    <string name="shortcut_panel_name">Uygulamayı Aç</string>
+    <string name="shortcut_panel_short">Panel</string>
+    <string name="webManifestUrl">https://konutpanel.com/manifest.webmanifest</string>
+</resources>

@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.konutpanel.app-mergeReleaseResources-5:/values-ne/values-ne.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\idris\\.gradle\\caches\\9.3.0\\transforms\\b3cb38b817b15dbb366dc898fba9e553\\workspace\\transformed\\core-1.1.0\\res\\values-ne\\values-ne.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "496",
+                        "endColumns": "100",
+                        "endOffsets": "592"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\idris\\.gradle\\caches\\9.3.0\\transforms\\cee4aeadbb7ecc4110aa0c62bfde8ed0\\workspace\\transformed\\browser-1.4.0\\res\\values-ne\\values-ne.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,162,274,388",
+                        "endColumns": "106,111,113,107",
+                        "endOffsets": "157,269,383,491"
+                    }
+                }
+            ]
+        }
+    ]
+}

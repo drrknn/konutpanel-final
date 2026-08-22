@@ -1,0 +1,259 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:2:1-109:12
+MERGED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\271d14a227eb536d5ecf162ad6fade34\workspace\transformed\androidbrowserhelper-2.5.0\AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\cee4aeadbb7ecc4110aa0c62bfde8ed0\workspace\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\805f0f1a2ae53af66cf375a27acfb3d0\workspace\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\c09c2d854e50bb52f04a3dd6ffcae80e\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\e52032a56e50ec983ce1ef67cc676733\workspace\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:6:5-77
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:6:22-74
+application
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:8:5-108:19
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:8:5-108:19
+MERGED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\805f0f1a2ae53af66cf375a27acfb3d0\workspace\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\805f0f1a2ae53af66cf375a27acfb3d0\workspace\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:13:9-40
+	android:fullBackupContent
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:10:9-42
+	android:roundIcon
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:11:9-43
+	android:allowBackup
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:9:9-36
+	android:theme
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:16:9-68
+	android:usesCleartextTraffic
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:15:9-45
+meta-data#asset_statements
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:18:9-20:58
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:20:13-55
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:19:13-44
+activity#android.support.customtabs.trusted.LauncherActivity
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:22:9-79:20
+	android:label
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:25:13-49
+	android:exported
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:24:13-36
+	android:alwaysRetainTaskState
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:23:13-49
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:22:19-85
+meta-data#android.support.customtabs.trusted.WEB_MANIFEST_URL
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:27:13-28:58
+	android:value
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:28:17-55
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:27:24-90
+meta-data#android.support.customtabs.trusted.DEFAULT_URL
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:29:13-30:53
+	android:value
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:30:17-50
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:29:24-85
+meta-data#android.support.customtabs.trusted.STATUS_BAR_COLOR
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:31:13-33:58
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:33:17-55
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:32:17-83
+meta-data#android.support.customtabs.trusted.STATUS_BAR_COLOR_DARK
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:34:13-36:62
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:36:17-59
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:35:17-88
+meta-data#android.support.customtabs.trusted.NAVIGATION_BAR_COLOR
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:37:13-39:61
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:39:17-58
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:38:17-87
+meta-data#android.support.customtabs.trusted.NAVIGATION_BAR_COLOR_DARK
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:40:13-42:65
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:42:17-62
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:41:17-92
+meta-data#androidx.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:43:13-45:68
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:45:17-65
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:44:17-85
+meta-data#androidx.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR_DARK
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:46:13-48:72
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:48:17-69
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:47:17-90
+meta-data#androidx.browser.trusted.SPLASH_IMAGE_DRAWABLE
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:49:13-50:55
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:50:17-52
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:49:24-85
+meta-data#androidx.browser.trusted.SPLASH_SCREEN_BACKGROUND_COLOR
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:51:13-52:61
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:52:17-58
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:51:24-94
+meta-data#androidx.browser.trusted.SPLASH_SCREEN_FADE_OUT_DURATION
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:53:13-55:72
+	android:value
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:55:17-69
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:54:17-88
+meta-data#androidx.browser.trusted.FILE_PROVIDER_AUTHORITY
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:56:13-58:61
+	android:value
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:58:17-58
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:57:17-80
+meta-data#android.app.shortcuts
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:59:13-60:53
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:60:17-50
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:59:24-60
+meta-data#androidx.browser.trusted.FALLBACK_STRATEGY
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:61:13-63:46
+	android:value
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:63:17-43
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:62:17-74
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:65:13-68:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:66:17-69
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:66:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:67:17-77
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:67:27-74
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:konutpanel.com+data:scheme:https
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:73:13-78:29
+	android:autoVerify
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:73:28-53
+action#android.intent.action.VIEW
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:74:17-69
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:74:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:75:17-76
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:75:27-73
+category#android.intent.category.BROWSABLE
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:76:17-78
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:76:27-75
+data
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:77:17-78
+	android:host
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:77:46-75
+	android:scheme
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:77:23-45
+activity#com.google.androidbrowserhelper.trusted.FocusActivity
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:81:9-90
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:81:19-87
+activity#com.google.androidbrowserhelper.trusted.WebViewFallbackActivity
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:83:9-84:128
+	android:configChanges
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:84:13-125
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:83:19-97
+provider#androidx.core.content.FileProvider
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:86:9-94:20
+	android:grantUriPermissions
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:89:13-47
+	android:authorities
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:88:13-60
+	android:exported
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:90:13-37
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:87:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:91:13-93:53
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:93:17-50
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:92:17-67
+service#com.konutpanel.app.KonutPanelDelegationService
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:96:9-107:19
+	android:enabled
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:98:13-55
+	android:exported
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:99:13-56
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:97:13-74
+meta-data#android.support.customtabs.trusted.SMALL_ICON
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:100:13-102:64
+	android:resource
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:102:17-61
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:101:17-77
+intent-filter#action:name:android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:103:13-106:29
+action#android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE
+ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:104:17-106
+	android:name
+		ADDED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml:104:25-103
+uses-sdk
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+MERGED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\271d14a227eb536d5ecf162ad6fade34\workspace\transformed\androidbrowserhelper-2.5.0\AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\271d14a227eb536d5ecf162ad6fade34\workspace\transformed\androidbrowserhelper-2.5.0\AndroidManifest.xml:22:5-24:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\cee4aeadbb7ecc4110aa0c62bfde8ed0\workspace\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\cee4aeadbb7ecc4110aa0c62bfde8ed0\workspace\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\b3cb38b817b15dbb366dc898fba9e553\workspace\transformed\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\805f0f1a2ae53af66cf375a27acfb3d0\workspace\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\805f0f1a2ae53af66cf375a27acfb3d0\workspace\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\c09c2d854e50bb52f04a3dd6ffcae80e\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\c09c2d854e50bb52f04a3dd6ffcae80e\workspace\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\e52032a56e50ec983ce1ef67cc676733\workspace\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\e52032a56e50ec983ce1ef67cc676733\workspace\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\idris\Desktop\twa\app\src\main\AndroidManifest.xml
+queries
+ADDED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\271d14a227eb536d5ecf162ad6fade34\workspace\transformed\androidbrowserhelper-2.5.0\AndroidManifest.xml:26:5-34:15
+intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:scheme:https
+ADDED from [com.google.androidbrowserhelper:androidbrowserhelper:2.5.0] C:\Users\idris\.gradle\caches\9.3.0\transforms\271d14a227eb536d5ecf162ad6fade34\workspace\transformed\androidbrowserhelper-2.5.0\AndroidManifest.xml:27:9-33:18
