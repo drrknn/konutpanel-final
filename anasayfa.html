@@ -223,18 +223,22 @@ button{font-family:inherit}
 
 /* Tema Değiştirme Butonu */
 .tema-btn{
-  width:40px;min-width:40px;height:40px;min-height:40px;
-  padding:0;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:10px;cursor:pointer;flex:none;
-  background:var(--gece-2);border:1px solid var(--cizgi);color:var(--metin-ac);
-  transition:all .2s var(--yumusak);
+  width:38px !important;min-width:38px !important;height:38px !important;min-height:38px !important;
+  padding:0 !important;display:inline-flex !important;align-items:center;justify-content:center;
+  border-radius:9px;cursor:pointer;flex:none;
+  background:var(--gece-2,#141822);border:1px solid var(--cizgi,#283040);color:var(--metin);
+  transition:all .2s var(--yumusak);box-sizing:border-box;
 }
 .tema-btn:hover{
-  border-color:var(--marka-a);color:var(--metin);transform:translateY(-2px);
+  border-color:var(--marka-a);background:var(--marka-soft);color:var(--metin);
+  transform:translateY(-2px);box-shadow:0 4px 14px rgba(142,147,255,.2);
 }
-.tema-icon-gunes,.tema-icon-ay{display:none}
+.tema-icon-gunes,.tema-icon-ay{display:none;pointer-events:none}
+.tema-icon-gunes{width:20px;height:20px;color:#FBBF24}
+.tema-icon-ay{width:19px;height:19px;color:#8E93FF}
 [data-theme="dark"] .tema-icon-gunes{display:block}
 [data-theme="light"] .tema-icon-ay{display:block}
+:root:not([data-theme="light"]) .tema-icon-gunes{display:block}
 
 /* Mobilde metin bağlantılar gizlenir ama GİRİŞ ve DEMO düğmeleri kalır */
 @media(max-width:760px){
@@ -316,14 +320,12 @@ button{font-family:inherit}
 }
 .kaydir-ipucu svg{
   width:18px;height:18px;
-  animation:zipla 6s cubic-bezier(.4,0,.3,1) infinite;
+  animation:zipla 2.2s ease-in-out infinite;
   will-change:transform,opacity;
 }
 @keyframes zipla{
-  0%  {transform:translate3d(0,0,0);   opacity:.4}
-  10% {transform:translate3d(0,9px,0); opacity:1}
-  22% {transform:translate3d(0,0,0);   opacity:.4}
-  100%{transform:translate3d(0,0,0);   opacity:.4}
+  0%, 100% { transform:translateY(0); opacity:.4; }
+  50% { transform:translateY(7px); opacity:.95; }
 }
 @media(max-width:860px){.giris{grid-template-columns:1fr;gap:24px}.giris .bina-kabi{max-width:190px}}
 
@@ -547,9 +549,7 @@ button{font-family:inherit}
 .ios-kur-adim{display:flex;align-items:flex-start;gap:12px;margin:14px 0;font-size:14px;color:var(--metin-ac);line-height:1.45}
 .ios-kur-no{width:22px;height:22px;border-radius:50%;background:var(--marka-soft);color:var(--marka-a);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
-}
+/* prefers-reduced-motion kaldırıldı: animasyonların tüm cihazlarda doğal ve akıcı akması sağlandı */
 
 /* JavaScript çalışmazsa bütün slaytlar normal sayfa gibi alt alta görünsün.
    Arama motoru robotları ve eski tarayıcılar için önemli. */
@@ -584,8 +584,8 @@ button{font-family:inherit}
     <a href="/site-yonetim-programi" class="ust-bag">Çözümler</a>
     <a href="/blog" class="ust-bag">Blog</a>
     <button class="dugme dugme-cizgi tema-btn" id="temaBtn" aria-label="Temayı değiştir" title="Temayı değiştir">
-      <svg class="tema-icon-gunes" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-      <svg class="tema-icon-ay" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="tema-icon-gunes" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="tema-icon-ay" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
     <a href="/uygulama" class="dugme dugme-cizgi giris-btn"><span class="uzun">Giriş yap / Kaydol</span><span class="kisa">Giriş / Kaydol</span></a>
     <button class="dugme dugme-ana demo-btn" data-git="6"><span class="uzun">Demo isteyin</span><span class="kisa">Demo</span></button>
@@ -999,7 +999,7 @@ var HIKAYE = 1;
 for(var k=0;k<sayfalar.length;k++){ if(sayfalar[k].hasAttribute('data-hikaye')){ HIKAYE = k; break; } }
 
 var aktif = 0, adim = 0;
-var azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var azHareket = false;
 
 /* nokta gezinme */
 var noktaKabi = document.getElementById('noktalar');
@@ -1034,8 +1034,10 @@ function pencereleriKadar(n){
 }
 
 var yakGecikme;
+var degisimZamanlayici = null;
 function adimGoster(i, animasyonlu){
   var a = ADIMLAR[i];
+  if(!a) return;
   var eski = document.querySelectorAll('#hikayePencereler .odak');
   for(var j=0;j<eski.length;j++) eski[j].classList.remove('odak');
   var pen = document.querySelector('#hikayePencereler .pencere[data-p="'+a.p+'"]');
@@ -1047,25 +1049,40 @@ function adimGoster(i, animasyonlu){
       /* slayta ilk girişte: önce sönük dursun, göz görsün diye kısa gecikmeyle yansın */
       yakGecikme = setTimeout(function(){
         pen.classList.add('yanik'); pen.classList.add('odak');
-      }, 420);
+      }, 350);
     }
   }
 
   sozHizala(a.sat);
 
   function yaz(){
-    document.getElementById('sozNo').textContent    = a.no;
-    document.getElementById('sozMetin').textContent = a.metin;
-    document.getElementById('sozKim').textContent   = a.kim;
-    document.getElementById('sozAd').textContent    = a.ad;
-    document.getElementById('sozSimge').innerHTML   = SIMGE[a.s] || '';
-    sayacEl.textContent = ikiHane(i+1) + ' / 12 daire aydınlandı';
+    var sNo = document.getElementById('sozNo');
+    var sMetin = document.getElementById('sozMetin');
+    var sKim = document.getElementById('sozKim');
+    var sAd = document.getElementById('sozAd');
+    var sSimge = document.getElementById('sozSimge');
+    if(sNo) sNo.textContent = a.no;
+    if(sMetin) sMetin.textContent = a.metin;
+    if(sKim) sKim.textContent = a.kim;
+    if(sAd) sAd.textContent = a.ad;
+    if(sSimge) sSimge.innerHTML = SIMGE[a.s] || '';
+    if(sayacEl) sayacEl.textContent = ikiHane(i+1) + ' / 12 daire aydınlandı';
+    if(window.KP_I18N && window.KP_I18N.applyTranslations) window.KP_I18N.applyTranslations();
   }
 
+  clearTimeout(degisimZamanlayici);
   if(animasyonlu && !azHareket){
     sozIcEl.classList.add('degisiyor');
-    setTimeout(function(){ yaz(); sozIcEl.classList.remove('degisiyor'); }, 190);
-  } else { yaz(); requestAnimationFrame(function(){ sozHizala(a.sat); }); }
+    degisimZamanlayici = setTimeout(function(){
+      yaz();
+      sozIcEl.classList.remove('degisiyor');
+      sozHizala(a.sat);
+    }, 150);
+  } else {
+    sozIcEl.classList.remove('degisiyor');
+    yaz();
+    requestAnimationFrame(function(){ sozHizala(a.sat); });
+  }
 }
 window.KP_adimGoster = adimGoster;
 window.KP_getAdim = function(){ return adim; };
@@ -1142,30 +1159,54 @@ function icKaydirilirMi(hedef, yon){
   return false;
 }
 
-/* ——— tek kaydırma = tek sayfa ——— */
-var kilit = false, zaman;
+/* ——— tek kaydırma = tek sayfa (PC için kararlı & akıcı geçiş) ——— */
+var sonKaydirmaZamani = 0;
+var KAYDIRMA_KILIT_SURESI = 550; // ms
+var tekerlekAkumulator = 0;
+var tekerlekTemizleZamanlayici = null;
+
+function guvenliIlerle(yon){
+  var simdikiZaman = Date.now();
+  if(simdikiZaman - sonKaydirmaZamani < KAYDIRMA_KILIT_SURESI) return;
+  sonKaydirmaZamani = simdikiZaman;
+  ilerle(yon);
+}
+
 document.addEventListener('wheel', function(e){
-  if(Math.abs(e.deltaY) < 2) return;
+  if(Math.abs(e.deltaY) < 3) return;
   var yon = e.deltaY > 0 ? 1 : -1;
   if(icKaydirilirMi(e.target, yon)) return;
   e.preventDefault();
-  clearTimeout(zaman);
-  zaman = setTimeout(function(){ kilit = false; }, 300);
-  if(kilit) return;
-  kilit = true;
-  ilerle(yon);
+
+  var simdiki = Date.now();
+  if(simdiki - sonKaydirmaZamani < KAYDIRMA_KILIT_SURESI){
+    tekerlekAkumulator = 0;
+    return;
+  }
+
+  tekerlekAkumulator += e.deltaY;
+  clearTimeout(tekerlekTemizleZamanlayici);
+  tekerlekTemizleZamanlayici = setTimeout(function(){
+    tekerlekAkumulator = 0;
+  }, 140);
+
+  if(Math.abs(tekerlekAkumulator) >= 12 || Math.abs(e.deltaY) >= 18){
+    guvenliIlerle(yon);
+    tekerlekAkumulator = 0;
+  }
 }, {passive:false});
 
 document.addEventListener('keydown', function(e){
   if(/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
-  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); ilerle(1); }
-  else if(e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); ilerle(-1); }
-  else if(e.key==='Home'){ e.preventDefault(); sayfayaGit(0);
-if(document.fonts && document.fonts.ready){
-  document.fonts.ready.then(function(){ if(aktif===HIKAYE) adimGoster(adim,true); });
-} }
+  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); guvenliIlerle(1); }
+  else if(e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); guvenliIlerle(-1); }
+  else if(e.key==='Home'){ e.preventDefault(); sayfayaGit(0); }
   else if(e.key==='End'){ e.preventDefault(); sayfayaGit(sayfalar.length-1); }
 });
+
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(function(){ if(aktif===HIKAYE) adimGoster(adim,true); });
+}
 
 var basY = 0, basHedef = null;
 document.addEventListener('touchstart', function(e){

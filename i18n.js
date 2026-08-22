@@ -936,19 +936,21 @@
 
     container.innerHTML = `
       <button type="button" class="kp-lang-btn" id="kpLangBtn" aria-label="Select Language / Dil Seçimi" style="
-        background: var(--gece-2, #12151C);
-        border: 1px solid var(--cizgi, #232A36);
+        background: var(--gece-2, #141822);
+        border: 1px solid var(--cizgi, #283040);
         color: var(--metin-ac, #E9ECF2);
-        padding: 6px 10px;
+        height: 38px;
+        padding: 0 10px;
         border-radius: 9px;
         font-family: inherit;
         font-size: 13px;
         font-weight: 600;
         cursor: pointer;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 6px;
         transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        box-sizing: border-box;
       ">
         <span class="kp-lang-flag">${current.flag}</span>
         <span class="kp-lang-code">${current.code}</span>
