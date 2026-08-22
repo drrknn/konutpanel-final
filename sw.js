@@ -3,7 +3,7 @@
  *  Cache-First for App Shell & Precached Assets, Network-First for Navigation
  * ========================================================================== */
 
-const CACHE_NAME = 'konutpanel-v14';
+const CACHE_NAME = 'konutpanel-v15';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -18,6 +18,8 @@ const PRECACHE_ASSETS = [
   '/icons/apple-touch-icon-180.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
+  '/icons/badge-96.png',
+  '/icons/badge-72.png',
   '/icons/icon-maskable-192.png',
   '/icons/icon-maskable-512.png',
   '/screenshots/desktop-1280x720.png',
@@ -137,11 +139,22 @@ self.addEventListener('push', (event) => {
     veri = { baslik: 'Konut Panel', govde: event.data ? event.data.text() : '' };
   }
 
+  const baseOrigin = self.location ? self.location.origin : '';
+  const defaultIcon = baseOrigin ? `${baseOrigin}/icons/icon-192.png` : '/icons/icon-192.png';
+  const defaultBadge = baseOrigin ? `${baseOrigin}/icons/badge-96.png` : '/icons/badge-96.png';
+
+  const iconUrl = veri.ikon
+    ? (veri.ikon.startsWith('http') ? veri.ikon : (baseOrigin + veri.ikon))
+    : defaultIcon;
+  const badgeUrl = veri.rozet
+    ? (veri.rozet.startsWith('http') ? veri.rozet : (baseOrigin + veri.rozet))
+    : defaultBadge;
+
   const baslik = veri.baslik || 'Konut Panel';
   const secenekler = {
     body: veri.govde || '',
-    icon: veri.ikon || '/icons/icon-192.png',
-    badge: '/icons/icon-maskable-192.png',
+    icon: iconUrl,
+    badge: badgeUrl,
     tag: veri.etiket || 'konutpanel-genel',
     renotify: true,
     requireInteraction: veri.onemli === true,
