@@ -325,7 +325,7 @@ async function run() {
       await sharp(splashSvgBuf).png().toFile(path.join(targetDir, 'splash.png'));
     }
 
-    await sharp(svgBuf).resize(512, 512).png().toFile(path.join(resDir, 'store-icon-512.png'));
+    await sharp(svgBuf).resize(512, 512).png().toFile(path.join(rootDir, 'twa', 'store-icon-512.png'));
     console.log('✓ Android TWA mipmap and drawable assets fully generated');
   }
 
