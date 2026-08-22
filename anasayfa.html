@@ -175,8 +175,9 @@
   --telif:#9CA3AF;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;padding:0}
+*{box-sizing:border-box;scrollbar-width:none!important;-ms-overflow-style:none!important}
+*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+html,body{height:100%;margin:0;padding:0;scrollbar-width:none!important;-ms-overflow-style:none!important}
 body{
   background:var(--gece);color:var(--metin);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
@@ -261,7 +262,7 @@ button{font-family:inherit}
   .ust-sag{gap:6px}
 }
 
-.ilerleme{position:fixed;top:0;left:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--marka-a),var(--marka-b));width:0;transition:width .5s var(--yumusak)}
+.ilerleme{display:none!important}
 
 /* ——— nokta gezinme ——— */
 .noktalar{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:9px}

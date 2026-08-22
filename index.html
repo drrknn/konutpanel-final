@@ -66,8 +66,9 @@ window.addEventListener("DOMContentLoaded", () => {
   --glow-no:0 0 0 3px rgba(229,72,77,.16),0 0 10px rgba(229,72,77,.45);
   --glow-wa:0 0 0 3px rgba(217,130,10,.16),0 0 10px rgba(217,130,10,.4);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+*{box-sizing:border-box;margin:0;padding:0;scrollbar-width:none!important;-ms-overflow-style:none!important}
+*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+html,body{height:100%;scrollbar-width:none!important;-ms-overflow-style:none!important}
 body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);
   -webkit-font-smoothing:antialiased;line-height:1.5;font-size:14.5px;transition:background .25s,color .25s}
 .display{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.08}
@@ -8016,68 +8017,71 @@ function bildirimIzniIzle(){
 
 async function bildirimIzniIste(sessiz=false){
   if(!("Notification" in window)){
-    if(!sessiz) toast("Tarayıcınız bildirim özelliğini desteklemiyor.", "err");
+    if(!sessiz) toast("Cihazınızda bildirim özelliği desteklenmiyor.", "err");
     return false;
   }
   if(Notification.permission === "granted"){
     if(!sessiz) toast("Cihaz bildirimleri zaten açık ✓");
+    sessionStorage.setItem("bl_banner_closed", "1");
     bildirimBannerGuncelle();
     return true;
   }
   if(Notification.permission === "denied"){
-    if(!sessiz) toast("Tarayıcı ayarlarınızdan bildirim iznini 'İzin Ver' yapmalısınız.", "err");
+    if(!sessiz){
+      modal(`
+        <div style="text-align:center;padding:12px 6px">
+          <div style="width:58px;height:58px;margin:0 auto 12px;border-radius:50%;background:rgba(239,68,68,.12);color:#ef4444;display:flex;align-items:center;justify-content:center;font-size:26px">🔕</div>
+          <h2 style="font-size:18px;margin-bottom:8px">Bildirim İzni Engellenmiş</h2>
+          <p class="mut small" style="line-height:1.6;margin-bottom:16px">
+            Telefonunuzun <b>Ayarlar > Uygulamalar > Konut Panel > Bildirimler</b> menüsünden bildirimlere izin verebilirsiniz.
+          </p>
+          <button class="btn full" onclick="sessionStorage.setItem('bl_banner_closed','1');bildirimBannerGuncelle();closeModal()">Anladım, Kapat</button>
+        </div>
+      `);
+    }
     return false;
   }
+
   try{
-    const perm = await Notification.requestPermission();
+    let perm;
+    try {
+      perm = await Notification.requestPermission();
+    } catch(errReq) {
+      perm = await new Promise(resolve => Notification.requestPermission(resolve));
+    }
+
     if(perm === "granted"){
       toast("Cihaz bildirimleri başarıyla açıldı! ✓");
       bildirimSesCal();
-      cihazBildirimiGonder("Konut Panel Bildirimleri Açıldı 🔔", "Yeni aidat, makbuz ve duyurulardan anında haberdar olacaksınız.");
+      sessionStorage.setItem("bl_banner_closed", "1");
       bildirimBannerGuncelle();
-      pushAboneOl();                 // uygulama kapaliyken de bildirim gelsin
+      try {
+        cihazBildirimiGonder("Konut Panel Bildirimleri Açıldı 🔔", "Yeni aidat, makbuz ve duyurulardan anında haberdar olacaksınız.");
+        pushAboneOl();
+      } catch(e){}
       return true;
     } else {
-      if(!sessiz) toast("Bildirim izni verilmedi.", "err");
+      if(!sessiz) toast("Bildirim izni verilmedi.");
+      bildirimBannerGuncelle();
       return false;
     }
   }catch(e){
-    if(!sessiz) toast("Bildirim izni alınırken hata oluştu.", "err");
+    if(!sessiz) toast("Bildirim izni istenirken bir sorun oluştu.");
     return false;
   }
 }
 
-/* Her girişte bildirim iznini kontrol et ve kullanıcıya ısrarla sor */
+/* Her girişte bildirim iznini kontrol et */
 function bildirimIzniOtomatikSor(){
   if(!("Notification" in window)) return;
   bildirimBannerGuncelle();
   bildirimIzniIzle();
   if(Notification.permission === "granted") pushAboneOl();
-  
-  if(Notification.permission === "default"){
-    // İlk kullanıcı tıklamasında hemen sistem iznini patlat
-    const tekSeferIzinSor = async () => {
-      window.removeEventListener("click", tekSeferIzinSor);
-      window.removeEventListener("touchstart", tekSeferIzinSor);
-      if(Notification.permission === "default"){
-        await bildirimIzniIste(true);
-      }
-    };
-    window.addEventListener("click", tekSeferIzinSor, { once: true });
-    window.addEventListener("touchstart", tekSeferIzinSor, { once: true });
-
-    // Ayrıca 1.5 saniye sonra nazikçe modal / diyalog ile de uyar
-    setTimeout(()=>{
-      if(Notification.permission === "default" && !document.querySelector("#blOtomatikMdl")){
-        bildirimIzniDiyalogu();
-      }
-    }, 1500);
-  }
 }
 
 function bildirimBannerGuncelle(){
   let banner = document.querySelector("#blSabitBanner");
-  if(!("Notification" in window) || Notification.permission === "granted"){
+  if(!("Notification" in window) || Notification.permission === "granted" || sessionStorage.getItem("bl_banner_closed") === "1"){
     if(banner) banner.remove();
     return;
   }
@@ -8091,13 +8095,13 @@ function bildirimBannerGuncelle(){
       z-index: 9999;
       background: linear-gradient(90deg, #4f46e5, #7c3aed);
       color: #fff;
-      padding: 10px 16px;
-      font-size: 13.5px;
+      padding: 10px 14px;
+      font-size: 13px;
       font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
       animation: slideDown 0.3s ease-out;
     `;
@@ -8108,42 +8112,63 @@ function bildirimBannerGuncelle(){
 
   const isDenied = Notification.permission === "denied";
   banner.innerHTML = `
-    <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:18px">🔔</span>
-      <span>${isDenied 
-        ? "<b>Bildirimler Engellendi:</b> Aidat ve makbuz bildirimlerini almak için tarayıcı ayarlarından bildirimlere izin verin." 
-        : "<b>Anlık Bildirimleri Açın:</b> Aidat, duyuru ve acil durumları kaçırmamak için bildirimleri etkinleştirin."}</span>
+    <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0">
+      <span style="font-size:17px;flex:none">🔔</span>
+      <span style="line-height:1.35;font-size:12.5px">${isDenied 
+        ? "<b>Bildirimler Kapalı:</b> Aidat ve duyurular için ayarlardan açabilirsiniz." 
+        : "<b>Anlık Bildirimleri Açın:</b> Aidat ve duyurulardan haberdar olun."}</span>
     </div>
-    <div style="display:flex;gap:8px;flex:none">
-      ${!isDenied ? `<button class="btn sm" id="blBannerAcBtn" style="background:#fff;color:#4f46e5;font-weight:700;border:none;padding:6px 14px;border-radius:8px">Bildirimleri Aç</button>` : ""}
+    <div style="display:flex;align-items:center;gap:6px;flex:none">
+      ${!isDenied 
+        ? `<button class="btn sm" id="blBannerAcBtn" style="background:#fff;color:#4f46e5;font-weight:700;border:none;padding:5px 12px;border-radius:7px;font-size:12px">Bildirimleri Aç</button>` 
+        : `<button class="btn sm" id="blBannerNasılBtn" style="background:rgba(255,255,255,.2);color:#fff;font-weight:600;border:none;padding:5px 10px;border-radius:7px;font-size:12px">Nasıl Açılır?</button>`}
+      <button type="button" id="blBannerKapatBtn" aria-label="Kapat" style="color:rgba(255,255,255,.8);padding:4px 6px;font-size:16px;cursor:pointer;line-height:1;border-radius:6px">✕</button>
     </div>
   `;
+
+  const kapatBtn = banner.querySelector("#blBannerKapatBtn");
+  if(kapatBtn){
+    kapatBtn.onclick = () => {
+      sessionStorage.setItem("bl_banner_closed", "1");
+      banner.remove();
+    };
+  }
 
   const btn = banner.querySelector("#blBannerAcBtn");
   if(btn){
     btn.onclick = async () => {
-      await bildirimIzniIste();
+      await bildirimIzniIste(false);
+    };
+  }
+
+  const nasilBtn = banner.querySelector("#blBannerNasılBtn");
+  if(nasilBtn){
+    nasilBtn.onclick = () => {
+      bildirimIzniIste(false);
     };
   }
 }
 
 function bildirimIzniDiyalogu(){
-  if(Notification.permission === "granted") return;
+  if(Notification.permission === "granted" || sessionStorage.getItem("bl_banner_closed") === "1") return;
   const mdl = modal(`
     <div id="blOtomatikMdl" style="text-align:center;padding:10px 0 5px">
-      <div style="width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:rgba(99,102,241,.15);display:flex;align-items:center;justify-content:center;font-size:28px">🔔</div>
-      <h2 style="font-size:20px;margin-bottom:6px">Anlık Bildirimleri Açın</h2>
-      <p class="mut small" style="margin-bottom:18px;line-height:1.6">
-        Yeni aidat tahakkukları, dijital ıslak imzalı makbuzlarınız, yönetici duyuruları ve acil durum bildirimlerinden <b>anında sesli haberdar olmak için</b> bildirimlere izin verin.
+      <div style="width:60px;height:60px;margin:0 auto 12px;border-radius:50%;background:rgba(99,102,241,.15);display:flex;align-items:center;justify-content:center;font-size:26px">🔔</div>
+      <h2 style="font-size:19px;margin-bottom:6px">Anlık Bildirimleri Açın</h2>
+      <p class="mut small" style="margin-bottom:16px;line-height:1.55">
+        Yeni aidat tahakkukları, dijital ıslak imzalı makbuzlarınız, yönetici duyuruları ve acil durum bildirimlerinden <b>anında haberdar olmak için</b> bildirimlere izin verin.
       </p>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <button class="btn full" id="blDiyalogIzinBtn" style="padding:12px;font-weight:700;font-size:15px">🔔 Bildirimlere İzin Ver</button>
+        <button class="btn full" id="blDiyalogIzinBtn" style="padding:11px;font-weight:700;font-size:14px">🔔 Bildirimlere İzin Ver</button>
         <button class="btn ghost full" id="blDiyalogSonraBtn" style="font-size:13px">${t("cancel")}</button>
       </div>
     </div>
   `);
 
-  mdl.querySelector("#blDiyalogSonraBtn").onclick = closeModal;
+  mdl.querySelector("#blDiyalogSonraBtn").onclick = () => {
+    sessionStorage.setItem("bl_banner_closed", "1");
+    closeModal();
+  };
   mdl.querySelector("#blDiyalogIzinBtn").onclick = async () => {
     closeModal();
     await bildirimIzniIste();
